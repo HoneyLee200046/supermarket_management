@@ -49,7 +49,6 @@ public class Usuario implements Serializable {
     @Column(name = "fecha_registro_usuario")
     @Temporal(TemporalType.DATE)
     private Date fechaRegistroUsuario;
-    @Basic(optional = false)
     @Column(name = "fecha_baja_usuario")
     @Temporal(TemporalType.DATE)
     private Date fechaBajaUsuario;
