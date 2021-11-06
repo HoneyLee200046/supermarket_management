@@ -13,6 +13,11 @@ public class GrupoDTO {
     public GrupoDTO() {
     }
 
+    public GrupoDTO(Integer idGrupo, String nombreGrupo) {
+        this.idGrupo = idGrupo;
+        this.nombreGrupo = nombreGrupo;
+    }
+
     public GrupoDTO(Integer idGrupo, String nombreGrupo, Boolean estatusGrupo) {
         this.idGrupo = idGrupo;
         this.nombreGrupo = nombreGrupo;

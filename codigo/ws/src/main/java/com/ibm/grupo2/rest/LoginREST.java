@@ -43,7 +43,6 @@ public class LoginREST {
     public Map<String, Object>post(@Valid @RequestBody UsuarioDTO usuario, RedirectAttributes redAttr) {
         try {
             redAttr.addFlashAttribute("mensaje", "success");
-            redAttr.addFlashAttribute("usuario", "Aquí va un valor");
             redAttr.addFlashAttribute("token", "Aquí va otro valor");
         } catch (Exception e) {
             redAttr.addFlashAttribute("mensaje", "error");

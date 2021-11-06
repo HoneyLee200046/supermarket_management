@@ -14,6 +14,10 @@ public class MiembroGrupoDTO {
     public MiembroGrupoDTO() {
     }
 
+    public MiembroGrupoDTO(Integer idMiembroGrupo) {
+        this.idMiembroGrupo = idMiembroGrupo;
+    }
+
     public MiembroGrupoDTO(Integer idMiembroGrupo, GrupoDTO idGrupo, UsuarioDTO idUsuario, Boolean estatusMiembroGrupo) {
         this.idMiembroGrupo = idMiembroGrupo;
         this.idGrupo = idGrupo;
