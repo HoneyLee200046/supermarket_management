@@ -1,0 +1,15 @@
+com\ibm\grupo2\config\JWTAuthorizationFilter.class
+com\ibm\grupo2\dto\seguridad\MiembroGrupoDTO.class
+com\ibm\grupo2\dto\seguridad\UsuarioDetalleDTO.class
+com\ibm\grupo2\model\seguridad\Usuario.class
+com\ibm\grupo2\rest\LoginREST.class
+com\ibm\grupo2\Grupo2Application.class
+com\ibm\grupo2\repository\seguridad\UsuarioRepo.class
+com\ibm\grupo2\service\SeguridadService.class
+com\ibm\grupo2\config\Datasource.class
+com\ibm\grupo2\model\seguridad\MiembroGrupo.class
+com\ibm\grupo2\model\seguridad\UsuarioDetalle.class
+com\ibm\grupo2\dto\seguridad\GrupoDTO.class
+com\ibm\grupo2\dto\seguridad\UsuarioDTO.class
+com\ibm\grupo2\model\seguridad\Grupo.class
+com\ibm\grupo2\Grupo2Application$WebSecurityConfig.class

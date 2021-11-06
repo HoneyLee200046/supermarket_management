@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.ibm.grupo2.Grupo2ApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 23.826 s - in com.ibm.grupo2.Grupo2ApplicationTests
