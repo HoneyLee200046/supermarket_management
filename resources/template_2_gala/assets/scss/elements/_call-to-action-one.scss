@@ -1,0 +1,49 @@
+/*======================================
+* Start Call To Action
+=======================================*/
+#call-to-action {
+  background-color: $brand-color;
+  color: $white;
+  text-transform: capitalize;
+  padding: 32px 0;
+
+  .call-to-action-content {
+    margin-top: -30px;
+
+    .single-action-item {
+      margin-right: 15px;
+      @include font-size(13);
+      margin-top: 30px;
+
+      * {
+        margin: 0;
+      }
+
+      .call-action-icon {
+        margin-right: 15px;
+      }
+
+      i.fa {
+        @include font-noline(50);
+      }
+
+      h4 {
+        color: lighten($black-soft, 5%);
+        font-weight: 600;
+      }
+    }
+  }
+
+  // Call to action two
+
+  &.callto-action-two {
+    background-color: #eff4f7;
+    color: #666666;
+
+    .single-action-item {
+      i.fa {
+        color: darken($sky-blue, 30%);
+      }
+    }
+  }
+}
