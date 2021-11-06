@@ -1,0 +1,72 @@
+/*======================================
+* Start Slider Area // index2.html
+=======================================*/
+.slider-area-wrap {
+  &.slider__2 {
+    padding: 30px 0;
+
+    .owl-carousel {
+      .owl-nav {
+        button {
+          background-color: $brand-color;
+          border-color: $brand-color !important;
+
+          &:hover {
+            background-color: $sky-blue;
+            border-color: $sky-blue !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*======================================
+* Start Products Area // index2.html
+=======================================*/
+.latest-pro-tab-menu {
+  margin-bottom: 30px;
+  li {
+    a {
+      color: #666666;
+      @include font-size(14);
+      padding: 8px 15px;
+      display: inline-block;
+
+      @media #{$extra-small-mobile,$small-mobile} {
+        padding: 8px 10px;
+        @include font-size(13);
+      }
+
+      &.active {
+        background-color: #eeeeee;
+        color: $sky-blue;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+/*======================================
+* Home Sidebar
+=======================================*/
+#home-sidebar-wrap {
+  .single-home-sidebar {
+    margin-bottom: 50px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    h3.title {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #d0ecff;
+      color: #444444;
+      margin: 0 0 30px;
+      @include font-size(16);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+  }
+}

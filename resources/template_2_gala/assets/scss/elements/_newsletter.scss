@@ -1,0 +1,119 @@
+/*==============================
+Start Newsletter Area
+================================*/
+.newsletter-area {
+  background-color: $brand-alt;
+  color: $white;
+  padding: 30px 0;
+
+  @media #{$extra-small-mobile,$large-mobile} {
+    padding: 28px 0 31px;
+  }
+}
+
+.newsletter-content-wrap {
+  white-space: nowrap;
+  @include flex-wrap(no-wrap);
+  @include align-items(center);
+  h2 {
+    display: inline-block;
+    vertical-align: middle;
+    color: $white;
+    @include font-noline(18);
+    line-height: 1.2;
+    margin-bottom: 0;
+
+    i.fa {
+      @include font-noline(45);
+      line-height: 1;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+  }
+}
+
+// Newsletter Form
+.newsletter-form-wrap {
+  width: 100%;
+  margin-left: 30px;
+  position: relative;
+
+  @media #{$extra-small-mobile,$large-mobile} {
+    margin: 15px 0 20px;
+  }
+
+  @media #{$tablet-device} {
+    width: 70%;
+    margin: 15px auto 20px;
+  }
+
+  form, #newsletter-from {
+    position: relative;
+
+    input[type="email"] {
+      background-color: $white;
+      border: none;
+      padding: 12px 20px;
+      padding-right: 140px;
+      width: 100%;
+      font-size: 1.6rem;
+      line-height: 1.5;
+    }
+
+    .btn {
+      width: 115px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      text-align: center;
+      padding: 0;
+    }
+  }
+
+  #subscribeResult {
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    margin-top: 5px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    color: #fff;
+  }
+}
+
+// Social Icon Style
+.social-icons {
+  a {
+    margin-left: 5px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    i.fa {
+      background-color: $facebook;
+      @include border-radius(50%);
+      @include font-noline(16);
+      color: $white;
+      display: inline-block;
+      line-height: 42px;
+      text-align: center;
+      height: 40px;
+      width: 40px;
+
+      &.fa-twitter {
+        background-color: $twitter;
+      }
+
+      &.fa-linkedin {
+        background-color: $linkedin;
+      }
+
+      &.fa-youtube {
+        background-color: $youtube;
+      }
+    }
+  }
+}

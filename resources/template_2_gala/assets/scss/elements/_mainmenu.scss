@@ -1,0 +1,303 @@
+/*== Start Main Menu Area ==*/
+.mainmenu {
+  ul {
+    & > li {
+      float: left;
+      display: block;
+
+      // Hover & Active
+      &:hover {
+        & > a {
+          background-color: lighten($black-soft, 12%);
+        }
+      }
+
+      // Sub Menu
+      .dropdown-nav {
+        &.mega-menu-wrap {
+          left: -100%;
+        }
+
+        & > li {
+          & > a {
+            padding: 10px 20px;
+            font-weight: 400;
+            @include font-noline(13);
+            color: $light-white;
+          }
+        }
+      }
+
+      & > a {
+        color: $white;
+        display: block;
+        padding: 20px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  // Dropdown Arrow
+  .arrow-toggle {
+    &:after {
+      right: 15px;
+    }
+  }
+}
+
+// Mega Menu Style
+.mega-menu-wrap {
+  @include flexbox();
+  @include flex-wrap(no-wrap);
+  width: auto !important;
+  white-space: nowrap;
+  padding: 20px 30px;
+
+  & > .mega-menu-item {
+    margin-right: 30px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    & > .mega-item-title {
+      color: $brand-color;
+      text-transform: uppercase;
+      font-weight: 600;
+      @include font-size(14);
+      background-color: transparent;
+      border-bottom: 1px solid $brand-alt;
+      margin-bottom: 10px;
+      padding: 0;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      & > li {
+
+        &:hover {
+          a {
+            color: $brand-color;
+            background-color: transparent;
+          }
+        }
+
+        & > a {
+          padding: 5px 0;
+          font-weight: 400;
+          @include font-noline(13);
+          color: $light-white;
+        }
+      }
+    }
+  }
+}
+
+// Responsive Menu Style
+.slicknav_menu {
+  background-color: transparent;
+  left: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+
+  .slicknav_btn {
+    background-color: transparent;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    right: 5%;
+    float: none;
+    @include translate(0, -50%);
+    top: 50%;
+    z-index: 97;
+
+    &.slicknav_open {
+      .slicknav_icon {
+        .slicknav_icon-bar {
+          &:nth-child(1) {
+            @include rotate(135);
+            top: 8px;
+          }
+          &:nth-child(2) {
+            display: none;
+          }
+          &:nth-child(3) {
+            @include rotate(-135);
+            top: 8px;
+          }
+        }
+      }
+    }
+
+    .slicknav_icon {
+      position: relative;
+      height: 15px;
+      width: 30px;
+
+      &:before {
+        display: none;
+      }
+
+      .slicknav_icon-bar {
+        background-color: $brand-color;
+        @include box-shadow(none);
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0;
+        @include transition(0.3s);
+        height: 2px;
+        width: 100%;
+
+        &:nth-child(2) {
+          top: 50%;
+        }
+
+        &:nth-child(3) {
+          top: 100%;
+        }
+      }
+    }
+  }
+
+  .slicknav_nav {
+    background-color: $black-soft;
+    left: 0;
+    position: absolute;
+    padding: 5px 5%;
+    top: 100%;
+    width: 100%;
+    max-height: 300px;
+    overflow: auto;
+    z-index: 97;
+
+    ul {
+      margin-left: 0;
+      position: static !important;
+      li {
+        margin: 5px 0;
+        a {
+          margin: 0;
+          @include border-radius(0);
+          position: relative;
+          padding: 2px 0;
+
+          &:hover, &:focus, &:active {
+            background-color: transparent;
+            color: $white;
+            @include border-radius(0);
+          }
+        }
+      }
+
+      ul {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .slicknav_arrow {
+    @include font-noline(20);
+    font-size: 2rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    text-align: right;
+  }
+}
+
+// Categories Responsive Menu
+.categories-list-wrap {
+  .slicknav_menu {
+    .slicknav_btn {
+      left: 0;
+      right: auto;
+      background: $brand-color;
+      height: 100%;
+      text-shadow: none;
+      width: 100%;
+      text-align: center;
+      @include border-radius(0);
+
+      &.slicknav_open {
+        .slicknav_menutxt {
+          &:before {
+            @include rotate(180);
+          }
+        }
+      }
+
+      .slicknav_menutxt {
+        text-shadow: none;
+        text-align: left;
+        font-weight: 400;
+        font-family: $font-poppins;
+        width: 100%;
+        padding-left: 20px;
+        line-height: 50px;
+        text-transform: uppercase;
+
+        &:before {
+          content: '\f175';
+          font-family: $font-font_awesome;
+          margin-right: 15px;
+          vertical-align: middle;
+          display: inline-block;
+        }
+      }
+      .slicknav_icon {
+        display: none;
+      }
+    }
+
+    .slicknav_nav {
+      padding: 15px 0;
+      padding-left: 20px;
+      li {
+        a {
+          padding: 5px 0;
+          margin: 0;
+          @include border-radius(0);
+
+          &:focus, &:hover {
+            background-color: transparent;
+            color: $white;
+          }
+
+          img {
+            display: none;
+          }
+        }
+        ul {
+          margin-left: 15px;
+          .slicknav_arrow {
+            text-align: center;
+            right: -2px;
+          }
+        }
+        .btn-more {
+          display: none;
+        }
+      }
+    }
+
+    .slicknav_arrow {
+      top: auto;
+      text-align: center;
+    }
+  }
+}
+
+// Responsive Menu Show Hide
+.slicknav_menu {
+  display: none;
+  @media #{$extra-small-mobile, $small-mobile, $large-mobile, $tablet-device} {
+    display: block;
+  }
+}
+
+/*== End Start Main Menu Area ==*/
