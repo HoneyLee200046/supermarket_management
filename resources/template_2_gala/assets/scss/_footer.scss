@@ -1,0 +1,93 @@
+/*==============================
+Start Footer Area
+================================*/
+
+// Footer Widget Area
+.footer-widget-area {
+  background-color: #313131;
+  padding: 70px 0;
+
+  @media #{$extra-small-mobile,$large-mobile} {
+    padding: 50px 0;
+  }
+  .footer-widget-content {
+    margin-top: -30px;
+  }
+}
+
+.single-widget-item {
+  margin-top: 30px;
+  .widget-title {
+    margin: 0 0 20px;
+    text-transform: capitalize;
+    @include font-noline(18);
+    color: $white;
+
+    @media #{$extra-small-mobile} {
+      margin: 0 0 10px;
+    }
+  }
+}
+
+.footer-list {
+  li {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: #adadad;
+      @include font-noline(13);
+
+      &:before {
+        background-color: #adadad;
+        content: "";
+        margin-right: 10px;
+        vertical-align: middle;
+        display: inline-block;
+        height: 2px;
+        width: 13px;
+        line-height: 10px;
+      }
+
+      &:hover {
+        color: $sky-blue;
+        padding-left: 5px;
+      }
+    }
+  }
+}
+
+.contact-info {
+  .single-contact-info {
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// footer bottom Area
+.footer-bttom-area {
+  background-color: #262626;
+  color: #adadad;
+  @include font-noline(13);
+  padding: 30px 0;
+
+  a {
+    color: $sky-blue;
+  }
+
+  * {
+    margin-bottom: 0;
+  }
+
+  .payment-support {
+    @media #{$extra-small-mobile, $large-mobile} {
+      margin-bottom: 15px;
+    }
+  }
+}

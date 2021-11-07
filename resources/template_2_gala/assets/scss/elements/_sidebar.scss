@@ -1,0 +1,287 @@
+/*==============================
+Start Sidebar Style
+================================*/
+#sidebar-area-wrap {
+  margin-top: -33px;
+  @media #{$tablet-device,$large-mobile} {
+    margin-top: 50px;
+  }
+
+  .single-sidebar-wrap {
+    margin-top: 29px;
+    .sidebar-title {
+      color: #666;
+      border-bottom: 2px solid $sky-blue;
+      @include font-noline(20);
+      font-weight: 600;
+      text-transform: capitalize;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+    }
+  }
+}
+
+// Shopping Option Style
+.shopping-option {
+  .shopping-option-item {
+    margin-bottom: 20px;
+
+    @media #{$tablet-device,$large-mobile} {
+      margin-right: 50px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    h4 {
+      @include font-size(14);
+      text-transform: uppercase;
+      color: $black-soft;
+      margin-bottom: 10px;
+      margin-top: -4px;
+    }
+  }
+}
+
+// color Select Option Style
+.color-option-select {
+  .color-item {
+    background-color: $gray-color;
+    display: block;
+    cursor: pointer;
+    margin-right: 10px;
+    height: 20px;
+    width: 35px;
+    position: relative;
+
+    &:hover {
+      .color-hvr {
+        animation: fadeIn 0.5s 1;
+        display: block;
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.black {
+      background-color: $black;
+
+      .color-hvr {
+        .color-fill {
+          background-color: $black;
+        }
+      }
+    }
+
+    &.orange {
+      background-color: $orange;
+
+      .color-hvr {
+        .color-fill {
+          background-color: $orange;
+        }
+      }
+    }
+
+    &.yellow {
+      background-color: $yellow;
+
+      .color-hvr {
+        .color-fill {
+          background-color: $yellow;
+        }
+      }
+    }
+
+    &.green {
+      background-color: $green;
+
+      .color-hvr {
+        .color-fill {
+          background-color: $green;
+        }
+      }
+    }
+
+    &.red {
+      background-color: $red;
+
+      .color-hvr {
+        .color-fill {
+          background-color: $red;
+        }
+      }
+    }
+
+    .color-hvr {
+      background-color: $white;
+      border: 1px solid $ash-color;
+      padding: 2px;
+      position: absolute;
+      bottom: calc(100% + 5px);
+      left: 0;
+      display: none;
+      z-index: 3;
+
+      .color-fill {
+        background-color: red;
+        display: block;
+        height: 60px;
+        width: 60px;
+      }
+
+      .color-name {
+        text-transform: capitalize;
+        text-align: center;
+        display: block;
+        font-weight: 500;
+        @include font-noline(11);
+        color: $black;
+        margin-top: 4px;
+      }
+    }
+  }
+}
+
+// Sidebar List Style
+.sidebar-list {
+  li {
+    margin-bottom: 10px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    a {
+      color: $black-soft;
+      @include transition(0.2s);
+      font-weight: 300;
+      display: block;
+      span {
+        float: right;
+        width: 30px;
+        text-align: center;
+      }
+      &:hover {
+        color: $sky-blue;
+        padding-left: 4px;
+      }
+    }
+  }
+}
+
+// Sidebar Search Box
+.sidebar-search {
+  form {
+    position: relative;
+
+    input[type='search'] {
+      width: 100%;
+      border: 2px solid #eeeeee;
+      padding: 15px 60px 15px 15px;
+      outline: none;
+      @include transition(0.4s);
+
+      &:focus {
+        border-color: $brand-color;
+      }
+    }
+
+    button {
+      background-color: $brand-color;
+      border: none;
+      color: $white;
+      cursor: pointer;
+      right: 0;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      @include transition(0.4s);
+      height: 100% !important;
+      width: 60px;
+    }
+  }
+}
+
+// Recent Posts Sidebar
+.recent-post-sidebar {
+  .single-post-item {
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .post-thumb {
+      @include flex(100px 0 0);
+      img {
+        border: 1px solid #cccccc;
+        @include border-radius(2px);
+        padding: 5px;
+        height: 90px;
+        width: 100px;
+      }
+    }
+
+    .product-details {
+      margin-left: 15px;
+      h2 {
+        @include font-size(14);
+        font-weight: 500;
+        text-transform: capitalize;
+        a {
+          color: #666666;
+
+          &:hover {
+            color: $brand-color;
+          }
+        }
+      }
+
+      .date {
+        display: block;
+        @include font-noline(11);
+      }
+
+      .btn-readmore {
+        color: $brand-alt;
+        @include font-noline(13);
+        font-weight: 500;
+        margin-top: 5px;
+
+        &:hover {
+          color: $brand-color;
+        }
+
+        i.fa {
+          margin-left: 3px;
+        }
+      }
+    }
+  }
+}
+
+// Tags Style
+.tags {
+  margin-top: -3px;
+  li {
+    display: inline-block;
+    a {
+      display: block;
+      border: 1px solid lighten($gray-color, 20%);
+      padding: 10px 20px;
+      margin: 5px 2px;
+      color: $paragraph;
+      font-weight: 500;
+      @include font-size(13);
+      text-transform: capitalize;
+
+      &:hover {
+        background-color: $brand-color;
+        border-color: $brand-color;
+        color: $white;
+      }
+    }
+  }
+}

@@ -1,0 +1,202 @@
+/*==============================
+Recent Post Area Start
+================================*/
+.single-blog-wrap {
+  text-align: center;
+
+  .blog-thumb {
+    position: relative;
+    max-height: 300px;
+    overflow: hidden;
+
+    &:hover {
+      .blog-icon {
+        @include transform(scaleX(1));
+        @include opacity(1);
+      }
+
+      &:after {
+        @include opacity(1);
+      }
+
+      img {
+        @include scale(1.1);
+      }
+    }
+
+    &:after {
+      @include bg-rgba($black-soft, 0.5);
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      @include opacity(0);
+      @include transition(0.4s);
+      pointer-events: none;
+    }
+
+    img {
+      @include transition(0.4s);
+      width: 100%;
+    }
+
+    .blog-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -20px;
+      margin-left: -12px;
+      @include font-size(28);
+      @include transform(scaleX(-1));
+      @include transition(0.2s);
+      @include opacity(0);
+      z-index: 1;
+
+      a {
+        color: $white;
+      }
+    }
+  }
+
+  .blog-details {
+    margin-top: 27px;
+    h3 {
+      @include font-size(16);
+      text-transform: capitalize;
+      margin-bottom: 0;
+
+      a {
+        color: $black-soft;
+
+        &:hover {
+          color: $brand-color;
+        }
+      }
+    }
+
+    .post-meta {
+      margin: 5px 0 8px;
+      a {
+        @include font-size(12);
+        font-weight: 500;
+        font-style: italic;
+        color: #666666;
+        position: relative;
+        margin-right: 15px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &:hover {
+          color: $sky-blue;
+        }
+      }
+    }
+
+    .btn-readmore {
+      color: $black-soft;
+      vertical-align: middle;
+      font-weight: 600;
+      margin-top: 35px !important;
+
+      &:hover {
+        color: $sky-blue;
+      }
+    }
+
+    p {
+      font-style: italic;
+      margin-bottom: 0;
+    }
+  }
+}
+
+/*===========================
+Client Reviews Area Start
+=============================*/
+.client-says-area-wrap {
+  @media #{$extra-small-mobile,$large-mobile} {
+    margin-top: 50px;
+  }
+
+  @media #{$tablet-device} {
+    margin-top: 70px;
+  }
+}
+
+.single-reviews {
+  color: #666666;
+  font-style: italic;
+  text-align: center;
+
+  .client-quote {
+    position: relative;
+    padding-left: 10px;
+    margin-top: 10px;
+    z-index: 1;
+  }
+
+  .client-thumb {
+    @include border-radius(50%);
+    max-height: 80px;
+    max-width: 80px;
+    overflow: hidden;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .client-name {
+    color: $black-soft;
+    font-weight: 600;
+    margin-top: 12px;
+    display: inline-block;
+    @include font-noline(18);
+    font-style: normal;
+
+    .client-designation {
+      display: block;
+      @include font-size(13);
+      color: $sky-blue;
+    }
+  }
+  * {
+    margin: 0;
+  }
+}
+
+/*======================================
+Sidebar Recent Post Style // index3.html
+==========================================*/
+.sidebar-body {
+  .owl-carousel {
+    .owl-dots {
+      margin-top: 15px;
+
+      .owl-dot {
+        span {
+          height: 8px;
+          width: 8px;
+        }
+      }
+    }
+  }
+
+  .single-reviews {
+    @include font-size(13);
+    p {
+      &:before {
+        display: none;
+      }
+    }
+
+    .client-name {
+      @include font-size(15);
+    }
+  }
+}
+
+
+
