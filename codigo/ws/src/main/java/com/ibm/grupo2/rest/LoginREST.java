@@ -1,8 +1,10 @@
 package com.ibm.grupo2.rest;
 
 import com.ibm.grupo2.dto.seguridad.UsuarioDTO;
+import com.ibm.grupo2.service.SeguridadService;
 import java.util.Map;
 import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RestController
 @RequestMapping("/auth")
 public class LoginREST {
+    
+    @Autowired
+    private SeguridadService seguridadService;
 
     @GetMapping()
     public String list() {
@@ -42,8 +47,14 @@ public class LoginREST {
     @ResponseBody
     public Map<String, Object>post(@Valid @RequestBody UsuarioDTO usuario, RedirectAttributes redAttr) {
         try {
-            redAttr.addFlashAttribute("mensaje", "success");
-            redAttr.addFlashAttribute("token", "Aquí va otro valor");
+            Map resultado = seguridadService.buscarUsuario(usuario);
+            if((boolean) resultado.get("resultado")){
+                redAttr.addFlashAttribute("mensaje", "success");
+                redAttr.addFlashAttribute("token", resultado.get("usuario"));
+            }else{
+                redAttr.addFlashAttribute("mensaje", "error");
+                redAttr.addFlashAttribute("detalle", resultado.get("error"));
+            }
         } catch (Exception e) {
             redAttr.addFlashAttribute("mensaje", "error");
         }

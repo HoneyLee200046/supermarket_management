@@ -62,6 +62,15 @@ public class UsuarioDetalleDTO {
     public void setEstatusUsuarioDetalle(Boolean estatusUsuarioDetalle) {
         this.estatusUsuarioDetalle = estatusUsuarioDetalle;
     }
+
+    @Override
+    public String toString() {
+        return "{" + "\"idUsuarioDetalle\":" + this.idUsuarioDetalle + 
+                ", \"nombreUsuarioDetalle\":\"" + this.nombreUsuarioDetalle + "\"" +
+                ", \"apellido1UsuarioDetalle\":\"" + this.apellido1UsuarioDetalle + "\"" +
+                ", \"correoUsuarioDetalle\":\"" + this.correoUsuarioDetalle + "\"" +
+                ", \"estatusUsuarioDetalle\":" + this.estatusUsuarioDetalle + "}";
+    }
     
     
 

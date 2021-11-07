@@ -14,6 +14,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -61,6 +63,11 @@ public class Grupo2Application {
 		 bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
 		 return bean;
 	}
+        
+        @Bean
+        public PasswordEncoder encoder() {
+            return new BCryptPasswordEncoder();
+        }
 
     }
 }

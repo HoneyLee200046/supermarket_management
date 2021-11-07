@@ -8,11 +8,17 @@ import com.ibm.grupo2.model.seguridad.MiembroGrupo;
 import com.ibm.grupo2.model.seguridad.Usuario;
 import com.ibm.grupo2.model.seguridad.UsuarioDetalle;
 import com.ibm.grupo2.repository.seguridad.UsuarioRepo;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -25,37 +31,63 @@ public class SeguridadService {
 
     @Autowired
     private UsuarioRepo usuarioRepo;
-//    @Autowired
-//    private PasswordEncoder encoder;
+    @Autowired
+    private PasswordEncoder encoder;
 
-    public Map buscarUsuario(Usuario usuario) {
+    public Map buscarUsuario(UsuarioDTO usuario) {
         Map respuesta = new HashMap();
         Usuario usuarioBd = new Usuario();
         try {
-//            usuarioBd = usuarioRepo.findUserByUsername(usuario.getNombreUsuario());
-//            if (usuarioBd != null) {
-//                if (encoder.matches(usuario.getPwdUsuario(), usuarioBd.getPwdUsuario())) {
-//                    if (usuarioBd.getMiembroGrupoCollection().size() > 0) {
-//                        UsuarioDTO usuarioDto = crearUsuarioDTO(usuarioBd);
-//                        respuesta.put("resultado", Boolean.TRUE);
-////                        respuesta.put("usuario", getJWTToken(usuarioDto));
-//                    } else {
-//                        respuesta.put("resultado", Boolean.FALSE);
-//                        respuesta.put("error", "El usuario no cuenta con permisos para ingresar al sistema. Consulta al administrador.");
-//                    }
-//                } else {
-//                    respuesta.put("resultado", Boolean.FALSE);
-//                    respuesta.put("error", "La contraseña no es correcta, inténtalo nuevamente.");
-//                }
-//            } else {
-//                respuesta.put("resultado", Boolean.FALSE);
-//                respuesta.put("error", "El usuario no existe, favor de verificar.");
-//            }
+            usuarioBd = usuarioRepo.findUserByUsername(usuario.getNombreUsuario());
+            if (usuarioBd != null) {
+                if (encoder.matches(usuario.getPwdUsuario(), usuarioBd.getPwdUsuario())) {
+                    if (usuarioBd.getMiembroGrupoCollection().size() > 0) {
+                        UsuarioDTO usuarioDto = crearUsuarioDTO(usuarioBd);
+                        respuesta.put("resultado", Boolean.TRUE);
+                        respuesta.put("usuario", getJWTToken(usuarioDto));
+                    } else {
+                        respuesta.put("resultado", Boolean.FALSE);
+                        respuesta.put("error", "El usuario no cuenta con permisos para ingresar al sistema. Consulta al administrador.");
+                    }
+                } else {
+                    respuesta.put("resultado", Boolean.FALSE);
+                    respuesta.put("error", "La contraseña no es correcta, inténtalo nuevamente.");
+                }
+            } else {
+                respuesta.put("resultado", Boolean.FALSE);
+                respuesta.put("error", "El usuario no existe, favor de verificar.");
+            }
         } catch (Exception e) {
             respuesta.put("resultado", Boolean.FALSE);
             respuesta.put("error", e.getClass().getCanonicalName());
         }
         return respuesta;
+    }
+    
+    private String getJWTToken(UsuarioDTO username) {
+        String secretKey = "grupo2SecretKey";
+        List<String> roles = new ArrayList<>();
+        username.getMiembrosGrupoCollection().forEach((gm) -> {
+            roles.add(gm.getIdGrupo().getNombreGrupo());
+        });
+        List<GrantedAuthority> grantedAuthorities = AuthorityUtils
+                .commaSeparatedStringToAuthorityList(roles.stream()
+                        .collect(Collectors.joining(",")));
+        String token;
+        token = Jwts
+                .builder()
+                .setId("grupo2JWT")
+                .setSubject(username.toString())
+                .claim("authorities",
+                        grantedAuthorities.stream()
+                                .map(GrantedAuthority::getAuthority)
+                                .collect(Collectors.toList()))
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + 1800000))
+                .signWith(SignatureAlgorithm.HS512,
+                        secretKey.getBytes()).compact();
+
+        return "Bearer " + token;
     }
 
     private UsuarioDTO crearUsuarioDTO(Usuario usuarioBD) {
@@ -69,14 +101,13 @@ public class SeguridadService {
             listaPerfiles.add(dto);
         });
         respuesta.setIdUsuarioDetalle(crearUsuarioDetalleDTO(usuarioBD.getIdUsuarioDetalle()));
-//        respuesta.setIdTbInstitucionContacto(crearContactoDTO(usuarioBD.));
-//        respuesta.setSegGroupsMembersCollection(listaPerfiles);
-//        respuesta.setSegUsuariosEstatus(usuarioBD.getSegUsuariosEstatus());
-//        respuesta.setSegUsuariosFechaAlta(usuarioBD.getSegUsuariosFechaAlta());
-//        respuesta.setSegUsuariosFechaBaja(usuarioBD.getSegUsuariosFechaBaja());
-//        respuesta.setSegUsuariosId(usuarioBD.getSegUsuariosId());
-//        respuesta.setSegUsuariosNombreUsuario(usuarioBD.getSegUsuariosNombreUsuario());
-//        respuesta.setSegUsuariosPassword(usuarioBD.getSegUsuariosPassword());
+        respuesta.setMiembrosGrupoCollection(listaPerfiles);
+        respuesta.setEstatusUsuario(usuarioBD.getEstatusUsuario());
+        respuesta.setFechaRegistroUsuario(usuarioBD.getFechaRegistroUsuario());
+        respuesta.setFechaBajaUsuario(usuarioBD.getFechaBajaUsuario());
+        respuesta.setIdUsuario(usuarioBD.getIdUsuario());
+        respuesta.setNombreUsuario(usuarioBD.getNombreUsuario());
+        respuesta.setPwdUsuario(usuarioBD.getPwdUsuario());
         return respuesta;
     }
 

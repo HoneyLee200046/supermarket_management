@@ -1,6 +1,7 @@
 package com.ibm.grupo2.dto.seguridad;
 
 import java.util.Date;
+import java.util.List;
 import javax.validation.constraints.NotBlank;
 
 /**
@@ -12,11 +13,13 @@ public class UsuarioDTO {
     private Integer idUsuario;
     @NotBlank(message = "El nombre de usuario es requerido")
     private String nombreUsuario;
+    @NotBlank(message = "El password encriptado es requerido")
     private String pwdUsuario;    
     private Date fechaRegistroUsuario;
     private Date fechaBajaUsuario;
     private Boolean estatusUsuario;
     private UsuarioDetalleDTO idUsuarioDetalle;
+    private List<MiembroGrupoDTO> miembrosGrupoCollection;
 
     public UsuarioDTO() {
     }
@@ -31,6 +34,17 @@ public class UsuarioDTO {
         this.idUsuarioDetalle = idUsuarioDetalle;
     }
 
+    public UsuarioDTO(Integer idUsuario, String nombreUsuario, String pwdUsuario, Date fechaRegistroUsuario, Date fechaBajaUsuario, Boolean estatusUsuario, UsuarioDetalleDTO idUsuarioDetalle, List<MiembroGrupoDTO> miembrosGrupoCollection) {
+        this.idUsuario = idUsuario;
+        this.nombreUsuario = nombreUsuario;
+        this.pwdUsuario = pwdUsuario;
+        this.fechaRegistroUsuario = fechaRegistroUsuario;
+        this.fechaBajaUsuario = fechaBajaUsuario;
+        this.estatusUsuario = estatusUsuario;
+        this.idUsuarioDetalle = idUsuarioDetalle;
+        this.miembrosGrupoCollection = miembrosGrupoCollection;
+    }
+    
     public Integer getIdUsuario() {
         return idUsuario;
     }
@@ -87,9 +101,23 @@ public class UsuarioDTO {
         this.idUsuarioDetalle = idUsuarioDetalle;
     }
 
+    public List<MiembroGrupoDTO> getMiembrosGrupoCollection() {
+        return miembrosGrupoCollection;
+    }
+
+    public void setMiembrosGrupoCollection(List<MiembroGrupoDTO> miembrosGrupoCollection) {
+        this.miembrosGrupoCollection = miembrosGrupoCollection;
+    }
+
     @Override
     public String toString() {
-        return "UsuarioDTO{" + "idUsuario=" + idUsuario + ", nombreUsuario=" + nombreUsuario + ", pwdUsuario=" + pwdUsuario + ", fechaRegistroUsuario=" + fechaRegistroUsuario + ", fechaBajaUsuario=" + fechaBajaUsuario + ", estatusUsuario=" + estatusUsuario + ", idUsuarioDetalle=" + idUsuarioDetalle + '}';
+        return "{" + "\"idUsuario\":" + this.idUsuario + 
+                ", \"nombreUsuario\":\"" + this.nombreUsuario + "\"" +
+                ", \"pwdUsuario\":\"" + this.pwdUsuario + "\"" +
+                ", \"fechaRegistroUsuario\":\"" + this.fechaRegistroUsuario + "\"" +
+                ", \"fechaBajaUsuario\":" + this.fechaBajaUsuario + 
+                ", \"estatusUsuario\":" + this.estatusUsuario + 
+                ", \"idUsuarioDetalle\":\"" + this.idUsuarioDetalle.toString() + "}";
     }
     
 }
