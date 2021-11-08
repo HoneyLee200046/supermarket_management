@@ -26,6 +26,14 @@
     color: #fff;
   }
 
+  .site-setting-menu ul.nav li a {
+    color: gray;
+  }
+
+  .single-contact-info .contact-text {
+    color: gray;
+}
+
   
 .single-contact-info:hover .contact-text strong {
     color: black;
@@ -50,3 +58,4 @@
   .single-contact-info:hover .contact-text {
     color: black;
   }
+
