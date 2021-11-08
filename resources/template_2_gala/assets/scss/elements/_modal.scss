@@ -1,0 +1,66 @@
+/*===================================
+Quick View Modal Style
+=====================================*/
+.modal {
+  display: block !important;
+  @include opacity(0);
+  visibility: hidden;
+  pointer-events: none;
+  z-index: -99;
+}
+
+.modal.show {
+  @include opacity(1);
+  visibility: visible;
+  pointer-events: visible;
+  z-index: 9999;
+  animation: zoomIn 0.4s forwards;
+}
+
+#quickView {
+  .modal-dialog {
+    max-width: 900px;
+
+    .close {
+      background-color: $red;
+      @include border-radius(50%);
+      @include transition(0.4s);
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      z-index: 9;
+      outline: none;
+      width: 25px;
+
+      span {
+        display: block;
+        padding: 4px;
+      }
+    }
+  }
+
+  .quick-view-content {
+    padding: 20px;
+
+    .product-thumbnail-wrap {
+      .owl-thumbs {
+        .owl-thumb-item {
+          img {
+            height: 65px;
+            width: 65px;
+
+            @media #{$extra-small-mobile} {
+              height: 30px;
+              width: 30px;
+              border-width: 1px;
+            }
+          }
+        }
+      }
+    }
+
+    .product-details {
+      z-index: 1;
+    }
+  }
+}

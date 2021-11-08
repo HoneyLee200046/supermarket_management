@@ -1,0 +1,57 @@
+/*== 404 Error Page Start ==*/
+#error-page-wrapper {
+  height: 100vh;
+
+  * {
+    height: 100vh;
+  }
+  [class*="col-"] {
+    height: auto;
+    * {
+      height: auto;
+    }
+  }
+}
+
+.error-page-content-wrap {
+  height: auto;
+  @include font-size(16);
+  h2 {
+    @include font-noline(100);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    animation: flash 0.5s 0.5s forwards;
+    margin-top: -24px;
+
+    @media #{$small-mobile} {
+      @include font-size(80);
+    }
+  }
+
+  h3 {
+    @include font-size(32);
+    color: $brand-color;
+
+    @media #{$small-mobile} {
+      @include font-size(20);
+    }
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 22px 40px;
+    margin-top: 30px;
+
+    @media #{$small-mobile} {
+      padding: 15px 20px;
+      @include font-size(13);
+    }
+  }
+
+  .sidebar-search {
+    margin-top: 10px;
+    @media #{$desktop-device, $laptop-device} {
+      width: 80%;
+      margin: auto;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+/*======================================
+* Start Page Breadcrumb
+=======================================*/
+.page-breadcrumb-wrap {
+  background-color: #f1f1f1;
+  padding: 26px 0;
+
+  li {
+    margin-right: 30px;
+
+    &:last-child {
+      margin-right: 0;
+
+      a {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  a {
+    color: $black-soft;
+    font-weight: 500;
+    text-transform: uppercase;
+    position: relative;
+
+    &:after {
+      content: '>';
+      position: absolute;
+      right: -17px;
+      color: $black-soft;
+    }
+
+    &:hover, &.active {
+      color: $sky-blue;
+    }
+
+    &.active {
+      pointer-events: none;
+    }
+  }
+}
