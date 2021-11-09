@@ -4,12 +4,14 @@ import { HomeComponent } from './components/home/home.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { IndexComponent } from './components/index/index.component';
 import { ProductosComponent } from './components/productos/productos.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'usuarios', component: UsuariosComponent},
   { path: 'index', component: IndexComponent},
   { path: 'productos', component: ProductosComponent},
+  { path: 'usuario', component: UsuarioComponent},
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
