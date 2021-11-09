@@ -2771,7 +2771,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 
 .cart-table .table thead {
-  background-color: #9add42;
+  background-color: #cecacd;
 }
 
 .cart-table .table thead tr th {
@@ -2805,11 +2805,15 @@ only screen and (min-width: 768px) and (max-width: 991px) {
   color: #fff;
 }
 
-.cart-table .table tr .pro-thumbnail,
-.cart-table .table tr .pro-price,
-.cart-table .table tr .pro-quantity,
-.cart-table .table tr .pro-subtotal,
-.cart-table .table tr .pro-remove {
+.cart-table .table tr .pro-imagen,
+.cart-table .table tr .pro-nombre,
+.cart-table .table tr .pro-serial,
+.cart-table .table tr .pro-categoria,
+.cart-table .table tr .pro-descripcion,
+.cart-table .table tr .pro-cantidad,
+.cart-table .table tr .pro-precioUnitario,
+.cart-table .table tr .pro-editar,
+.cart-table .table tr .pro-eliminar {
   width: 140px;
 }
 
