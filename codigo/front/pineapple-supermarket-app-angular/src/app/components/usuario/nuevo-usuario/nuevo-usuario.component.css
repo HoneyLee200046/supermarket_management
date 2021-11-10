@@ -1,0 +1,14 @@
+.single-input-item input, .single-input-item textarea, .single-input-item select{
+    padding: 6px 20px !important;
+}
+
+
+
+.single-input-item{
+    margin-top: 15px;
+}
+
+.btn {
+    background-color: #6bc5b2;
+    border-radius: 5px;
+}
