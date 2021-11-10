@@ -10,6 +10,7 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { IndexComponent } from './components/index/index.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
+import { EditaProductoComponent } from './components/edita-producto/edita-producto.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
     FooterComponent,
     IndexComponent,
     ProductosComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    EditaProductoComponent
 
   ],
   imports: [
