@@ -12,6 +12,8 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { UsuarioComponent } from './components/usuario/usuarios/usuario.component';
 import { NuevoUsuarioComponent } from './components/usuario/nuevo-usuario/nuevo-usuario.component';
 import { LoginComponent } from './components/auth/login/login.component';
+import { EditaProductoComponent } from './components/edita-producto/edita-producto.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { LoginComponent } from './components/auth/login/login.component';
     ProductosComponent,
     UsuarioComponent,
     NuevoUsuarioComponent,
-    LoginComponent
+    LoginComponent,
+    EditaProductoComponent
 
   ],
   imports: [

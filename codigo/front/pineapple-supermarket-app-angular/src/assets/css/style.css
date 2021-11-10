@@ -619,7 +619,7 @@ only screen and (max-width: 767px) {
 }
 
 #page-content-wrapper {
-  padding: 70px 0;
+  padding: 25px 0;
 }
 
 @media only screen and (max-width: 479px),
@@ -2811,6 +2811,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 .cart-table .table tr .pro-categoria,
 .cart-table .table tr .pro-descripcion,
 .cart-table .table tr .pro-cantidad,
+.cart-table .table tr .pro-unidad,
 .cart-table .table tr .pro-precioUnitario,
 .cart-table .table tr .pro-editar,
 .cart-table .table tr .pro-eliminar {
@@ -3426,7 +3427,7 @@ only screen and (min-width: 1200px) {
 .single-input-item textarea {
   background-color: #f4f5f7;
   border: 1px solid #c5c5c5;
-  padding: 15px 20px;
+  padding: 6px 20px;
   outline: none;
   -webkit-transition: all 0.4s ease-out;
   -moz-transition: all 0.4s ease-out;
@@ -3458,7 +3459,7 @@ only screen and (min-width: 1200px) {
 
 .single-input-item .nice-select {
   width: 100%;
-  padding: 15px 20px;
+  padding: 6px 20px;
   background-color: #f4f5f7;
   border: 1px solid #c5c5c5;
 }
