@@ -4025,12 +4025,20 @@ only screen and (max-width: 767px) {
 .contact-info .single-contact-info:last-child {
   margin-bottom: 0;
 }
+footer{
+  margin-top:60px;
+}
 
 .footer-bttom-area {
   background-color: #262626;
   color: #adadad;
   font-size: 1.3rem;
-  padding: 30px 0;
+  padding: 10px 0;
+  position:fixed;
+  left:0px;
+  bottom:0px; 
+  width:100%;
+ 
 }
 
 .footer-bttom-area a {
