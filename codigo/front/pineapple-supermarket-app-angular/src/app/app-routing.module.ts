@@ -5,6 +5,7 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { IndexComponent } from './components/index/index.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
+import { EditaProductoComponent } from './components/edita-producto/edita-producto.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'index', component: IndexComponent},
   { path: 'productos', component: ProductosComponent},
   { path: 'usuario', component: UsuarioComponent},
+  { path: 'editaProducto', component: EditaProductoComponent},
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 

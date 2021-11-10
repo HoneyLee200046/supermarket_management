@@ -2811,6 +2811,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 .cart-table .table tr .pro-categoria,
 .cart-table .table tr .pro-descripcion,
 .cart-table .table tr .pro-cantidad,
+.cart-table .table tr .pro-unidad,
 .cart-table .table tr .pro-precioUnitario,
 .cart-table .table tr .pro-editar,
 .cart-table .table tr .pro-eliminar {
