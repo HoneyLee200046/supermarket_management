@@ -1,0 +1,24 @@
+.img-fluid {
+    max-width: 100%;
+    height: 45px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+
+.pro-thumbnail{
+    width: 50px;
+}
+.pro-title{
+    width: 430px;
+}
+
+.search{
+    font-size: 16px;
+}
+
+#page-content-wrapper{
+    padding: 35px 0;
+}

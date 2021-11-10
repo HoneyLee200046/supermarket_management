@@ -9,8 +9,11 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { IndexComponent } from './components/index/index.component';
 import { ProductosComponent } from './components/productos/productos.component';
-import { UsuarioComponent } from './components/usuario/usuario.component';
+import { UsuarioComponent } from './components/usuario/usuarios/usuario.component';
+import { NuevoUsuarioComponent } from './components/usuario/nuevo-usuario/nuevo-usuario.component';
+import { LoginComponent } from './components/auth/login/login.component';
 import { EditaProductoComponent } from './components/edita-producto/edita-producto.component';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +25,8 @@ import { EditaProductoComponent } from './components/edita-producto/edita-produc
     IndexComponent,
     ProductosComponent,
     UsuarioComponent,
+    NuevoUsuarioComponent,
+    LoginComponent,
     EditaProductoComponent
 
   ],
