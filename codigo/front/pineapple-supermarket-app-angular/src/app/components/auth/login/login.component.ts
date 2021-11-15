@@ -16,4 +16,8 @@ export class LoginComponent implements OnInit {
   entrar() {
     this._router.navigate(['/index']);
   }
+
+  recuperaPsw() {
+    this._router.navigate(['/recupera-psw']);
+  }
 }
