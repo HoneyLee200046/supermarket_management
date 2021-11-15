@@ -1,41 +1,59 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
+//model && interface
+import { Usuario } from '../../../model/seguridad/usuario';
+import { Usuariorespuesta } from '../../../model/helpers/usuariorespuesta';
+//Servicios
+import { SeguridadService } from '../../../services/seguridad.service';
+import { StorageService } from '../../../services/storage.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent  {
+export class LoginComponent implements OnInit{
 
   public formSubmitted = false;
-
-  public loginForm = this.fb.group({   
-    email: ['',[Validators.email, Validators.required]],
-    password: ['' , Validators.required], 
+  public loginForm = this.fb.group({
+    usuario: ['', [Validators.required]],
+    password: ['', Validators.required],
   });
+  private usuario:Usuario = new Usuario();
 
-  constructor(private _router:Router,
-              private fb: FormBuilder) { }
+  constructor(private _router: Router,
+              private fb: FormBuilder,
+              private _seguridadService:SeguridadService,
+              private _storageService:StorageService) { }
 
- 
-  entrar() {
-    this.formSubmitted = true; 
-
-    
-    if( this.loginForm.invalid){ 
-      console.log('formulario invalido');
-      return;      
-     }
-
-      //Realzar el posteo del formulario
-   // this.loginForm.login( this.loginForm.value );
-    this._router.navigate(['/index']);
+  ngOnInit():void{
+    this._storageService.removeCurrentSession();
   }
 
-  campoNoValido( campo: string ): boolean { 
-    return ( this.loginForm.get(campo)?.invalid && this.formSubmitted ? true : false);
-    
+  entrar() {
+    this.formSubmitted = true;
+    if (this.loginForm.valid) {
+      const {usuario, password} = this.loginForm.value;
+      this.usuario.nombreUsuario =  usuario;
+      this.usuario.pwdUsuario = password;
+      this._seguridadService.getUsuarioSistema(this.usuario)
+      .subscribe((data:any)=>{
+        if(data.mensaje === 'success'){
+          this._storageService.setCurrentSession(data);
+          this._router.navigate(["/index"]);
+        }else{
+          console.log("data");
+          console.log(data);
+        }
+      });
+    } else {
+      console.log('formulario invalido');
+    }
+  }
+
+  campoNoValido(campo: string): boolean {
+    return (this.loginForm.get(campo) ?.invalid && this.formSubmitted ? true : false);
+
   }
 }
