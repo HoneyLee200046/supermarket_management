@@ -1,3 +1,4 @@
+import jwt_decode from 'jwt-decode';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -40,7 +41,10 @@ export class LoginComponent implements OnInit{
       this._seguridadService.getUsuarioSistema(this.usuario)
       .subscribe((data:any)=>{
         if(data.mensaje === 'success'){
+          let decoded:any = jwt_decode(data.token);
+          let perfil = decoded.authorities;
           this._storageService.setCurrentSession(data);
+          this._storageService.setAnyItemSession("perfil", perfil);
           this._router.navigate(["/index"]);
         }else{
           console.log("data");
