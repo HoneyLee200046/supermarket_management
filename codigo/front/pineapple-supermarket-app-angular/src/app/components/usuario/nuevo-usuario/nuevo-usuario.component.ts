@@ -12,11 +12,11 @@ export class NuevoUsuarioComponent {
   public formSubmitted = false;
 
   public usersForm = this.fb.group({
-    usuario : ['', Validators.required],
-    nombre : ['', [Validators.required, Validators.minLength(3)]],
-    apellidos:['', Validators.required],
-    email:['',[Validators.email, Validators.required]],
-    password: ['' , [Validators.required,Validators.minLength(8)]],
+    usuario : ['324', Validators.required],
+    nombre : ['243423', [Validators.required, Validators.minLength(3)]],
+    apellidos:['4234243', Validators.required],
+    email:['234@dd.com',[Validators.email, Validators.required]],
+    password: ['322ewrwe332' , [Validators.required,Validators.minLength(8)]],
     rol: ['' , Validators.required]      
   });
 
@@ -24,26 +24,20 @@ export class NuevoUsuarioComponent {
                private usuarioService: UsuarioService) { }
 
    crearUsuario(){
-    this.formSubmitted = true;
-    console.log(this.usersForm.value);
-
+    this.formSubmitted = true; 
     
     if( this.usersForm.invalid){ 
-
       console.log('formulario invalido');
-      return;
-      
-     }else{
-       console.log('posteando formulario');
-       
+      return;      
      }
 
-    //Realizar el posteo del formulario
+      //Realzar el posteo del formulario
+    this.usuarioService.crearUsuario( this.usersForm.value );
     
    }
 
   
-   campoNoValido( campo: string ): boolean {
+   campoNoValido( campo: string ): boolean { 
      return ( this.usersForm.get(campo)?.invalid && this.formSubmitted ? true : false);
    }
 
