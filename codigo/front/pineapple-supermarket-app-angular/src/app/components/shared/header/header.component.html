@@ -28,8 +28,8 @@
 
               <div class="col-md-7 col-lg-6 mt-xs-10">
                   <div class="site-setting-menu">
-                      <ul class="nav justify-content-center justify-content-md-end">                          
-                          <li><a routerLink="login">Iniciar sesión</a></li> 
+                      <ul class="nav justify-content-center justify-content-md-end">
+                          <li><a [routerLink]="['/login']">Iniciar sesión</a></li> 
                       </ul>
                   </div>
               </div>
@@ -48,7 +48,7 @@
                 <a routerLink="home" class="logo-wrap d-block">
                     <img src="assets/img/logo.png" alt="Logo" class="img-fluid" />
                 </a>
-          
+
             <!-- Logo Area End -->
               </div>
               <!-- Categories List End -->
@@ -59,17 +59,17 @@
                       <nav class="mainmenu">
                           <ul class="main-navbar clearfix">
                               <li><a routerLink="home">Home</a></li>
-                              <li><a href="#">About Us</a></li>  
+                              <li><a href="#">About Us</a></li>
                               <li class="dropdown-show"><a routerLink="productos" class="arrow-toggle">Productos</a>
                                 <ul class="dropdown-nav sub-dropdown">
                                     <li><a routerLink="productos">Todos los productos</a></li>
-                                    <li><a routerLink="editaProducto">Nuevo Producto</a></li>                                   
+                                    <li><a routerLink="editaProducto">Nuevo Producto</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown-show"><a routerLink="usuarios" class="arrow-toggle">Usuarios</a>
                                 <ul class="dropdown-nav sub-dropdown">
                                     <li><a routerLink="usuarios">Todos los usuarios</a></li>
-                                    <li><a routerLink="nuevo-usuario">Nuevo Usuario</a></li>                                   
+                                    <li><a routerLink="nuevo-usuario">Nuevo Usuario</a></li>
                                 </ul>
                             </li>
                           </ul>
