@@ -36,5 +36,6 @@ export class LoginComponent  {
 
   campoNoValido( campo: string ): boolean { 
     return ( this.loginForm.get(campo)?.invalid && this.formSubmitted ? true : false);
+    
   }
 }

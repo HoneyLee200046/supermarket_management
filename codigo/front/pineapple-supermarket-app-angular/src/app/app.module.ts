@@ -17,6 +17,7 @@ import { UsuarioComponent } from './components/usuario/usuarios/usuario.componen
 import { NuevoUsuarioComponent } from './components/usuario/nuevo-usuario/nuevo-usuario.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { EditaProductoComponent } from './components/edita-producto/edita-producto.component';
+import { RecuperaPswComponent } from './components/recupera-psw/recupera-psw.component';
 
 
 
@@ -32,7 +33,8 @@ import { EditaProductoComponent } from './components/edita-producto/edita-produc
     UsuarioComponent,
     NuevoUsuarioComponent,
     LoginComponent,
-    EditaProductoComponent
+    EditaProductoComponent,
+    RecuperaPswComponent
 
   ],
   imports: [
