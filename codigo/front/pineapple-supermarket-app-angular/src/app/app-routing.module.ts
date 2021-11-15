@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'usuarios', component: UsuarioComponent},
   { path: 'nuevo-usuario', component: NuevoUsuarioComponent}, 
   { path: 'editaProducto', component: EditaProductoComponent},
+  { path: 'recupera-psw', component:RecuperaPswComponent},
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
