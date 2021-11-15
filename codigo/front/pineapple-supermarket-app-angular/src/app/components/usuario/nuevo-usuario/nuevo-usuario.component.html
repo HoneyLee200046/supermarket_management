@@ -7,38 +7,83 @@
         <div class="checkout-billing-details-wrap">
           <h2>Nuevo usuario</h2>
           <div class="billing-form-wrap">
-            <form action="#" method="post">
+            <form [formGroup]="usersForm"
+                  (ngSubmit)="crearUsuario()">
               <div class="single-input-item">
-                <label for="nombre" class="required">Nombre Usuario</label>
-                <input type="text" id="nombre" placeholder="Usuario" />
+                <label for="nombre" class="required" >Nombre Usuario</label>
+                <input type="text"
+                       id="nombre"
+                       placeholder="Usuario"
+                       formControlName="usuario"  />
+
+                  <div *ngIf="campoNoValido('usuario')" class="alert alert-danger" role="alert">
+                    El nombre de usuario es requerido y debe de tener como minimo 3 caracteres.
+                  </div>
               </div>
 
               <div class="single-input-item">
                 <label for="nombres">Nombre (s)</label>
-                <input type="text" id="nombres" placeholder="Nombre" />
+                <input type="text"
+                       id="nombres"
+                       placeholder="Nombre"
+                       formControlName="nombre"  />
+
+                    <div *ngIf="campoNoValido('nombre')" class="alert alert-danger" role="alert">
+                    El nombre o nombres de la persona es requerido.
+                    </div>
               </div>
 
               <div class="single-input-item">
                 <label for="apellidos" class="required">Apellidos</label>
-                <input type="text" id="apellidos" placeholder="Apellidos" />
+                <input type="text"
+                       id="apellidos"
+                       placeholder="Apellidos" 
+                       formControlName="apellidos" />
+
+                    <div *ngIf="campoNoValido('apellidos')" class="alert alert-danger" role="alert">
+                    Los apellidos son requeridos.
+                  </div>       
               </div>
 
               <div class="single-input-item">
                 <label for="email" class="required">Email</label>
-                <input type="email" id="email" placeholder="example@mail.com" />
+                <input type="email"
+                       id="email" 
+                       placeholder="example@mail.com"
+                       formControlName="email" />
+
+                  <div *ngIf="campoNoValido('email')" class="alert alert-danger" role="alert">
+                  El email es requerido y debe de ser un correo electronico válido.
+                </div>   
               </div>
 
               <div class="single-input-item">
                 <label for="password" class="required">Contraseña</label>
-                <input type="password" id="password" placeholder="*******" />
+                <input type="password"
+                       id="password"
+                       placeholder="*******" 
+                       formControlName="password"/>
+
+                       <div *ngIf="campoNoValido('password')" class="alert alert-danger" role="alert">
+                        La contraseña es requerida, y debe de tener un minimo de 8 caracteres
+                      </div> 
               </div>
+              
 
               <div class="single-input-item">
-                <label for="categoria" class="required">Rol</label>
-                <select name="categoria" id="categoria">
+                <label for="rol" class="required">Rol</label>
+                <select name="rol"
+                        id="rol"
+                       
+                         >
+                  <option value="">Seleccione un rol de usuario</option>
                   <option value="Administrador">Administrador</option>
                   <option value="Viewer">Viewer</option>
                 </select>
+
+                <div *ngIf="campoNoValido('rol')" class="alert alert-danger" role="alert">
+                 Seleccione el rol del nuevo usuario.
+                </div>  
               </div>
 
               <div class="single-input-item">
