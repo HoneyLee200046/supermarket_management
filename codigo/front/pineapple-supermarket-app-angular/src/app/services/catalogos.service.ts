@@ -17,4 +17,9 @@ export class CatalogosService {
     return this._http.get<any[]>(`${this.urlWsCatalogos}categorias`);
   }
 
+  getUnidadMedidaProductos():Observable<any[]>{
+    return this._http.get<any[]>(`${this.urlWsCatalogos}unidadMedida`);
+  }
+
+
 }
