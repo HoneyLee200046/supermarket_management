@@ -31,11 +31,10 @@
 
                             <div class="single-input-item">
                                 <label for="categoria" class="required">Categoria</label>
-                                <select name="categoria" id="categoria">
-                                    <option value="Carnes">Carnes</option>
-                                    <option value="Abarrotes">Abarrotes</option>
-                                    <option value="Cereales">Cereales</option>
-                                    <option value="Verduras">Verduras</option>    
+                                <select formControlName="catCategorias">
+                                    <option *ngFor="let categoria of listaCategorias" [ngValue]="categoria.idCategoria">
+                                        {{ categoria.nombreCategoria }}
+                                    </option>
                                 </select>
                             </div>
 
@@ -51,11 +50,10 @@
 
                             <div class="single-input-item">
                                 <label for="unidad" class="required">Unidad de Medida</label>
-                                <select name="unidad" id="unidad">
-                                    <option value="Kg">Kg</option>
-                                    <option value="Mt">Mt</option>
-                                    <option value="Lt">Lt</option>
-                                    <option value="Pza">Pza</option>    
+                                <select formControlName="catUnidadMedida">
+                                    <option *ngFor="let unidadMedida of listaUnidadMedida" [ngValue]="unidadMedida.idUnidadMedida">
+                                        {{ unidadMedida.nombreUnidadMedida }}
+                                    </option>
                                 </select>
                             </div>
 
