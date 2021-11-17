@@ -8,31 +8,33 @@
                 <div class="checkout-billing-details-wrap">
                     <h2>Editar/Crear Producto</h2>
                     <div class="billing-form-wrap">
-                        <form action="#">
+                        <form autocomplete="off" [formGroup]="productoForm" (ngSubmit)="guardar()">
                             <div class="row">
                                 
                                     <div class="single-input-item">
                                         <label for="f_name" class="required">Imagen</label>
-                                        <input type="image">
-                                        <input type="file" id="file"/>
+                                        <div *ngIf="previsualizacion">
+                                            <img width="100px" [src]="previsualizacion">
+                                        </div>
+                                        <input type="file" id="file" formControlName="archivo" (change)="capturarFile($event)"/>
                                     </div>
                                
                             </div>
 
                             <div class="single-input-item">
                                 <label for="nombre" class="required">Nombre del Producto</label>
-                                <input type="text" id="nombre" placeholder="Nombre" />
+                                <input type="text" id="nombre" placeholder="Nombre" formControlName="nombre"/>
                             </div>
 
                             <div class="single-input-item">
-                                <label for="serial">Serial</label>
-                                <input type="text" id="serial" placeholder="Serial" />
+                                <label for="serial" class="required">Serial</label>
+                                <input type="text" id="serial" placeholder="Serial" formControlName="serial"/>
                             </div>
 
                             <div class="single-input-item">
                                 <label for="categoria" class="required">Categoria</label>
-                                <select formControlName="catCategorias">
-                                    <option *ngFor="let categoria of listaCategorias" [ngValue]="categoria.idCategoria">
+                                <select formControlName="catCategorias" class="form-select" [compareWith]="compararCategoria">
+                                    <option *ngFor="let categoria of listaCategorias" [ngValue]="categoria">
                                         {{ categoria.nombreCategoria }}
                                     </option>
                                 </select>
@@ -40,26 +42,26 @@
 
                             <div class="single-input-item">
                                 <label for="descripcion" class="required">Descripcion</label>
-                                <input type="text" id="descripcion" placeholder="Descripcion" />
+                                <input type="text" id="descripcion" placeholder="Descripcion" formControlName="descripcion"/>
                             </div>
 
                             <div class="single-input-item">
                                 <label for="cantidad" class="required">Cantidad</label>
-                                <input type="number" id="cantidad" placeholder="0" />
+                                <input type="number" id="cantidad" placeholder="0" formControlName="cantidad"/>
                             </div>
 
                             <div class="single-input-item">
                                 <label for="unidad" class="required">Unidad de Medida</label>
-                                <select formControlName="catUnidadMedida">
-                                    <option *ngFor="let unidadMedida of listaUnidadMedida" [ngValue]="unidadMedida.idUnidadMedida">
+                                <select formControlName="catUnidadMedida" class="form-select" [compareWith]="compararUnidad">
+                                    <option *ngFor="let unidadMedida of listaUnidadMedida" [ngValue]="unidadMedida">
                                         {{ unidadMedida.nombreUnidadMedida }}
                                     </option>
                                 </select>
                             </div>
 
                             <div class="single-input-item">
-                                <label for="precio">Precio Unitario</label>
-                                <input type="text" id="precio" placeholder="0.0" />
+                                <label for="precio" class="required">Precio Unitario</label>
+                                <input type="text" id="precio" placeholder="0.0" formControlName="precio"/>
                             </div>
                             <div class="single-input-item">
                                 <button class="btn">Guardar</button>
