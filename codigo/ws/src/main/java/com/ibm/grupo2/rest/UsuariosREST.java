@@ -1,6 +1,7 @@
 package com.ibm.grupo2.rest;
 
-import com.ibm.grupo2.service.UsuariosService;
+import com.ibm.grupo2.service.SeguridadService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,21 +12,22 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ibm.grupo2.model.seguridad.Usuario;
+import com.ibm.grupo2.dto.seguridad.UsuarioDTO;
+
 
 @RestController
 @RequestMapping("/users")
 public class UsuariosREST {
     
       @Autowired
-      private UsuariosService usuarioService;
+      private SeguridadService seguridadService;
       
     @GetMapping("/usuarios")
-     public ResponseEntity < List<Usuario> > findAll(){
+     public ResponseEntity < List<UsuarioDTO> > findAll(){
       try{
         
-        List<Usuario> usuarios = new ArrayList<Usuario>();
-        usuarios = (List<Usuario>) usuarioService.findAll();
+        List<UsuarioDTO> usuarios = new ArrayList<UsuarioDTO>();
+        usuarios = (List<UsuarioDTO>) seguridadService.findAll();
      
         return new ResponseEntity<>(usuarios, HttpStatus.OK);
       }
