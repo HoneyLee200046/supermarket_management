@@ -20,93 +20,26 @@
                         <thead>
                             <tr>
                                 <th class="pro-thumbnail">Usuario</th>
-                                <th class="pro-title">Nombre</th>                               
+                                <th class="pro-title">Nombre</th> 
+                                <th class="pro-title">Apellidos</th>
+                                <th class="pro-title">Email</th>                               
                                 <th class="pro-quantity">Rol</th>
+                                <th class="pro-quantity">Fecha de creación</th>
                                 <th class="pro-subtotal">Editar</th>
                                 <th class="pro-remove">Eliminar</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="pro-thumbnail"><a href="#"><img class="img-fluid"
-                                            src="assets/img/product-1.jpg" alt="Product" /></a></td>
-                                <td class="product-details"><a href="#">Ana Araceli</a></td>
-                                <td class="pro-price"><span>Administrador</span></td>                                
+                            <tr *ngFor="let usuario of listaUsuarios">
+                                <td class="pro-thumbnail">{{usuario.nombreUsuario}}</td>
+                                <td><a href="#">{{usuario.idUsuarioDetalle.nombreUsuarioDetalle}}</a></td>
+                                <td ><span>{{usuario.idUsuarioDetalle.apellido1UsuarioDetalle}}</span></td>  
+                                <td ><span>{{usuario.idUsuarioDetalle.correoUsuarioDetalle}}</span></td>                                 
+                                <td ><span>Administrador</span></td>   
+                                <td ><span>{{usuario.fechaRegistroUsuario}}</span></td>   
                                 <td class="pro-editar"><a href="#"><i class="fa fa-pencil-square-o"></i></a></td> 
                                 <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="pro-thumbnail"><a href="#"><img class="img-fluid"
-                                            src="assets/img/product-1.jpg" alt="Product" /></a></td>
-                                <td class="product-details"><a href="#">Ana Araceli</a></td>
-                                <td class="pro-price"><span>Administrador</span></td>                                
-                                <td class="pro-editar"><a href="#"><i class="fa fa-pencil-square-o"></i></a></td> 
-                                <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="pro-thumbnail"><a href="#"><img class="img-fluid"
-                                            src="assets/img/product-1.jpg" alt="Product" /></a></td>
-                                <td class="product-details"><a href="#">Gala Karina</a></td>
-                                <td class="pro-price"><span>Viewer</span></td>                                
-                                <td class="pro-editar"><a href="#"><i class="fa fa-pencil-square-o"></i></a></td> 
-                                <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="pro-thumbnail"><a href="#"><img class="img-fluid"
-                                            src="assets/img/product-1.jpg" alt="Product" /></a></td>
-                                <td class="product-details"><a href="#">Nora</a></td>
-                                <td class="pro-price"><span>Administrador</span></td>                                
-                                <td class="pro-editar"><a href="#"><i class="fa fa-pencil-square-o"></i></a></td> 
-                                <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="pro-thumbnail"><a href="#"><img class="img-fluid"
-                                            src="assets/img/product-1.jpg" alt="Product" /></a></td>
-                                <td class="product-details"><a href="#">Miriam</a></td>
-                                <td class="pro-price"><span>Viewer</span></td>                                
-                                <td class="pro-editar"><a href="#"><i class="fa fa-pencil-square-o"></i></a></td> 
-                                <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                            </tr>   
-                            <tr>
-                                <td class="pro-thumbnail"><a href="#"><img class="img-fluid"
-                                            src="assets/img/product-1.jpg" alt="Product" /></a></td>
-                                <td class="product-details"><a href="#">Ana Araceli</a></td>
-                                <td class="pro-price"><span>Administrador</span></td>                                
-                                <td class="pro-editar"><a href="#"><i class="fa fa-pencil-square-o"></i></a></td> 
-                                <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="pro-thumbnail"><a href="#"><img class="img-fluid"
-                                            src="assets/img/product-1.jpg" alt="Product" /></a></td>
-                                <td class="product-details"><a href="#">Ana Araceli</a></td>
-                                <td class="pro-price"><span>Administrador</span></td>                                
-                                <td class="pro-editar"><a href="#"><i class="fa fa-pencil-square-o"></i></a></td> 
-                                <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="pro-thumbnail"><a href="#"><img class="img-fluid"
-                                            src="assets/img/product-1.jpg" alt="Product" /></a></td>
-                                <td class="product-details"><a href="#">Gala Karina</a></td>
-                                <td class="pro-price"><span>Viewer</span></td>                                
-                                <td class="pro-editar"><a href="#"><i class="fa fa-pencil-square-o"></i></a></td> 
-                                <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="pro-thumbnail"><a href="#"><img class="img-fluid"
-                                            src="assets/img/product-1.jpg" alt="Product" /></a></td>
-                                <td class="product-details"><a href="#">Nora</a></td>
-                                <td class="pro-price"><span>Administrador</span></td>                                
-                                <td class="pro-editar"><a href="#"><i class="fa fa-pencil-square-o"></i></a></td> 
-                                <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="pro-thumbnail"><a href="#"><img class="img-fluid"
-                                            src="assets/img/product-1.jpg" alt="Product" /></a></td>
-                                <td class="product-details"><a href="#">Miriam</a></td>
-                                <td class="pro-price"><span>Viewer</span></td>                                
-                                <td class="pro-editar"><a href="#"><i class="fa fa-pencil-square-o"></i></a></td> 
-                                <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                            </tr>                           
+                            </tr>               
                         </tbody>
                     </table>
                 </div>                
