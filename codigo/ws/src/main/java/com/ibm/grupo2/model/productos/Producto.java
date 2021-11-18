@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -54,10 +56,12 @@ public class Producto implements Serializable {
 
 	@Basic(optional = false)
 	@Column(name = "nombre")
+	@Size(max=60)
 	private String nombreProducto;
 
 	@Basic(optional = false)
 	@Column(name = "descripcion")
+	@Size(max=80)
 	private String descripcionProducto;
 
 	@Basic(optional = false)
@@ -70,6 +74,7 @@ public class Producto implements Serializable {
 
 	@Basic(optional = false)
 	@Column(name = "url_imagen")
+	@Size(max=180)
 	private String urlImagen;
 
 	@JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria")
