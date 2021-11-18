@@ -25,6 +25,7 @@ export class EditaProductoComponent implements OnInit {
   public archivos: any = [];
   public loading: boolean = false;
   public formSubmitted = false;
+
   public productoForm = this.fb.group({
     archivo: ['', [Validators.required]],
     nombre: ['', Validators.required],
@@ -47,7 +48,7 @@ export class EditaProductoComponent implements OnInit {
     private _seguridadService:SeguridadService,
     private _storageService:StorageService,
     private sanitizer: DomSanitizer,
-    private rest: ProductoService
+    private _productoService: ProductoService
     ) { }
   
 
@@ -123,47 +124,41 @@ export class EditaProductoComponent implements OnInit {
     }
   })
 
+  guardar() {
+    this.formSubmitted = true;
+    
+    const {nombre, serial, descripcion, cantidad, precio,
+      catCategorias, catUnidadMedida} = this.productoForm.value;
+    this.producto.urlImagen= this.previsualizacion;
+    this.producto.nombreProducto =  nombre;
+    this.producto.serialProducto = serial;
+    this.producto.descripcionProducto = descripcion;
+    this.producto.cantidadProducto = cantidad;
+    this.producto.precioUnitario = precio;
+    this.producto.idCategoria = catCategorias;
+    this.producto.idUnidadMedida = catUnidadMedida;
+    //this.producto.urlImagen= "/img/prueba.jpg";
+    console.log("Producto ");
+    console.log(this.producto);
 
-  /**
-   * Limpiar imagen
-   */
-
-  clearImage(): any {
-    this.previsualizacion = '';
-    this.archivos = [];
-  }
-
-
-
-  /**
-   * Subir archivo
-   */
-
-  subirArchivo(): any {
-    try {
-      this.loading = true;
-      const formularioDeDatos = new FormData();
-      this.archivos.forEach((archivo: string) => {
-        formularioDeDatos.append('files', archivo)
-      })
-      // formularioDeDatos.append('_id', 'MY_ID_123')
-      this.rest.uploadFile(formularioDeDatos)
-        .subscribe(res => {
-          this.loading = false;
-          console.log('Respuesta del servidor', res);
+    this._productoService.uploadFile(this.producto)
+        .subscribe((data:any)=>{
+          /*this.loading = false;
+          console.log('Respuesta del servidor', data);
 
         }, () => {
           this.loading = false;
           alert('Error');
-        })
-    } catch (e) {
-      this.loading = false;
-      console.log('ERROR', e);
-
-    }
-  }
-  
-
-  guardar() {
+        }*/
+        if(data.mensaje === 'success'){
+          //this._storageService.setCurrentSession(data);
+          //this._storageService.setAnyItemSession("producto", this.producto);
+          this._router.navigate(["/index"]);
+        }else{
+          console.log("data");
+          console.log(data);
+        }
+      }
+        )
   }
 }
