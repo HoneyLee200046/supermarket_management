@@ -8,12 +8,17 @@ import { Observable } from 'rxjs';
 })
 export class UsuariosService {
 
-  private urlWsCatalogos = environment.ws.url + 'users/'
+  private urlWsUsuarios = environment.ws.url + 'users/';
+  private urlWsRoles = environment.ws.url + 'rol/' ;
 
   constructor(private _http:HttpClient) { }
 
   getUsuarios():Observable<any[]>{
-    return this._http.get<any[]>(`${this.urlWsCatalogos}usuarios`);
+    return this._http.get<any[]>(`${this.urlWsUsuarios}usuarios`);
+  }
+
+  getRoles():Observable<any[]>{
+    return this._http.get<any[]>(`${this.urlWsRoles}roles`);
   }
 
 }

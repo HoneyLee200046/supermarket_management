@@ -1,15 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { UsuarioService } from '../../../services/usuario.service';
+import { Roles } from 'src/app/model/usuarios/roles';
+import { UsuariosService } from '../../../services/usuarios.service';
 
 @Component({
   selector: 'app-nuevo-usuario',
   templateUrl: './nuevo-usuario.component.html',
   styleUrls: ['./nuevo-usuario.component.css']
 })
-export class NuevoUsuarioComponent {
+export class NuevoUsuarioComponent implements OnInit {
 
+ 
   public formSubmitted = false;
+  listaRoles:Roles[] = [];
+  rolTemp:Roles = new Roles();
+ 
 
   public usersForm = this.fb.group({
     usuario : ['Gala', Validators.required],
@@ -17,11 +22,29 @@ export class NuevoUsuarioComponent {
     apellidos:['Reyes Peña', Validators.required],
     email:['gala@gmail.com',[Validators.email, Validators.required]],
     password: ['gala123456' , [Validators.required,Validators.minLength(8)]],
-    rol:['',  ]   
+    rol:['', Validators.required ]   
   });
 
   constructor( private fb : FormBuilder,
-               private usuarioService: UsuarioService) { }
+               private _usuariosService: UsuariosService) { 
+
+             
+               }
+
+  ngOnInit(): void {
+
+    this._usuariosService.getRoles()
+        .subscribe( (data:any ) => {
+         
+          data.forEach((element:Roles) => {
+            this.rolTemp = element;
+            this.listaRoles.push(this.rolTemp);
+          }) 
+        });
+
+       
+        
+  }
 
    crearUsuario(){
     this.formSubmitted = true; 
@@ -30,8 +53,11 @@ export class NuevoUsuarioComponent {
       console.log('formulario invalido');
       return;      
      }
+
+     console.log(this.usersForm.value);
+     
       //Realzar el posteo del formulario
-    this.usuarioService.crearUsuario( this.usersForm.value );    
+        
    }
 
   
@@ -41,7 +67,7 @@ export class NuevoUsuarioComponent {
 
  
 onChange(deviceValue:any) {
-  console.log(deviceValue);
+  console.log(deviceValue.value);
 }
 
 }
