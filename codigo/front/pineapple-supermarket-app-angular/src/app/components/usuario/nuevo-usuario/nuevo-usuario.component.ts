@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsuarioService } from '../../../services/usuario.service';
 
 @Component({
@@ -12,12 +12,12 @@ export class NuevoUsuarioComponent {
   public formSubmitted = false;
 
   public usersForm = this.fb.group({
-    usuario : ['324', Validators.required],
-    nombre : ['243423', [Validators.required, Validators.minLength(3)]],
-    apellidos:['4234243', Validators.required],
-    email:['234@dd.com',[Validators.email, Validators.required]],
-    password: ['322ewrwe332' , [Validators.required,Validators.minLength(8)]],
-    rol: ['' , Validators.required]      
+    usuario : ['Gala', Validators.required],
+    nombre : ['Gala Karina', [Validators.required, Validators.minLength(3)]],
+    apellidos:['Reyes Peña', Validators.required],
+    email:['gala@gmail.com',[Validators.email, Validators.required]],
+    password: ['gala123456' , [Validators.required,Validators.minLength(8)]],
+    rol:['',  ]   
   });
 
   constructor( private fb : FormBuilder,
@@ -30,15 +30,18 @@ export class NuevoUsuarioComponent {
       console.log('formulario invalido');
       return;      
      }
-
       //Realzar el posteo del formulario
-    this.usuarioService.crearUsuario( this.usersForm.value );
-    
+    this.usuarioService.crearUsuario( this.usersForm.value );    
    }
 
   
    campoNoValido( campo: string ): boolean { 
      return ( this.usersForm.get(campo)?.invalid && this.formSubmitted ? true : false);
    }
+
+ 
+onChange(deviceValue:any) {
+  console.log(deviceValue);
+}
 
 }
