@@ -19,7 +19,7 @@ private urlWsProducto = environment.ws.url+'prod/';
 
   constructor(private _http:HttpClient) { }
 
-  uploadFile(producto:Producto):Observable<Producto>{
-    return this._http.post<any>(`${this.urlWsProducto}nuevo`,producto);
+  uploadFile(producto:Producto, file:File):Observable<Producto>{
+    return this._http.post<any>(`${this.urlWsProducto}nuevo/{file}`,producto);
   }
 }

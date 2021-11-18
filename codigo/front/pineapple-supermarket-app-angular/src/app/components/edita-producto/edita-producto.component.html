@@ -8,7 +8,7 @@
                 <div class="checkout-billing-details-wrap">
                     <h2>Editar/Crear Producto</h2>
                     <div class="billing-form-wrap">
-                        <form [formGroup]="productoForm" (ngSubmit)="guardar()">
+                        <form [formGroup]="productoForm" (ngSubmit)="guardar()" enctype="multipart/form-data">
                             <div class="row">
                                 
                                     <div class="single-input-item">
@@ -16,7 +16,7 @@
                                         <div *ngIf="previsualizacion">
                                             <img width="100px" [src]="previsualizacion">
                                         </div>
-                                        <input type="file" id="file" formControlName="archivo" (change)="capturarFile($event)"/>
+                                        <input type="file" name="file" (change)="capturarFile($event)"/>
                                     </div>
                                
                             </div>

@@ -27,7 +27,7 @@ export class EditaProductoComponent implements OnInit {
   public formSubmitted = false;
 
   public productoForm = this.fb.group({
-    archivo: ['', [Validators.required]],
+    //file: ['', [Validators.required]],
     nombre: ['', Validators.required],
     serial: ['', Validators.required],
     catCategorias: [this.categoriaSeleccionada, Validators.required],
@@ -129,7 +129,7 @@ export class EditaProductoComponent implements OnInit {
     
     const {nombre, serial, descripcion, cantidad, precio,
       catCategorias, catUnidadMedida} = this.productoForm.value;
-    this.producto.urlImagen= this.previsualizacion;
+    this.producto.urlImagen="";
     this.producto.nombreProducto =  nombre;
     this.producto.serialProducto = serial;
     this.producto.descripcionProducto = descripcion;
@@ -137,19 +137,12 @@ export class EditaProductoComponent implements OnInit {
     this.producto.precioUnitario = precio;
     this.producto.idCategoria = catCategorias;
     this.producto.idUnidadMedida = catUnidadMedida;
-    //this.producto.urlImagen= "/img/prueba.jpg";
+  
     console.log("Producto ");
     console.log(this.producto);
 
-    this._productoService.uploadFile(this.producto)
+    this._productoService.uploadFile(this.producto, this.archivos)
         .subscribe((data:any)=>{
-          /*this.loading = false;
-          console.log('Respuesta del servidor', data);
-
-        }, () => {
-          this.loading = false;
-          alert('Error');
-        }*/
         if(data.mensaje === 'success'){
           //this._storageService.setCurrentSession(data);
           //this._storageService.setAnyItemSession("producto", this.producto);
