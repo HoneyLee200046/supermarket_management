@@ -2,9 +2,10 @@ package com.ibm.grupo2.service;
 
 import java.util.List;
 
-import com.ibm.grupo2.model.seguridad.Grupo;
+import com.ibm.grupo2.dto.seguridad.GrupoDTO;
+
 
 public interface RolesService {
     
-    public List<Grupo> getRoles();
+    public List<GrupoDTO> getRoles();
 }

@@ -3,9 +3,9 @@ package com.ibm.grupo2.rest;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ibm.grupo2.model.seguridad.Grupo;
-import com.ibm.grupo2.service.RolesService;
 
+import com.ibm.grupo2.service.RolesService;
+import com.ibm.grupo2.dto.seguridad.GrupoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,10 +21,10 @@ public class RolesREST {
     private RolesService rolesService;
 
     @GetMapping("/roles")
-      public ResponseEntity<List<Grupo>> getRoles() {
+      public ResponseEntity<List<GrupoDTO>> getRoles() {
         try {
-          List<Grupo> roles = new ArrayList<Grupo>();
-          roles = (List<Grupo>) rolesService.getRoles();          
+          List<GrupoDTO> roles = new ArrayList<GrupoDTO>();
+          roles = (List<GrupoDTO>) rolesService.getRoles();          
          
           return new ResponseEntity<>(roles, HttpStatus.OK);
         } catch (Exception e) {
