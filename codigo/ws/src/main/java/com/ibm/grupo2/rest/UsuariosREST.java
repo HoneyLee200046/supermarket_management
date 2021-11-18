@@ -1,6 +1,8 @@
 package com.ibm.grupo2.rest;
 
+import com.ibm.grupo2.service.RolesService;
 import com.ibm.grupo2.service.SeguridadService;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +23,8 @@ public class UsuariosREST {
     
       @Autowired
       private SeguridadService seguridadService;
+     // @Autowired
+      //private RolesService rolesService;
       
     @GetMapping("/usuarios")
      public ResponseEntity < List<UsuarioDTO> > findAll(){
@@ -34,7 +38,22 @@ public class UsuariosREST {
       catch(Exception exception){
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
       }
+    }
+
+    /*
+      @GetMapping("/roles")
+      public ResponseEntity<List<Grupo>> getRoles() {
+        try {
+          List<Grupo> roles = new ArrayList<Grupo>();
+          roles = (List<Grupo>) rolesService.getRoles();          
+         
+          return new ResponseEntity<>(roles, HttpStatus.OK);
+        } catch (Exception e) {
+          return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
         
      }
 
+
+     */
 }
