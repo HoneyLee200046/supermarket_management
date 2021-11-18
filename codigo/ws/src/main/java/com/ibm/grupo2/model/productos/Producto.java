@@ -36,10 +36,11 @@ public class Producto implements Serializable {
 
 	}
 	
-	public Producto(Integer idProducto, String nombreProducto, String descripcionProducto, BigDecimal cantidadProducto,
+	public Producto(Integer idProducto, String nombreProducto, String serialProducto, String descripcionProducto, BigDecimal cantidadProducto,
 			BigDecimal precioUnitario, String urlImagen, Categoria idCategoria, UnidadMedida idUnidadMedida) {
 		this.idProducto = idProducto;
 		this.nombreProducto = nombreProducto;
+		this.serialProducto = serialProducto;
 		this.descripcionProducto = descripcionProducto;
 		this.cantidadProducto = cantidadProducto;
 		this.precioUnitario = precioUnitario;
@@ -59,6 +60,11 @@ public class Producto implements Serializable {
 	@Size(max=60)
 	private String nombreProducto;
 
+	@Basic(optional = false)
+	@Column(name = "serial")
+	@Size(max=60)
+	private String serialProducto;
+	
 	@Basic(optional = false)
 	@Column(name = "descripcion")
 	@Size(max=80)
@@ -99,6 +105,14 @@ public class Producto implements Serializable {
 
 	public void setNombreProducto(String nombreProducto) {
 		this.nombreProducto = nombreProducto;
+	}
+	
+	public String getSerialProducto() {
+		return serialProducto;
+	}
+
+	public void setSerialProducto(String serialProducto) {
+		this.serialProducto = serialProducto;
 	}
 
 	public String getDescripcionProducto() {

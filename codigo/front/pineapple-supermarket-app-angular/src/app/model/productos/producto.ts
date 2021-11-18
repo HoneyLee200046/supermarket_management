@@ -2,6 +2,7 @@ export class Producto {
 
         idProducto : number;
 		nombreProducto : string;
+        serialProducto : string;
 		descripcionProducto : string;
 	    cantidadProducto : number;
 		precioUnitario : number;
@@ -12,6 +13,7 @@ export class Producto {
         constructor(){
             this.idProducto = 0;
             this.nombreProducto = "";
+            this.serialProducto = "";
             this.descripcionProducto = "";
             this.cantidadProducto = 0;
             this.precioUnitario = 0;
