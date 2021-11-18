@@ -1,3 +1,4 @@
+import { miembrosGrupo } from './miembro-grupo';
 import { UsuarioDetalle } from './usuario-detalle';
 export class Usuario {
   idUsuario: number;
@@ -6,7 +7,7 @@ export class Usuario {
   estatusUsuario: boolean;
   idUsuarioDetalle: UsuarioDetalle;
   fechaRegistroUsuario:string;
- // miembrosGrupoCollection : miembrosGrupoCollection;
+  miembrosGrupoCollection : miembrosGrupo[];
 
   constructor(){
     this.idUsuario = 0;
@@ -15,6 +16,7 @@ export class Usuario {
     this.fechaRegistroUsuario = "";
     this.estatusUsuario = false;
     this.idUsuarioDetalle = new UsuarioDetalle();
+    this.miembrosGrupoCollection = [];
   }
 
 }

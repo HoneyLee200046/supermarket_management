@@ -72,9 +72,10 @@
 
               <div class="single-input-item">
                 <label for="rol" class="required">Rol</label>
-                <select name="rol"
+                <select formControlName="rol"
                         id="rol"
-                       
+                        class="nice-select"
+                        (change)="onChange($event)"
                          >
                   <option value="">Seleccione un rol de usuario</option>
                   <option value="Administrador">Administrador</option>
