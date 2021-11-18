@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 //environment
 import { environment } from '../../environments/environment';
+import { Producto } from '../model/productos/producto';
 
 
 @Injectable({
@@ -18,7 +19,7 @@ private urlWsProducto = environment.ws.url+'prod/';
 
   constructor(private _http:HttpClient) { }
 
-  uploadFile(body:FormData){
-    return this._http.post(`${this.urlWsProducto}unidadMedida`,body);
+  uploadFile(producto:Producto):Observable<Producto>{
+    return this._http.post<any>(`${this.urlWsProducto}nuevo`,producto);
   }
 }
