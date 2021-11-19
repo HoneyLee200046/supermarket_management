@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UsuarioForm } from '../interfaces/usuario.interface';
+import { Usuario } from '../model/seguridad/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -26,10 +27,13 @@ export class UsuariosService {
 
     console.log('creando usuario');
     console.log();
-    
-    
-
-
   }
+
+  getUsuario(id:number){
+    console.log(id);
+    
+    //return this._http.get<Usuario>(`${this.urlWsUsuarios}usuario/${id}`);
+  }
+
 
 }
