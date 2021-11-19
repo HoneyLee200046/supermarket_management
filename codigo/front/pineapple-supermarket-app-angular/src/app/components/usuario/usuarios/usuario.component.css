@@ -22,3 +22,8 @@
 #page-content-wrapper{
     padding: 35px 0;
 }
+
+.text-right{
+    text-align: right;
+    margin-bottom: 10px;
+}

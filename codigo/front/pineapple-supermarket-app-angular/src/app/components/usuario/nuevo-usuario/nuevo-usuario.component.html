@@ -77,8 +77,8 @@
                         class="nice-select"
                         (change)="onChange($event)"
                          >
-                  <option>-- Selecciona una opción --</option>
-                  <option *ngFor="let grupo of listaRoles" [ngValue]="{grupo}">{{grupo.nombreGrupo}}</option>
+                  <option value="">-- Selecciona una opción --</option>
+                  <option *ngFor="let rol of listaRoles" [value]="rol.idGrupo">{{rol.nombreGrupo}}</option>
                   
                 </select>
 

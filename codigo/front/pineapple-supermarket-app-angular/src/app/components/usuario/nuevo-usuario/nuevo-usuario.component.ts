@@ -48,15 +48,16 @@ export class NuevoUsuarioComponent implements OnInit {
 
    crearUsuario(){
     this.formSubmitted = true; 
-    
-    if( this.usersForm.invalid){ 
-      console.log('formulario invalido');
-      return;      
-     }
 
-     console.log(this.usersForm.value);
-     
+    let rol = this.usersForm.get('rol')?.valueChanges
+              .subscribe( region => {
+                console.log(region);
+                
+              });
+    
+    if( this.usersForm.invalid){ return; }     
       //Realzar el posteo del formulario
+      this._usuariosService.crearUsuario( this.usersForm.value );
         
    }
 
