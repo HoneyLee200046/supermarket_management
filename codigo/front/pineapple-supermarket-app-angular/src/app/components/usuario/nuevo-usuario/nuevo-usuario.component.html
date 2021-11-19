@@ -77,9 +77,9 @@
                         class="nice-select"
                         (change)="onChange($event)"
                          >
-                  <option value="">Seleccione un rol de usuario</option>
-                  <option value="Administrador">Administrador</option>
-                  <option value="Viewer">Viewer</option>
+                  <option value="">-- Selecciona una opción --</option>
+                  <option *ngFor="let rol of listaRoles" [value]="rol.idGrupo">{{rol.nombreGrupo}}</option>
+                  
                 </select>
 
                 <div *ngIf="campoNoValido('rol')" class="alert alert-danger" role="alert">
