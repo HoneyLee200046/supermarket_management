@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Usuario } from 'src/app/model/seguridad/usuario';
 import { Roles } from 'src/app/model/usuarios/roles';
 import { UsuariosService } from '../../../services/usuarios.service';
 
@@ -14,6 +15,10 @@ export class NuevoUsuarioComponent implements OnInit {
   public formSubmitted = false;
   listaRoles:Roles[] = [];
   rolTemp:Roles = new Roles();
+
+  private usuario:Usuario = new Usuario();
+
+  public titulo: string = "Nuevo usuario";
  
 
   public usersForm = this.fb.group({
@@ -26,12 +31,15 @@ export class NuevoUsuarioComponent implements OnInit {
   });
 
   constructor( private fb : FormBuilder,
-               private _usuariosService: UsuariosService) { 
+               private _usuariosService: UsuariosService,
+              ) { 
 
              
                }
 
   ngOnInit(): void {
+
+    this.cargarUsuario();
 
     this._usuariosService.getRoles()
         .subscribe( (data:any ) => {
@@ -40,10 +48,13 @@ export class NuevoUsuarioComponent implements OnInit {
             this.rolTemp = element;
             this.listaRoles.push(this.rolTemp);
           }) 
-        });
-
-       
+        });     
         
+  }
+
+  cargarUsuario():void{    
+        //this._usuariosService.getUsuario(id);           // .subscribe( (usuario => this.usuario = usuario));
+    
   }
 
    crearUsuario(){
@@ -56,7 +67,7 @@ export class NuevoUsuarioComponent implements OnInit {
               });
     
     if( this.usersForm.invalid){ return; }     
-      //Realzar el posteo del formulario
+      //Realzar el posteo del formulario 
       this._usuariosService.crearUsuario( this.usersForm.value );
         
    }
@@ -66,9 +77,10 @@ export class NuevoUsuarioComponent implements OnInit {
      return ( this.usersForm.get(campo)?.invalid && this.formSubmitted ? true : false);
    }
 
- 
-onChange(deviceValue:any) {
-  console.log(deviceValue.value);
-}
+   
+   compararRoles(o1:Roles, o2:Roles){
+    return o1 == null || o2 === null  || o1 == undefined || o2 === undefined ? false : o1.idGrupo=== o2.idGrupo
+  }
+
 
 }

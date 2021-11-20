@@ -5,7 +5,7 @@
       <!-- Checkout Editar/Crear Producto -->
       <div class="col-lg-6 mt-1">
         <div class="checkout-billing-details-wrap">
-          <h2>Nuevo usuario</h2>
+          <h2>{{ titulo }}</h2>
           <div class="billing-form-wrap">
             <form [formGroup]="usersForm"
                   (ngSubmit)="crearUsuario()">
@@ -74,8 +74,8 @@
                 <label for="rol" class="required">Rol</label>
                 <select formControlName="rol"
                         id="rol"
-                        class="nice-select"
-                        (change)="onChange($event)"
+                        class="nice-select"     
+                        [compareWith]="compararRoles"                
                          >
                   <option value="">-- Selecciona una opción --</option>
                   <option *ngFor="let rol of listaRoles" [value]="rol.idGrupo">{{rol.nombreGrupo}}</option>

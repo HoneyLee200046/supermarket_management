@@ -47,6 +47,7 @@
 .team .programmers {
   display: flex;
   margin: auto;
+  justify-content: center;
 }
 .team .programmers .programmer {
   padding: 0 15px;
@@ -102,4 +103,44 @@
 }
 .col-md-3 {
   width: 20%;
+}
+
+@media only screen and (max-width: 984px) {
+  .about-pineapple{
+    flex-direction: column;
+  }
+
+  .team img {
+    height:99px;
+    width: 94px;   
+  }
+
+  .progamadora{
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 764px) {
+
+  .about-pineapple{
+    margin-top:-144px;
+  }
+
+  .programmers{
+    flex-flow: row wrap;
+  }
+
+  .programmer {
+    width:50% !important;
+  }
+
+}
+
+@media only screen and (max-width: 383px) {
+
+  .about-pineapple{
+    padding:10px;
+    margin-top: -228px;
+  }
+
 }
