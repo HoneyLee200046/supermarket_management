@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 //environment
@@ -19,7 +19,15 @@ private urlWsProducto = environment.ws.url+'prod/';
 
   constructor(private _http:HttpClient) { }
 
-  uploadFile(producto:Producto, file:File):Observable<Producto>{
-    return this._http.post<any>(`${this.urlWsProducto}nuevo/{file}`,producto);
+  uploadFile(file:File):Observable<HttpEvent<any>>{
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+   
+    const req = new HttpRequest('POST', `${this.urlWsProducto}upload/`, formData);
+    return this._http.request(req);
+  }
+
+  guardaProduc(producto:Producto):Observable<Producto>{
+      return this._http.post<any>(`${this.urlWsProducto}guardar`, producto);;
   }
 }

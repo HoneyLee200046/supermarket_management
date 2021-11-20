@@ -12,11 +12,11 @@
                             <div class="row">
                                 
                                     <div class="single-input-item">
-                                        <label for="f_name" class="required">Imagen</label>
+                                        <label for="file" class="required">Imagen</label>
                                         <div *ngIf="previsualizacion">
                                             <img width="100px" [src]="previsualizacion">
                                         </div>
-                                        <input type="file" name="file" (change)="capturarFile($event)"/>
+                                        <input type="file" ng-model="file" formControlName="file" name="file" (change)="capturarFile($event)"/>
                                     </div>
                                
                             </div>
@@ -33,7 +33,7 @@
 
                             <div class="single-input-item">
                                 <label for="categoria" class="required">Categoria</label>
-                                <select formControlName="catCategorias" class="form-select" [compareWith]="compararCategoria">
+                                <select formControlName="catCategorias" class="nice-select" [compareWith]="compararCategoria">
                                     <option *ngFor="let categoria of listaCategorias" [ngValue]="categoria">
                                         {{ categoria.nombreCategoria }}
                                     </option>
@@ -52,7 +52,7 @@
 
                             <div class="single-input-item">
                                 <label for="unidad" class="required">Unidad de Medida</label>
-                                <select formControlName="catUnidadMedida" class="form-select" [compareWith]="compararUnidad">
+                                <select formControlName="catUnidadMedida" class="nice-select" [compareWith]="compararUnidad">
                                     <option *ngFor="let unidadMedida of listaUnidadMedida" [ngValue]="unidadMedida">
                                         {{ unidadMedida.nombreUnidadMedida }}
                                     </option>

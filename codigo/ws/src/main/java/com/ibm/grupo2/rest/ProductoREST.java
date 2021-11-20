@@ -1,6 +1,7 @@
 package com.ibm.grupo2.rest;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -12,6 +13,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,9 +29,9 @@ import com.ibm.grupo2.model.productos.Producto;
 import com.ibm.grupo2.service.ProductoService;
 
 /**
-*
-* @author Nora Alvarez
-*/
+ *
+ * @author Nora Alvarez
+ */
 @RestController
 @RequestMapping("/prod")
 public class ProductoREST {
@@ -35,39 +39,56 @@ public class ProductoREST {
 	@Autowired
 	private ProductoService productoService;
 	@Autowired
-    private Environment env;
+	private Environment env;
 	private final Logger log = LoggerFactory.getLogger(getClass());
-	
-	@PostMapping("/nuevo")
-    @ResponseBody
-    public Map<String, Object>guardaProducto(@Valid @RequestBody Producto producto, File archivo, @RequestParam("file") MultipartFile imagen, RedirectAttributes redAttr){
-		log.info("File " + imagen);
-		//try {
-		/*
-		 * String imagen = producto.getUrlImagen(); if(!imagen.isEmpty()) { String
-		 * rootPath = env.getProperty("imagen.producto");
-		 * 
-		 * byte[] bytes = imagen.getBytes(); Path rutaCompleta = Paths.get(rootPath +
-		 * "//" + imagen.getOriginalFilename()); Files.write(rutaCompleta, bytes);
-		 * //redAttr.addFlashAttribute("info", "Has subido correctamente '" +
-		 * imagen.getOriginalFilename() + "'");
-		 * producto.setUrlImagen(rutaCompleta.toString()); }
-		 */
-			 
-			
-			
-			/*
-			 * Map resultado = (Map) productoService.crearProducto(producto); if((boolean)
-			 * resultado.get("resultado")){ redAttr.addFlashAttribute("mensaje", "success");
-			 * redAttr.addFlashAttribute("producto", resultado); }else{
-			 * redAttr.addFlashAttribute("mensaje", "error");
-			 * redAttr.addFlashAttribute("detalle", resultado.get("error")); } } catch
-			 * (Exception e) { redAttr.addFlashAttribute("mensaje", "error"); }
-			 */
-		
-			 log.info("Producto " + producto);
-			 //log.info("imagen " + imagen);
-        
-        return (Map<String,Object>) redAttr.getFlashAttributes();
-    }
+
+	@PostMapping(value = "guardar")
+	@ResponseBody
+	public Map<String, Object> guardar(@Valid @RequestBody Producto producto, RedirectAttributes redAttr) {
+		//log.info("Producto " + producto);
+
+		try {
+			Map resultado = (Map) productoService.crearProducto(producto);
+			if ((boolean) resultado.get("resultado")) {
+				redAttr.addAttribute("mensaje", "success");
+				redAttr.addAttribute("producto", resultado);
+			} else {
+				redAttr.addAttribute("mensaje", "error");
+				redAttr.addAttribute("detalle", resultado.get("error"));
+			}
+		} catch (Exception e) {
+			redAttr.addAttribute("mensaje", "error");
+		}
+
+		log.info("Producto " + producto);
+		// log.info("imagen " + imagen);
+
+		return (Map<String, Object>) redAttr.getFlashAttributes();
+	}
+
+	@PostMapping(value = "upload")
+	public Map<String, Object> upload(@RequestParam("file") MultipartFile file, RedirectAttributes redAttr) {
+		String rootPath = env.getProperty("imagen.producto");
+
+		try {
+			if (!file.isEmpty()) {
+				File directorio = new File(rootPath);
+				if (!directorio.exists()) {
+					directorio.mkdirs();
+				}
+
+				byte[] bytes;
+				bytes = file.getBytes();
+				Path rutaCompleta = Paths.get(rootPath + "//" + file.getOriginalFilename());
+				Files.write(rutaCompleta, bytes);
+				redAttr.addAttribute("mensaje", "success");
+				redAttr.addAttribute("info", "Has subido correctamente '" + file.getOriginalFilename());
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			redAttr.addAttribute("error", "Error al subir el archivo");
+		}
+		return (Map<String, Object>) redAttr.getFlashAttributes();
+	}
+
 }
