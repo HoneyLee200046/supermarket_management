@@ -30,4 +30,8 @@ private urlWsProducto = environment.ws.url+'prod/';
   guardaProduc(producto:Producto):Observable<Producto>{
       return this._http.post<any>(`${this.urlWsProducto}guardar`, producto);;
   }
+
+  getListaProductos():Observable<any[]>{
+    return this._http.get<any[]>(`${this.urlWsProducto}productos`);
+  }
 }
