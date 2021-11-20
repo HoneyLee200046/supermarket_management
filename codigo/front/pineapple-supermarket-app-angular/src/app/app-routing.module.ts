@@ -21,7 +21,6 @@ const routes: Routes = [
   { path: 'productos', component: ProductosComponent, canActivate: [AuthorizatedGuard]},
   { path: 'usuarios', component: UsuarioComponent, canActivate: [AuthorizatedGuard]},
   { path: 'nuevo-usuario', component: NuevoUsuarioComponent, canActivate: [AuthorizatedGuard]},
-  { path: 'nuevo-usuario/:id', component: NuevoUsuarioComponent, canActivate: [AuthorizatedGuard]},
   { path: 'editaProducto', component: EditaProductoComponent, canActivate: [AuthorizatedGuard]},
   { path: 'recupera-psw', component:RecuperaPswComponent},
   { path: '**', redirectTo: 'home', pathMatch: 'full' }

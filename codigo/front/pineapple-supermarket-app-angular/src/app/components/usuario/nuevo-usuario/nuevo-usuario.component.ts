@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { Usuario } from 'src/app/model/seguridad/usuario';
 import { Roles } from 'src/app/model/usuarios/roles';
 import { UsuariosService } from '../../../services/usuarios.service';
@@ -33,7 +32,7 @@ export class NuevoUsuarioComponent implements OnInit {
 
   constructor( private fb : FormBuilder,
                private _usuariosService: UsuariosService,
-               private activatedRoute: ActivatedRoute) { 
+              ) { 
 
              
                }
@@ -53,14 +52,9 @@ export class NuevoUsuarioComponent implements OnInit {
         
   }
 
-  cargarUsuario():void{
-    this.activatedRoute.params.subscribe(params => {
-      let id = params['id'];
-      if(id){
-        this._usuariosService.getUsuario(id);
-            // .subscribe( (usuario => this.usuario = usuario));
-      }
-    });
+  cargarUsuario():void{    
+        //this._usuariosService.getUsuario(id);           // .subscribe( (usuario => this.usuario = usuario));
+    
   }
 
    crearUsuario(){
