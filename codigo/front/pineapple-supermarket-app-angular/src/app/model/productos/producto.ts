@@ -7,8 +7,8 @@ export class Producto {
 	    cantidadProducto : number;
 		precioUnitario : number;
 		urlImagen : string;
-		idCategoria : number;
-		idUnidadMedida : number;
+		idCategoria : any;
+		idUnidadMedida : any;
 
         constructor(){
             this.idProducto = 0;
@@ -18,7 +18,7 @@ export class Producto {
             this.cantidadProducto = 0;
             this.precioUnitario = 0;
             this.urlImagen = "";
-            this.idCategoria = 0;
-            this.idUnidadMedida = 0;
+            this.idCategoria = "";
+            this.idUnidadMedida = "";
         }
 }

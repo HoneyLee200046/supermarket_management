@@ -29,7 +29,8 @@
               <div class="col-md-5 col-lg-6 mt-xs-10">
                   <div class="site-setting-menu">
                       <ul class="nav justify-content-center justify-content-md-end">
-                          <li><a [routerLink]="['/login']">Iniciar sesión</a></li> 
+                          <li><a [routerLink]="['/login']" >Iniciar sesión</a></li> 
+                          <li><a routerLink="home" (click)="onLogout()"   >Cerrar sesión</a></li> 
                       </ul>
                   </div>
               </div>
@@ -59,7 +60,7 @@
                       <nav class="mainmenu">
                           <ul class="main-navbar clearfix">
                               <li><a routerLink="home">Home</a></li>
-                              <li><a href="#">About Us</a></li>
+                              <li><a routerLink="/index">About Us</a></li>
                               <li class="dropdown-show"><a routerLink="productos" class="arrow-toggle">Productos</a>
                                 <ul class="dropdown-nav sub-dropdown">
                                     <li><a routerLink="productos">Todos los productos</a></li>
