@@ -1,0 +1,19 @@
+.btn {
+    background-color: #6bc5b2;
+    border-radius: 5px;
+}
+
+.filtros{
+    padding-bottom: 2rem;
+}
+ul {
+    justify-content: flex-end;
+    text-decoration: none;
+  }
+table{
+    white-space:initial!important;
+}
+button a{
+    color: #fff;
+    text-decoration: none;
+}
