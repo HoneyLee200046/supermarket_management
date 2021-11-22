@@ -1,3 +1,4 @@
+<app-header></app-header>
 <!--== Page Content Wrapper Start ==-->
 <div id="page-content-wrapper">
     <div class="container">
@@ -10,7 +11,7 @@
                     <div class="billing-form-wrap">
                         <form [formGroup]="productoForm" (ngSubmit)="guardar()" enctype="multipart/form-data">
                             <div class="row">
-                                
+
                             <div class="single-input-item">
                                 <label for="file" class="required">Imagen</label>
                                 <div *ngIf="previsualizacion">
@@ -18,11 +19,11 @@
                                 </div>
                                 <input type="file" ng-model="file" formControlName="file" name="file" (change)="capturarFile($event)"/>
                             </div>
-                               
+
                             <div *ngIf="campoNoValido('file')" class="alert alert-danger" role="alert">
                                 La imagen del producto es requerida
-                            </div>  
-                            
+                            </div>
+
 
                             <div class="single-input-item">
                                 <label for="nombre" class="required">Nombre del Producto</label>
@@ -31,7 +32,7 @@
 
                             <div *ngIf="campoNoValido('nombre')" class="alert alert-danger" role="alert">
                                 El nombre del producto es requerido
-                            </div>  
+                            </div>
 
                             <div class="single-input-item">
                                 <label for="serial" class="required">Serial</label>
@@ -40,7 +41,7 @@
 
                             <div *ngIf="campoNoValido('serial')" class="alert alert-danger" role="alert">
                                 El serial del producto es requerido
-                            </div>  
+                            </div>
 
                             <div class="single-input-item">
                                 <label for="categoria" class="required">Categoria</label>
@@ -53,7 +54,7 @@
                             </div>
                             <div *ngIf="campoNoValido('catCategorias')" class="alert alert-danger" role="alert">
                                  Selecciona la categoria
-                            </div>  
+                            </div>
 
                             <div class="single-input-item">
                                 <label for="descripcion" class="required">Descripcion</label>
@@ -62,7 +63,7 @@
 
                             <div *ngIf="campoNoValido('descripcion')" class="alert alert-danger" role="alert">
                                 La descripción del producto es requerida
-                           </div>  
+                           </div>
 
                             <div class="single-input-item">
                                 <label for="cantidad" class="required">Cantidad</label>
@@ -71,7 +72,7 @@
 
                             <div *ngIf="campoNoValido('cantidad')" class="alert alert-danger" role="alert">
                                La cantidad del inventario es requerida
-                           </div>  
+                           </div>
 
                             <div class="single-input-item">
                                 <label for="unidad" class="required">Unidad de Medida</label>
@@ -85,7 +86,7 @@
 
                             <div *ngIf="campoNoValido('catUnidadMedida')" class="alert alert-danger" role="alert">
                                Selecciona la unidad de medida del producto
-                            </div>  
+                            </div>
 
                             <div class="single-input-item">
                                 <label for="precio" class="required">Precio Unitario</label>
@@ -94,7 +95,7 @@
 
                             <div *ngIf="campoNoValido('precio')" class="alert alert-danger" role="alert">
                                 El precio no debe de estar vacio
-                            </div> 
+                            </div>
 
                             <div class="single-input-item">
                                 <button class="btn">Guardar</button>

@@ -28,8 +28,8 @@
          <div class="col-md-5 col-lg-6 mt-xs-10">
            <div class="site-setting-menu">
              <ul class="nav justify-content-center justify-content-md-end">
-               <li *ngIf="!logueado"><a [routerLink]="['/login']" (click)="revisarAuth()">Iniciar sesión</a></li>
-               <li *ngIf="logueado"><a routerLink="home" (click)="onLogout()">Cerrar sesión</a></li>
+               <li *ngIf="!logueado"><a [routerLink]="['/login']">Iniciar sesión</a></li>
+               <li *ngIf="logueado"><a [routerLink]="['/home']" (click)="onLogout()">Cerrar sesión</a></li>
              </ul>
            </div>
          </div>
@@ -45,7 +45,7 @@
        <div class="row">
          <!-- Categories List Start -->
          <div class="col-10 col-lg-3 m-auto text-center text-lg-left">
-           <a [routerLink]="['/home']" class="logo-wrap d-block" (click)="revisarAuth()">
+           <a [routerLink]="['/home']" class="logo-wrap d-block">
              <img src="assets/img/logo.png" alt="Logo" class="img-fluid" />
            </a>
 
@@ -58,20 +58,21 @@
            <div class="main-menu-wrap">
              <nav class="mainmenu">
                <ul class="main-navbar clearfix">
-                 <li><a [routerLink]="['/home']" (click)="revisarAuth()">Home</a></li>
-                 <li><a [routerLink]="['/index']" (click)="revisarAuth()">About Us</a></li>
-                 <li class="dropdown-show"><a class="arrow-toggle">Productos</a>
+                 <li><a [routerLink]="['/home']">Home</a></li>
+                 <li *ngIf="logueado"><a [routerLink]="['/index']">Menú principal</a></li>
+                 <li *ngIf="logueado" class="dropdown-show"><a class="arrow-toggle">Productos</a>
                    <ul class="dropdown-nav sub-dropdown">
-                     <li><a [routerLink]="['/productos']" (click)="revisarAuth()">Todos los productos</a></li>
-                     <li><a [routerLink]="['/editaProducto']" (click)="revisarAuth()">Nuevo Producto</a></li>
+                     <li><a [routerLink]="['/productos']">Todos los productos</a></li>
+                     <li><a [routerLink]="['/editaProducto']">Nuevo Producto</a></li>
                    </ul>
                  </li>
-                 <li class="dropdown-show"><a class="arrow-toggle">Usuarios</a>
+                 <li *ngIf="logueado && isAdmin" class="dropdown-show"><a class="arrow-toggle">Usuarios</a>
                    <ul class="dropdown-nav sub-dropdown">
-                     <li><a [routerLink]="['/usuarios']" (click)="revisarAuth()">Todos los usuarios</a></li>
-                     <li><a [routerLink]="['/nuevo-usuario']" (click)="revisarAuth()">Nuevo Usuario</a></li>
+                     <li><a [routerLink]="['/usuarios']">Todos los usuarios</a></li>
+                     <li><a [routerLink]="['/nuevo-usuario']">Nuevo Usuario</a></li>
                    </ul>
                  </li>
+                 <li><a href="#"> {{ infoUsuarioLogueado.nombreUsuarioDetalle }}  {{ infoUsuarioLogueado.apellido1UsuarioDetalle }} </a></li>
                </ul>
              </nav>
            </div>
