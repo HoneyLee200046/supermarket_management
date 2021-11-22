@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/model/productos/producto';
 import { ProductoService } from 'src/app/services/producto-service';
+import { ExportarService } from '../../services/exportar.service';
 
 @Component({
   selector: 'app-productos',
@@ -12,7 +13,7 @@ export class ProductosComponent implements OnInit {
   listaProductos:Producto[] = [];
   public cargando : boolean = true;
 
-  constructor(private _productoService:ProductoService) { }
+  constructor(private _productoService:ProductoService, private _exportarService: ExportarService) { }
 
   ngOnInit(): void {
     this.cargarProductos();   
@@ -27,5 +28,7 @@ export class ProductosComponent implements OnInit {
       this.cargando = false;
     });
   }
-
+  exportAsXLSX():void{
+    this._exportarService.exportToExcel(this.listaProductos, 'Productos');
+  }
 }
