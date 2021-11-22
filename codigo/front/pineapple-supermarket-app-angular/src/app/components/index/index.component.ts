@@ -1,8 +1,9 @@
+import jwt_decode from 'jwt-decode';
 import { Component, OnInit } from '@angular/core';
-//Service
-import { CatalogosService } from '../../services/catalogos.service';
 //Models
 import { Categoria } from '../../model/catalogos/categoria';
+//services
+import { StorageService } from '../../services/storage.service';
 
 
 @Component({
@@ -14,20 +15,17 @@ export class IndexComponent implements OnInit {
 
   listaCategorias:Categoria[] = [];
   categoriaTmp:Categoria = new Categoria();
+  public isAdminCard:boolean = false;
+  public tokenCard:string = "";
+  public perfilesCard:string[] = [];
 
-  constructor(private _catalogosService:CatalogosService) { }
+  constructor(private _storageService: StorageService) { }
 
   ngOnInit(): void {
-
-    this._catalogosService.getCategoriasProductos()
-    .subscribe((data:any[]) => {
-      this.categoriaTmp.nombreCategoria = "Selecciona una opción";
-      this.listaCategorias.push(this.categoriaTmp);
-      data.forEach(element => {
-        this.categoriaTmp = element;
-        this.listaCategorias.push(this.categoriaTmp);
-      });
-    });
+    this.tokenCard = this._storageService.getCurrentToken();
+    let decoded: any = jwt_decode(this.tokenCard);
+    this.perfilesCard = decoded.authorities;
+    this.isAdminCard = this.perfilesCard.includes('admin');
   }
 
 }

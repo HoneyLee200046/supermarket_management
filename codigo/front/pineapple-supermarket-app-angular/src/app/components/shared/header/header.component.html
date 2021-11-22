@@ -1,87 +1,86 @@
  <!--== Start Header Section ==-->
  <header id="header-area">
-  <!-- Start PreHeader Area -->
-  <div class="preheader-area">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-7 col-lg-6">
-                  <div
-                      class="preheader-contact-info d-flex align-items-center justify-content-between justify-content-md-start">
-                      <div class="single-contact-info">
-                          <span class="contact-icon">
-                              <i class="fa fa-envelope"></i>
-                          </span>
-                          <a href="mailto:your@example.com" class="contact-text">
-                              <strong>Email:</strong> pineaplesupermarket@email.com
-                          </a>
-                      </div>
-                      <div class="single-contact-info">
-                          <span class="contact-icon">
-                              <i class="fa fa-phone"></i>
-                          </span>
-                          <a href="tel:01816277243" class="contact-text">
-                              <strong>Teléfono:</strong> (+1) 866-540-3229
-                          </a>
-                      </div>
-                  </div>
-              </div>
+   <!-- Start PreHeader Area -->
+   <div class="preheader-area">
+     <div class="container">
+       <div class="row">
+         <div class="col-md-7 col-lg-6">
+           <div class="preheader-contact-info d-flex align-items-center justify-content-between justify-content-md-start">
+             <div class="single-contact-info">
+               <span class="contact-icon">
+                 <i class="fa fa-envelope"></i>
+               </span>
+               <a href="mailto:your@example.com" class="contact-text">
+                 <strong>Email:</strong> pineaplesupermarket@email.com
+               </a>
+             </div>
+             <div class="single-contact-info">
+               <span class="contact-icon">
+                 <i class="fa fa-phone"></i>
+               </span>
+               <a href="tel:01816277243" class="contact-text">
+                 <strong>Teléfono:</strong> (+1) 866-540-3229
+               </a>
+             </div>
+           </div>
+         </div>
 
-              <div class="col-md-5 col-lg-6 mt-xs-10">
-                  <div class="site-setting-menu">
-                      <ul class="nav justify-content-center justify-content-md-end">
-                          <li><a [routerLink]="['/login']" >Iniciar sesión</a></li> 
-                          <li><a routerLink="home" (click)="onLogout()"   >Cerrar sesión</a></li> 
-                      </ul>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <!-- End PreHeader Area -->
+         <div class="col-md-5 col-lg-6 mt-xs-10">
+           <div class="site-setting-menu">
+             <ul class="nav justify-content-center justify-content-md-end">
+               <li *ngIf="!logueado"><a [routerLink]="['/login']">Iniciar sesión</a></li>
+               <li *ngIf="logueado"><a [routerLink]="['/home']" (click)="onLogout()">Cerrar sesión</a></li>
+             </ul>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   <!-- End PreHeader Area -->
 
 
-  <!-- Start Main Menu Area -->
-  <div class="navigation-area" id="fixheader">
-      <div class="container">
-          <div class="row">
-              <!-- Categories List Start -->
-              <div class="col-10 col-lg-3 m-auto text-center text-lg-left">
-                <a routerLink="home" class="logo-wrap d-block">
-                    <img src="assets/img/logo.png" alt="Logo" class="img-fluid" />
-                </a>
+   <!-- Start Main Menu Area -->
+   <div class="navigation-area" id="fixheader">
+     <div class="container">
+       <div class="row">
+         <!-- Categories List Start -->
+         <div class="col-10 col-lg-3 m-auto text-center text-lg-left">
+           <a [routerLink]="['/home']" class="logo-wrap d-block">
+             <img src="assets/img/logo.png" alt="Logo" class="img-fluid" />
+           </a>
 
-            <!-- Logo Area End -->
-              </div>
-              <!-- Categories List End -->
+           <!-- Logo Area End -->
+         </div>
+         <!-- Categories List End -->
 
-              <!-- Main Menu Start -->
-              <div class="col-2 col-lg-9 d-none d-lg-block">
-                  <div class="main-menu-wrap">
-                      <nav class="mainmenu">
-                          <ul class="main-navbar clearfix">
-                              <li><a routerLink="home">Home</a></li>
-                              <li><a routerLink="/index">About Us</a></li>
-                              <li class="dropdown-show"><a routerLink="productos" class="arrow-toggle">Productos</a>
-                                <ul class="dropdown-nav sub-dropdown">
-                                    <li><a routerLink="productos">Todos los productos</a></li>
-                                    <li><a routerLink="editaProducto">Nuevo Producto</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-show"><a routerLink="usuarios" class="arrow-toggle">Usuarios</a>
-                                <ul class="dropdown-nav sub-dropdown">
-                                    <li><a routerLink="usuarios">Todos los usuarios</a></li>
-                                    <li><a routerLink="nuevo-usuario">Nuevo Usuario</a></li>
-                                </ul>
-                            </li>
-                            <li class="d-none logg"><a [routerLink]="['/login']">Iniciar sesión</a></li>
-                          </ul>
-                      </nav>
-                  </div>
-              </div>
-              <!-- Main Menu End -->
-          </div>
-      </div>
-  </div>
-  <!-- End Main Menu Area -->
-</header>
-<!--== End Header Section ==-->
+         <!-- Main Menu Start -->
+         <div class="col-2 col-lg-9 d-none d-lg-block">
+           <div class="main-menu-wrap">
+             <nav class="mainmenu">
+               <ul class="main-navbar clearfix">
+                 <li><a [routerLink]="['/home']">Home</a></li>
+                 <li *ngIf="logueado"><a [routerLink]="['/index']">Menú principal</a></li>
+                 <li *ngIf="logueado" class="dropdown-show"><a class="arrow-toggle">Productos</a>
+                   <ul class="dropdown-nav sub-dropdown">
+                     <li><a [routerLink]="['/productos']">Todos los productos</a></li>
+                     <li><a [routerLink]="['/editaProducto']">Nuevo Producto</a></li>
+                   </ul>
+                 </li>
+                 <li *ngIf="logueado && isAdmin" class="dropdown-show"><a class="arrow-toggle">Usuarios</a>
+                   <ul class="dropdown-nav sub-dropdown">
+                     <li><a [routerLink]="['/usuarios']">Todos los usuarios</a></li>
+                     <li><a [routerLink]="['/nuevo-usuario']">Nuevo Usuario</a></li>
+                   </ul>
+                 </li>
+                 <li *ngIf="logueado"><a href="#"> {{ infoUsuarioLogueado.nombreUsuarioDetalle }}  {{ infoUsuarioLogueado.apellido1UsuarioDetalle }} </a></li>
+               </ul>
+             </nav>
+           </div>
+         </div>
+         <!-- Main Menu End -->
+       </div>
+     </div>
+   </div>
+   <!-- End Main Menu Area -->
+ </header>
+ <!--== End Header Section ==-->

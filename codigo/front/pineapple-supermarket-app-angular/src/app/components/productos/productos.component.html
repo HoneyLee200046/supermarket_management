@@ -1,3 +1,4 @@
+<app-header></app-header>
 <!--== Page Content Wrapper Start ==-->
 <div id="page-content-wrapper">
     <div class="container">
@@ -8,7 +9,7 @@
                     <input class="form-control mr-sm-2" type="search" placeholder="Buscar producto" aria-label="Search">
                     <ul class="mr-auto d-flex">
                         <li class="nav-item active">
-                        <a class="nav-link" routerLink="/editaProducto">Descargar <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" routerLink="/productos" (click)="exportAsXLSX()">Descargar <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -36,10 +37,10 @@
                         </div>
                     </div>
                 </div>
-                
-                
+
+
                 <!-- Productos Table Area -->
-                
+
                 <div *ngIf="!cargando" class="cart-table table-responsive">
                     <table class="table table-bordered">
                         <thead>
