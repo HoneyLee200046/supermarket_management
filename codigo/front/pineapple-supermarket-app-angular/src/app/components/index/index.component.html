@@ -1,4 +1,26 @@
-<p>index works!</p>
-<p *ngFor="let categoria of listaCategorias">
-  {{ categoria.nombreCategoria }}
-</p>
+<div>
+  <img src="assets/img/banner-supermarket.jpg" alt="" class="banner d-block w-100">
+  <div class="container pt-20">
+    <section class="mb-3">
+      <h2 class="subtitulo">Sobre el proyecto</h2>
+      <ul>
+        <li class="pt-1 pb-1"><a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a></li>
+      </ul>
+    </section>
+    <section class="mb-3">
+      <h2 class="subtitulo">Productos</h2>
+      <ul>
+        <li class="pt-1 pb-1"><a class="nav-link" routerLink="/productos">Todos los productos</a></li>
+        <li class="pt-1 pb-1"><a class="nav-link" routerLink="/editaProducto">Nuevo producto</a></li>
+      </ul>
+    </section>
+    <section class="mb-3">
+      <h2 class="subtitulo">Usuarios</h2>
+      <ul>
+        <li class="pt-1 pb-1"><a class="nav-link" routerLink="/usuarios">Todos los usuarios</a></li>
+        <li class="pt-1 pb-1"><a class="nav-link" routerLink="/nuevo-usuario">Nuevo usuario</a></li>
+      </ul>
+    </section>
+   
+  </div>
+</div>
