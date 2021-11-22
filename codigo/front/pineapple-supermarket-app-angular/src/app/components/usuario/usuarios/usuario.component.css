@@ -27,3 +27,8 @@
     text-align: right;
     margin-bottom: 10px;
 }
+
+.btn {
+    background-color: #6bc5b2;
+    border-radius: 5px;
+}
