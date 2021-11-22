@@ -1,3 +1,6 @@
+p{
+  text-align: justify;
+}
 .container h2 {
   position: relative;
   font-size: 28px;
@@ -112,7 +115,7 @@
 
   .team img {
     height:99px;
-    width: 94px;   
+    width: 94px;
   }
 
   .progamadora{

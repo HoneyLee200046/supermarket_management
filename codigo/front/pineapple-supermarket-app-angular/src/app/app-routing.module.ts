@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthorizatedGuard } from './guards/authorizated.guard';
 //Componentes
 import { HomeComponent } from './components/home/home.component';
-import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { IndexComponent } from './components/index/index.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { UsuarioComponent } from './components/usuario/usuarios/usuario.component';

@@ -1,26 +1,39 @@
+<app-header></app-header>
 <div>
   <img src="assets/img/banner-supermarket.jpg" alt="" class="banner d-block w-100">
-  <div class="container pt-20">
-    <section class="mb-3">
-      <h2 class="subtitulo">Sobre el proyecto</h2>
-      <ul>
-        <li class="pt-1 pb-1"><a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a></li>
-      </ul>
-    </section>
-    <section class="mb-3">
-      <h2 class="subtitulo">Productos</h2>
-      <ul>
-        <li class="pt-1 pb-1"><a class="nav-link" routerLink="/productos">Todos los productos</a></li>
-        <li class="pt-1 pb-1"><a class="nav-link" routerLink="/editaProducto">Nuevo producto</a></li>
-      </ul>
-    </section>
-    <section class="mb-3">
-      <h2 class="subtitulo">Usuarios</h2>
-      <ul>
-        <li class="pt-1 pb-1"><a class="nav-link" routerLink="/usuarios">Todos los usuarios</a></li>
-        <li class="pt-1 pb-1"><a class="nav-link" routerLink="/nuevo-usuario">Nuevo usuario</a></li>
-      </ul>
-    </section>
-   
+  <br><br>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card" style="width: 26rem;">
+          <img src="assets/img/Home.png" class="card-img-top" alt="Inicio del sitio web">
+          <div class="card-body">
+            <h5 class="card-title">Home</h5>
+            <p class="card-text">Esta opción te llevará a la página principal del sitio.</p>
+            <a [routerLink]="['/home']" class="btn btn-primary">Ir...</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card" style="width: 30rem;">
+          <img src="assets/img/products.jpg" class="card-img-top" alt="Inicio del sitio web">
+          <div class="card-body">
+            <h5 class="card-title">Productos</h5>
+            <p class="card-text">Esta opción te llevará a la página de administración del catálogo de productos.</p>
+            <a [routerLink]="['/productos']" class="btn btn-primary">Ir...</a>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="isAdminCard" class="col-md-4">
+        <div class="card" style="width: 26rem;">
+          <img src="assets/img/useradmin.jpg" class="card-img-top" alt="Inicio del sitio web">
+          <div class="card-body">
+            <h5 class="card-title">Catálogo de usuarios</h5>
+            <p class="card-text">Esta opción te llevará a la página de administración de usuarios.</p>
+            <a [routerLink]="['/usuarios']" class="btn btn-primary">Ir...</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

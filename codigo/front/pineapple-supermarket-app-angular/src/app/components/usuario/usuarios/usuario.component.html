@@ -1,4 +1,4 @@
- 
+<app-header></app-header> 
   <!--== Page Content Wrapper Start ==-->
   <div id="page-content-wrapper">
     <div class="container">
@@ -13,7 +13,7 @@
            <div class="col-lg-12">
             <form class="d-flex">
                 <input class="form-control search me-2" type="search" placeholder="Buscar" aria-label="Search">
-                
+
               </form>
            </div>
         </div>
@@ -37,9 +37,9 @@
                         <thead>
                             <tr>
                                 <th class="pro-thumbnail">Usuario</th>
-                                <th class="pro-title">Nombre</th> 
+                                <th class="pro-title">Nombre</th>
                                 <th class="pro-title">Apellidos</th>
-                                <th class="pro-title">Email</th>                               
+                                <th class="pro-title">Email</th>
                                 <th class="pro-quantity">Rol</th>
                                 <th class="pro-quantity">Fecha de creación</th>
                                 <th class="pro-subtotal">Editar</th>
@@ -50,16 +50,16 @@
                             <tr *ngFor="let usuario of listaUsuarios">
                                 <td class="pro-thumbnail">{{usuario.nombreUsuario}}</td>
                                 <td><a href="#">{{usuario.idUsuarioDetalle.nombreUsuarioDetalle}}</a></td>
-                                <td ><span>{{usuario.idUsuarioDetalle.apellido1UsuarioDetalle}}</span></td>  
-                                <td ><span>{{usuario.idUsuarioDetalle.correoUsuarioDetalle}}</span></td>                                 
-                                <td ><span>{{usuario.miembrosGrupoCollection[0].idGrupo.nombreGrupo}}</span></td>   
-                                <td ><span>{{usuario.fechaRegistroUsuario}}</span></td>   
-                                <td class="pro-editar"><a [routerLink]="'/nuevo-usuario'"><i class="fa fa-pencil-square-o"></i></a></td> 
+                                <td ><span>{{usuario.idUsuarioDetalle.apellido1UsuarioDetalle}}</span></td>
+                                <td ><span>{{usuario.idUsuarioDetalle.correoUsuarioDetalle}}</span></td>
+                                <td ><span>{{usuario.miembrosGrupoCollection[0].idGrupo.nombreGrupo}}</span></td>
+                                <td ><span>{{usuario.fechaRegistroUsuario}}</span></td>
+                                <td class="pro-editar"><a [routerLink]="'/nuevo-usuario'"><i class="fa fa-pencil-square-o"></i></a></td>
                                 <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                            </tr>               
+                            </tr>
                         </tbody>
                     </table>
-                </div>                
+                </div>
             </div>
         </div>
         <!-- Cart Page Content End -->
