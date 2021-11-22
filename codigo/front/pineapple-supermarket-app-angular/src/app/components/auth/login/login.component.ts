@@ -1,5 +1,5 @@
 import jwt_decode from 'jwt-decode';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 //model && interface
@@ -16,6 +16,7 @@ import { StorageService } from '../../../services/storage.service';
 })
 export class LoginComponent implements OnInit{
 
+  @Output() authEvent = new EventEmitter<any>();
   public formSubmitted = false;
   public loginForm = this.fb.group({
     usuario: ['', [Validators.required]],
@@ -45,7 +46,7 @@ export class LoginComponent implements OnInit{
           let perfil = decoded.authorities;
           this._storageService.setCurrentSession(data);
           this._storageService.setAnyItemSession("perfil", perfil);
-          this._router.navigate(["/index"]);
+          this._router.navigate(['/index']);
         }else{
           console.log("data");
           console.log(data);
@@ -61,5 +62,5 @@ export class LoginComponent implements OnInit{
 
   }
 
-  
+
 }

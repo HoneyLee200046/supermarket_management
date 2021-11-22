@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-//Service
-import { CatalogosService } from '../../services/catalogos.service';
 //Models
 import { Categoria } from '../../model/catalogos/categoria';
 
@@ -15,19 +13,10 @@ export class IndexComponent implements OnInit {
   listaCategorias:Categoria[] = [];
   categoriaTmp:Categoria = new Categoria();
 
-  constructor(private _catalogosService:CatalogosService) { }
+  constructor() { }
 
   ngOnInit(): void {
 
-    this._catalogosService.getCategoriasProductos()
-    .subscribe((data:any[]) => {
-      this.categoriaTmp.nombreCategoria = "Selecciona una opción";
-      this.listaCategorias.push(this.categoriaTmp);
-      data.forEach(element => {
-        this.categoriaTmp = element;
-        this.listaCategorias.push(this.categoriaTmp);
-      });
-    });
   }
 
 }
