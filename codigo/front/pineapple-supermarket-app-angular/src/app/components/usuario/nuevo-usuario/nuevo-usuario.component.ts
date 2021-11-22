@@ -39,17 +39,19 @@ export class NuevoUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.cargarUsuario();
+    this.cargarUsuario();   
+    this.cargarRoles();
+  }
 
+  cargarRoles(){
     this._usuariosService.getRoles()
-        .subscribe( (data:any ) => {
-         
-          data.forEach((element:Roles) => {
-            this.rolTemp = element;
-            this.listaRoles.push(this.rolTemp);
-          }) 
-        });     
-        
+    .subscribe( (data:any ) => {
+     
+      data.forEach((element:Roles) => {
+        this.rolTemp = element;
+        this.listaRoles.push(this.rolTemp);
+      }) 
+    });    
   }
 
   cargarUsuario():void{    
