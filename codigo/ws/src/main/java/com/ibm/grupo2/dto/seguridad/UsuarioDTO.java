@@ -117,7 +117,7 @@ public class UsuarioDTO {
                 ", \"fechaRegistroUsuario\":\"" + this.fechaRegistroUsuario + "\"" +
                 ", \"fechaBajaUsuario\":" + this.fechaBajaUsuario + 
                 ", \"estatusUsuario\":" + this.estatusUsuario + 
-                ", \"idUsuarioDetalle\":\"" + this.idUsuarioDetalle.toString() + "}";
+                ", \"idUsuarioDetalle\":" + this.idUsuarioDetalle.toString() + "}";
     }
     
 }

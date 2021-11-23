@@ -1,0 +1,112 @@
+<app-header></app-header>
+<!--== Page Content Wrapper Start ==-->
+<div id="page-content-wrapper">
+    <div class="container">
+        <!--== Checkout Page Content Area ==-->
+        <div class="row">
+            <!-- Checkout Editar/Crear Producto -->
+            <div class="col-lg-6 ">
+                <div class="checkout-billing-details-wrap">
+                    <h2>Editar/Crear Producto</h2>
+                    <div class="billing-form-wrap">
+                        <form [formGroup]="productoForm" (ngSubmit)="guardar()" enctype="multipart/form-data">
+                            <div class="row">
+
+                            <div class="single-input-item">
+                                <label for="file" class="required">Imagen</label>
+                                <div *ngIf="previsualizacion">
+                                    <img width="100px" [src]="previsualizacion">
+                                </div>
+                                <input type="file" ng-model="file" formControlName="file" name="file" (change)="capturarFile($event)"/>
+                            </div>
+
+                            <div *ngIf="campoNoValido('file')" class="alert alert-danger" role="alert">
+                                La imagen del producto es requerida
+                            </div>
+
+
+                            <div class="single-input-item">
+                                <label for="nombre" class="required">Nombre del Producto</label>
+                                <input type="text" id="nombre" placeholder="Nombre" formControlName="nombre"/>
+                            </div>
+
+                            <div *ngIf="campoNoValido('nombre')" class="alert alert-danger" role="alert">
+                                El nombre del producto es requerido
+                            </div>
+
+                            <div class="single-input-item">
+                                <label for="serial" class="required">Serial</label>
+                                <input type="text" id="serial" placeholder="Serial" formControlName="serial"/>
+                            </div>
+
+                            <div *ngIf="campoNoValido('serial')" class="alert alert-danger" role="alert">
+                                El serial del producto es requerido
+                            </div>
+
+                            <div class="single-input-item">
+                                <label for="categoria" class="required">Categoria</label>
+                                <select formControlName="catCategorias" class="nice-select" [compareWith]="compararCategoria">
+                                    <option value="">-- Selecciona una opción --</option>
+                                    <option *ngFor="let categoria of listaCategorias" [ngValue]="categoria">
+                                        {{ categoria.nombreCategoria }}
+                                    </option>
+                                </select>
+                            </div>
+                            <div *ngIf="campoNoValido('catCategorias')" class="alert alert-danger" role="alert">
+                                 Selecciona la categoria
+                            </div>
+
+                            <div class="single-input-item">
+                                <label for="descripcion" class="required">Descripcion</label>
+                                <input type="text" id="descripcion" placeholder="Descripcion" formControlName="descripcion"/>
+                            </div>
+
+                            <div *ngIf="campoNoValido('descripcion')" class="alert alert-danger" role="alert">
+                                La descripción del producto es requerida
+                           </div>
+
+                            <div class="single-input-item">
+                                <label for="cantidad" class="required">Cantidad</label>
+                                <input type="number" id="cantidad" placeholder="0" formControlName="cantidad"/>
+                            </div>
+
+                            <div *ngIf="campoNoValido('cantidad')" class="alert alert-danger" role="alert">
+                               La cantidad del inventario es requerida
+                           </div>
+
+                            <div class="single-input-item">
+                                <label for="unidad" class="required">Unidad de Medida</label>
+                                <select formControlName="catUnidadMedida" class="nice-select" [compareWith]="compararUnidad">
+                                    <option value="">-- Selecciona una opción --</option>
+                                    <option *ngFor="let unidadMedida of listaUnidadMedida" [ngValue]="unidadMedida">
+                                        {{ unidadMedida.nombreUnidadMedida }}
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div *ngIf="campoNoValido('catUnidadMedida')" class="alert alert-danger" role="alert">
+                               Selecciona la unidad de medida del producto
+                            </div>
+
+                            <div class="single-input-item">
+                                <label for="precio" class="required">Precio Unitario</label>
+                                <input type="text" id="precio" placeholder="0.0" formControlName="precio"/>
+                            </div>
+
+                            <div *ngIf="campoNoValido('precio')" class="alert alert-danger" role="alert">
+                                El precio no debe de estar vacio
+                            </div>
+
+                            <div class="single-input-item">
+                                <button class="btn">Guardar</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--== Checkout Page Content End ==-->
+    </div>
+</div>
+<!--== Page Content Wrapper End ==-->

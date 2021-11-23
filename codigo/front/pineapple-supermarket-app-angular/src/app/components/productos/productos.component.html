@@ -1,0 +1,82 @@
+<app-header></app-header>
+<!--== Page Content Wrapper Start ==-->
+<div id="page-content-wrapper">
+    <div class="container">
+        <!-- Productos Page Content Start -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="filtros d-flex">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar producto" aria-label="Search">
+                    <ul class="mr-auto d-flex">
+                        <li class="nav-item active">
+                        <a class="nav-link" routerLink="/productos" (click)="exportAsXLSX()">Descargar <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categoria
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                        </li>
+                        <li class="nav-item">
+                            <button clbuttonss="nav-link" class="btn" ><a routerLink="/editaProducto">Añadir producto</a></button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="row" *ngIf="cargando">
+                    <div class="col-12">
+                        <div class="alert alert-info text-center">
+                            <h4 class="alert-heading">Cargando</h4>
+                            <i class="fa fa-spin fa-refresh fa-2x"></i>
+                            <p class="mb-0">Por favor espere</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Productos Table Area -->
+
+                <div *ngIf="!cargando" class="cart-table table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="pro-imagen">Imagen </th>
+                                <th class="pro-nombre">Nombre <i class="fa fa-chevron-down"></i></th>
+                                <th class="pro-serial">Serial</th>
+                                <th class="pro-categoria">Categoria <i class="fa fa-chevron-down"></i></th>
+                                <th class="pro-descripcion">Descripcion</th>
+                                <th class="pro-cantidad">Cantidad</th>
+                                <th class="pro-unidad">Unidad de Medida <i class="fa fa-chevron-down"></i></th>
+                                <th class="pro-precioUnitario">Precio Unitario <i class="fa fa-chevron-down"></i></th>
+                                <th class="pro-editar">Editar</th>
+                                <th class="pro-eliminar">Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let producto of listaProductos">
+                                <td class="pro-imagen"><a href="#"><img class="img-fluid"
+                                            src="assets/img/product-1.jpg" alt="Product" /></a></td>
+                                <td class="pro-nombre">{{ producto.nombreProducto }}</td>
+                                <td class="pro-serila">{{ producto.serialProducto }}</td>
+                                <td class="pro-categoria">{{ producto.idCategoria.nombreCategoria }}</td>
+                                <td class="pro-descripcion">{{ producto.descripcionProducto }}</td>
+                                <td class="pro-cantidad">{{ producto.cantidadProducto }}</td>
+                                <td class="pro-unidad">{{ producto.idUnidadMedida.nombreUnidadMedida }}</td>
+                                <td class="pro-precioUnitario">{{ producto.precioUnitario }}</td>
+                                <td class="pro-editar"><a routerLink="/editaProducto"><i class="fa fa-pencil-square-o"></i></a></td>
+                                <td class="pro-eliminar"><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Productos Page Content End -->
+    </div>
+</div>
+<!--== Page Content Wrapper End ==-->

@@ -1,0 +1,149 @@
+p{
+  text-align: justify;
+}
+.container h2 {
+  position: relative;
+  font-size: 28px;
+  padding-bottom: 0.5rem;
+}
+.container h2:after {
+  content: "";
+  width: 80px;
+  height: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #6bc5b2;
+}
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  height: 350px;
+}
+.about-pineapple p {
+  font-size: 16px;
+}
+
+.about-pineapple .btn-proyecto {
+  background: #6bc5b2;
+  border: 2px solid #6bc5b2;
+  border-radius: 4px;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+.about-pineapple .btn-proyecto:hover{
+    background: #232323;
+  border: 2px solid #232323;
+}
+.about-pineapple .img-about {
+  height: 300px;
+  object-fit: cover;
+}
+.about-pineapple,
+.team {
+  padding: 2rem 0;
+}
+.team .programmers {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+.team .programmers .programmer {
+  padding: 0 15px;
+}
+.team img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: auto;
+}
+.team .data-programmer {
+  background-color: #232323;
+  padding: 10px 20px;
+  position: relative;
+  transition: 0.3s all;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+.team .data-programmer .name {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+.team .data-programmer:hover {
+  background-color: #6bc5b2;
+  color: #232323;
+}
+
+.team .data-programmer::before {
+  content: "";
+  position: absolute;
+  height: 90px;
+  width: 100%;
+  border: 2px solid #232323;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition: 0.3s all;
+  transform: translateY(-98%);
+}
+
+.team .data-programmer ul li {
+  display: inline-block;
+}
+.team .data-programmer ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 0 5px;
+}
+.col-md-3 {
+  width: 20%;
+}
+
+@media only screen and (max-width: 984px) {
+  .about-pineapple{
+    flex-direction: column;
+  }
+
+  .team img {
+    height:99px;
+    width: 94px;
+  }
+
+  .progamadora{
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 764px) {
+
+  .about-pineapple{
+    margin-top:-100px;
+  }
+
+  .programmers{
+    flex-flow: row wrap;
+  }
+
+  .programmer {
+    width:50% !important;
+  }
+
+}
+
+@media only screen and (max-width: 383px) {
+
+  .about-pineapple{
+    padding:10px;
+    margin-top: -228px;
+  }
+
+}

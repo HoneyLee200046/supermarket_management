@@ -90,6 +90,16 @@ public class SeguridadService {
         return "Bearer " + token;
     }
 
+    public List<UsuarioDTO> findAll(){
+        List<Usuario> listabd =  (List<Usuario>) usuarioRepo.findAll();
+        List<UsuarioDTO> resultado = new ArrayList<>();
+        listabd.forEach((usuario)-> {
+            resultado.add(crearUsuarioDTO(usuario));
+        });
+
+        return resultado;
+    }
+
     private UsuarioDTO crearUsuarioDTO(Usuario usuarioBD) {
         UsuarioDTO respuesta = new UsuarioDTO();
         List<MiembroGrupoDTO> listaPerfiles = new ArrayList<>();

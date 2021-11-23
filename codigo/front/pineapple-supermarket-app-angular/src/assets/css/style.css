@@ -619,7 +619,7 @@ only screen and (max-width: 767px) {
 }
 
 #page-content-wrapper {
-  padding: 70px 0;
+  padding: 25px 0;
 }
 
 @media only screen and (max-width: 479px),
@@ -2771,7 +2771,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 
 .cart-table .table thead {
-  background-color: #9add42;
+  background-color: #cecacd;
 }
 
 .cart-table .table thead tr th {
@@ -2805,11 +2805,16 @@ only screen and (min-width: 768px) and (max-width: 991px) {
   color: #fff;
 }
 
-.cart-table .table tr .pro-thumbnail,
-.cart-table .table tr .pro-price,
-.cart-table .table tr .pro-quantity,
-.cart-table .table tr .pro-subtotal,
-.cart-table .table tr .pro-remove {
+.cart-table .table tr .pro-imagen,
+.cart-table .table tr .pro-nombre,
+.cart-table .table tr .pro-serial,
+.cart-table .table tr .pro-categoria,
+.cart-table .table tr .pro-descripcion,
+.cart-table .table tr .pro-cantidad,
+.cart-table .table tr .pro-unidad,
+.cart-table .table tr .pro-precioUnitario,
+.cart-table .table tr .pro-editar,
+.cart-table .table tr .pro-eliminar {
   width: 140px;
 }
 
@@ -3422,7 +3427,7 @@ only screen and (min-width: 1200px) {
 .single-input-item textarea {
   background-color: #f4f5f7;
   border: 1px solid #c5c5c5;
-  padding: 15px 20px;
+  padding: 6px 20px;
   outline: none;
   -webkit-transition: all 0.4s ease-out;
   -moz-transition: all 0.4s ease-out;
@@ -3454,7 +3459,7 @@ only screen and (min-width: 1200px) {
 
 .single-input-item .nice-select {
   width: 100%;
-  padding: 15px 20px;
+  padding: 6px 20px;
   background-color: #f4f5f7;
   border: 1px solid #c5c5c5;
 }
@@ -4020,12 +4025,20 @@ only screen and (max-width: 767px) {
 .contact-info .single-contact-info:last-child {
   margin-bottom: 0;
 }
+footer{
+  margin-top:60px;
+}
 
 .footer-bttom-area {
   background-color: #262626;
   color: #adadad;
   font-size: 1.3rem;
-  padding: 30px 0;
+  padding: 10px 0;
+ /* position:fixed;  */
+  left:0px;
+  bottom:0px; 
+  width:100%;
+ 
 }
 
 .footer-bttom-area a {

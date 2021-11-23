@@ -1,0 +1,74 @@
+#fixheader{
+    background: #6bc5b2;
+}
+
+
+.mainmenu ul>li:hover>a {
+    background-color:#54B8B1;
+  }
+
+  .dropdown-nav {
+    background-color: #fff ;
+}
+
+.dropdown-nav li a {
+   color:black;
+  }
+
+  .preheader-area {
+    background-color: #FEFEFF;
+    border-bottom: 1px solid #525d64;
+ 
+  }
+
+  .single-contact-info:hover .contact-icon {
+    background-color: #6bc5b2;
+    color: #fff;
+  }
+
+  .site-setting-menu ul.nav li a {
+    color: gray;
+  }
+
+  .single-contact-info .contact-text {
+    color: gray;
+}
+
+  
+.single-contact-info:hover .contact-text strong {
+    color: black;
+  }
+
+  .site-setting-menu ul.nav li a:hover {
+    color: black;
+  }
+
+  .single-contact-info .contact-text strong {
+    color: #b3abab;
+  }
+
+  .single-contact-info .contact-text strong:hover {
+    color: black;
+  }
+
+  .single-contact-info .contact-text:hover {
+    color: black;
+  }
+
+  .single-contact-info:hover .contact-text {
+    color: black;
+  }
+
+  @media screen and (min-width: 300px) and (max-width: 800px) { 
+    
+  .preheader-area{
+    display: none;
+  }
+
+  .logg{
+    display: block !important;
+  }
+
+
+   }
+
