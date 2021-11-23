@@ -19,6 +19,7 @@ export class ProductosComponent implements OnInit {
   });
   listaProductos:Producto[] = [];
   public cargando : boolean = true;
+  public ordenDesc:boolean = true;
 
   constructor(private fb: FormBuilder,
               private _productoService:ProductoService,
@@ -41,7 +42,8 @@ export class ProductosComponent implements OnInit {
     this._exportarService.exportToExcel(this.listaProductos, 'Productos');
   }
 
-  sort(colName:string){
+  sortDesc(colName:string){
+    this.ordenDesc = false;
     switch (colName) {
       case 'nombreCategoria':
         this.listaProductos.sort((a, b) => a['idCategoria'][colName] > b['idCategoria'][colName] ? 1 : a['idCategoria'][colName] < b['idCategoria'][colName] ? -1 : 0);
@@ -52,6 +54,22 @@ export class ProductosComponent implements OnInit {
 
       default:
         this.listaProductos.sort((a, b) => a[colName] > b[colName] ? 1 : a[colName] < b[colName] ? -1 : 0);
+        break;
+    }
+  }
+
+  sortAsc(colName:string){
+    this.ordenDesc = true;
+    switch (colName) {
+      case 'nombreCategoria':
+        this.listaProductos.sort((a, b) => b['idCategoria'][colName] > a['idCategoria'][colName] ? 1 : b['idCategoria'][colName] < a['idCategoria'][colName] ? -1 : 0);
+        break;
+      case 'nombreUnidadMedida':
+        this.listaProductos.sort((a, b) => b['idUnidadMedida'][colName] > a['idUnidadMedida'][colName] ? 1 : b['idUnidadMedida'][colName] < a['idUnidadMedida'][colName] ? -1 : 0);
+        break;
+
+      default:
+        this.listaProductos.sort((a, b) => b[colName] > a[colName] ? 1 : b[colName] < a[colName] ? -1 : 0);
         break;
     }
   }
