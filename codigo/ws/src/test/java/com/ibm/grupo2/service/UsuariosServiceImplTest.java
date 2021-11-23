@@ -9,7 +9,8 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.ibm.grupo2.model.seguridad.Usuario;
-import com.ibm.grupo2.repository.usuarios.UsuariosRepo;
+import com.ibm.grupo2.repository.seguridad.UsuarioRepo;
+
 
 /**
 *
@@ -19,7 +20,7 @@ import com.ibm.grupo2.repository.usuarios.UsuariosRepo;
 public class UsuariosServiceImplTest {
 	
 	@Mock
-	UsuariosRepo usuariosRepo;
+	UsuarioRepo usuariosRepo;
 	
 	@InjectMocks
 	UsuariosServiceImpl usuariosServiceImpl;
