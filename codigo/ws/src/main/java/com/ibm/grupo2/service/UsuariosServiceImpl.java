@@ -13,16 +13,18 @@ import com.ibm.grupo2.model.seguridad.Usuario;
 @Service
 public class UsuariosServiceImpl implements UsuariosService{
 
-    @Autowired
     private UsuariosRepo usuariosRepo;
-
+    
+    public UsuariosServiceImpl(UsuariosRepo usuariosRepo) {
+		this.usuariosRepo = usuariosRepo;
+	}
   
     // @Override
     // public List<Usuario> findAll(){
     //     return (List<Usuario>) usuariosRepo.findAll();
     // }
   
-    @Override  
+	@Override  
     public Usuario findById(Integer id){
         return usuariosRepo.findById(id).orElse(null);
     }
