@@ -72,7 +72,7 @@
                      <li><a [routerLink]="['/nuevo-usuario']">Nuevo Usuario</a></li>
                    </ul>
                  </li>
-                 <li><a href="#"> {{ infoUsuarioLogueado.nombreUsuarioDetalle }}  {{ infoUsuarioLogueado.apellido1UsuarioDetalle }} </a></li>
+                 <li *ngIf="logueado"><a href="#"> {{ infoUsuarioLogueado.nombreUsuarioDetalle }}  {{ infoUsuarioLogueado.apellido1UsuarioDetalle }} </a></li>
                </ul>
              </nav>
            </div>
