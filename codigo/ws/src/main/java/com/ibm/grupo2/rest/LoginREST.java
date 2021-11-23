@@ -45,6 +45,7 @@ public class LoginREST {
 
     @PostMapping(value = "/login")
     @ResponseBody
+    @Transactional
     public Map<String, Object>post(@Valid @RequestBody UsuarioDTO usuario, RedirectAttributes redAttr) {
         try {
             Map resultado = seguridadService.buscarUsuario(usuario);

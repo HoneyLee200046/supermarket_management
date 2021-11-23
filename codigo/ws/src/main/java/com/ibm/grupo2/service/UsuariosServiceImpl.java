@@ -12,14 +12,13 @@ public class UsuariosServiceImpl implements UsuariosService{
 
     @Autowired
     private UsuarioRepo usuariosRepo;
-
   
     // @Override
     // public List<Usuario> findAll(){
     //     return (List<Usuario>) usuariosRepo.findAll();
     // }
   
-    @Override  
+	@Override  
     public Usuario findById(Integer id){
         return usuariosRepo.findById(id).orElse(null);
     }

@@ -18,14 +18,13 @@ import com.ibm.grupo2.repository.producto.UnidadMedidaRepository;
 @Service
 public class CatalogosServiceImpl implements CatalogosService {
 	
-	@Autowired
 	private CategoriaRepository categoriaRepository;
 	
-	@Autowired
 	private UnidadMedidaRepository unidadMedidaRepository;
 
-	public CatalogosServiceImpl() {
-		
+	public CatalogosServiceImpl(CategoriaRepository categoriaRepository, UnidadMedidaRepository unidadMedidaRepository) {
+		this.categoriaRepository = categoriaRepository;
+		this.unidadMedidaRepository = unidadMedidaRepository;
 	}
 
 	@Override
