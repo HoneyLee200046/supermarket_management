@@ -490,9 +490,4 @@
         //load function code here
     }); //window load End
 
-    // Copyright Year
-    var yearSelector = document.querySelector(".copyright-year");
-    var date = new Date();
-    var year = date.getFullYear();
-    yearSelector.innerHTML = year;
 }(jQuery));
