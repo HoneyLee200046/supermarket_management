@@ -21,7 +21,13 @@
 
 ## 1. Sobre el proyecto
 
+John Smith es el presidente del Pineapple Supermarket, un negocio que comenzó como una pequeña tienda de abarrotes familiar y que hasta ahora ha llevado la contabilidad de su inventario de forma manual y escrita. El negocio ha prosperado los últimos meses y ahora inaugurarán su primer supermercado.
+
 ## 2. Sobre Pineapple
+
+Pineapple Supermarket es una aplicación web que permite administrar el inventario de productos de un Supermercado online.
+
+El proyecto tiene como objetivo desarrollar un microservicio que permita crear, actualizar, borrar y listar productos (CRUD), de un inventario de supermercado, además que pueda ser visualizado en la web, para poder hacer una búsqueda, ordenar y exportar los productos en un archivo Excel.
 
 ## 3. Configuracion
 
@@ -34,16 +40,17 @@
 
 ## 5. Arquitectura
 
-<p >
-  <img align="right" height="220px" src="https://user-images.githubusercontent.com/68023969/124568512-9ffb0700-de0a-11eb-9c21-8d922ca16651.JPG">
+<p align="center">
+  <img  height="400px" src="https://user-images.githubusercontent.com/68023969/142970884-a199f450-fb50-4d1f-8099-dfc92c18895c.jpg">
 </p>
 
- 1. **Model:** layer where the classes that represent the tables in the database are created
- 2. **Controller:** is the presentation layer where the end points are located
- 3. **Service:** is the service layer where the business logic resides
- 4. **Repository:** is the persistence layer where the CRUD repository is located
- 5. **Exception:**
- 6. **Configuration:**
+ El sistema contiene 5 páginas de navegación
+ 
+ * **Home**: Página informativa inicial, contiene el	*Nombre del proyecto, Nombre del equipo, Nombre de los integrantes y	URL de Github*
+ * **Login**: Los usuarios que deseen ver navegar por la página, deberán autenticarse con su usuario y su contraseña. Asimismo, podrán hacer la recuperación de contraseña.
+ * **Menú principal**: Página que contiene el índice de las páginas que conforman la aplicación web.
+ * **Productos**: Contiene el listado de productos del Supermercado (name, product category, description, quantity, unit price, picture), y según el usuario podrá crear, editar, eliminar, ver y exportar la tabla.
+ * **Usuarios**: Visible solo para usuarios administradores y permite la administración de usuarios en el sistema.
  
  ## 6. Tenologías
  
