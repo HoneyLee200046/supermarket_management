@@ -17,7 +17,6 @@ import { StorageService } from '../../../services/storage.service';
 })
 export class LoginComponent implements OnInit {
 
-  @Output() authEvent = new EventEmitter<any>();
   public formSubmitted = false;
   public loginForm = this.fb.group({
     usuario: ['', [Validators.required]],
@@ -26,9 +25,9 @@ export class LoginComponent implements OnInit {
   private usuario: Usuario = new Usuario();
 
   constructor(private _router: Router,
-    private fb: FormBuilder,
-    private _seguridadService: SeguridadService,
-    private _storageService: StorageService) { }
+              private fb: FormBuilder,
+              private _seguridadService: SeguridadService,
+              private _storageService: StorageService) { }
 
   ngOnInit(): void {
     this._storageService.removeCurrentSession();

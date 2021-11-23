@@ -19,4 +19,9 @@ export class SeguridadService {
   getUsuarioSistema(usuario:Usuario):Observable<Usuariorespuesta>{
     return this._http.post<any>(`${this.urlWsSeguridad}login`, usuario);
   }
+
+  getPassword(correo:string):Observable<any>{
+    return this._http.post<any>(`${this.urlWsSeguridad}usuarioRec/${correo}`, correo);
+  }
+
 }

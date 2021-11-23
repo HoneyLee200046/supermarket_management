@@ -4,29 +4,26 @@
     <div class="container">
         <!-- Productos Page Content Start -->
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-md-12">
+              <form autocomplete="off" [formGroup]="busqProdForm">
                 <div class="filtros d-flex">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar producto" aria-label="Search">
+                        <input class="form-control" type="search" placeholder="Buscar producto" aria-label="Search" formControlName="termBusqueda">
                     <ul class="mr-auto d-flex">
-                        <li class="nav-item active">
-                        <a class="nav-link" routerLink="/productos" (click)="exportAsXLSX()">Descargar <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Categoria
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                        </li>
+                      <li>&nbsp;</li>
                         <li class="nav-item">
-                            <button clbuttonss="nav-link" class="btn" ><a routerLink="/editaProducto">Añadir producto</a></button>
+                        <button class="nav-link btn" [routerLink]="['/productos']" (click)="buscarProductos()" title="Buscar"><span class="fa fa-search"></span> <span class="sr-only">(current)</span></button>
+                        </li>
+                        <li>&nbsp;</li>
+                        <li class="nav-item">
+                        <button class="nav-link btn" (click)="exportAsXLSX()" title="Exportar csv"><span class="fa fa-download"></span> <span class="sr-only">(current)</span></button>
+                        </li>
+                        <li>&nbsp;</li>
+                        <li class="nav-item">
+                            <button class="nav-link btn"><a [routerLink]="['/editaProducto']" title="Añadir producto"><span class="fa fa-plus"></span></a></button>
                         </li>
                     </ul>
                 </div>
+              </form>
 
                 <div class="row" *ngIf="cargando">
                     <div class="col-12">
@@ -46,13 +43,24 @@
                         <thead>
                             <tr>
                                 <th class="pro-imagen">Imagen </th>
-                                <th class="pro-nombre">Nombre <i class="fa fa-chevron-down"></i></th>
-                                <th class="pro-serial">Serial</th>
-                                <th class="pro-categoria">Categoria <i class="fa fa-chevron-down"></i></th>
-                                <th class="pro-descripcion">Descripcion</th>
-                                <th class="pro-cantidad">Cantidad</th>
-                                <th class="pro-unidad">Unidad de Medida <i class="fa fa-chevron-down"></i></th>
-                                <th class="pro-precioUnitario">Precio Unitario <i class="fa fa-chevron-down"></i></th>
+                                <!-- Inician columnas orden descendente -->
+                                  <th *ngIf="ordenDesc" class="pro-nombre" (click)="sortDesc('nombreProducto')">Nombre <i class="fa fa-chevron-down"></i></th>
+                                  <th *ngIf="ordenDesc" class="pro-serial" (click)="sortDesc('serialProducto')">Serial</th>
+                                  <th *ngIf="ordenDesc" class="pro-categoria" (click)="sortDesc('nombreCategoria')">Categoria <i class="fa fa-chevron-down"></i></th>
+                                  <th *ngIf="ordenDesc" class="pro-descripcion" (click)="sortDesc('descripcionProducto')">Descripcion</th>
+                                  <th *ngIf="ordenDesc" class="pro-cantidad" (click)="sortDesc('cantidadProducto')">Cantidad</th>
+                                  <th *ngIf="ordenDesc" class="pro-unidad" (click)="sortDesc('nombreUnidadMedida')">Unidad de Medida <i class="fa fa-chevron-down"></i></th>
+                                  <th *ngIf="ordenDesc" class="pro-precioUnitario" (click)="sortDesc('precioUnitario')">Precio Unitario <i class="fa fa-chevron-down"></i></th>
+                                  <!-- terminan columnas orden descendente -->
+                                  <!-- Inician columnas orden ascendente -->
+                                  <th *ngIf="!ordenDesc" class="pro-nombre" (click)="sortAsc('nombreProducto')">Nombre <i class="fa fa-chevron-up"></i></th>
+                                  <th *ngIf="!ordenDesc" class="pro-serial" (click)="sortAsc('serialProducto')">Serial</th>
+                                  <th *ngIf="!ordenDesc" class="pro-categoria" (click)="sortAsc('nombreCategoria')">Categoria <i class="fa fa-chevron-up"></i></th>
+                                  <th *ngIf="!ordenDesc" class="pro-descripcion" (click)="sortAsc('descripcionProducto')">Descripcion</th>
+                                  <th *ngIf="!ordenDesc" class="pro-cantidad" (click)="sortAsc('cantidadProducto')">Cantidad</th>
+                                  <th *ngIf="!ordenDesc" class="pro-unidad" (click)="sortAsc('nombreUnidadMedida')">Unidad de Medida <i class="fa fa-chevron-up"></i></th>
+                                  <th *ngIf="!ordenDesc" class="pro-precioUnitario" (click)="sortAsc('precioUnitario')">Precio Unitario <i class="fa fa-chevron-up"></i></th>
+                                  <!-- Terminan columnas orden ascendente -->
                                 <th class="pro-editar">Editar</th>
                                 <th class="pro-eliminar">Eliminar</th>
                             </tr>

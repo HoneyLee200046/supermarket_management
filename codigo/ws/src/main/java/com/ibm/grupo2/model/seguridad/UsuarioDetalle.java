@@ -3,7 +3,6 @@ package com.ibm.grupo2.model.seguridad;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,10 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -46,8 +44,8 @@ public class UsuarioDetalle implements Serializable {
     @Basic(optional = false)
     @Column(name = "estatus_usuario_detalle")
     private Boolean estatusUsuarioDetalle;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUsuarioDetalle")
-    private Collection<Usuario> usuarioCollection;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "idUsuarioDetalle")
+    private Usuario usuario;
 
     public UsuarioDetalle() {
     }
@@ -104,13 +102,12 @@ public class UsuarioDetalle implements Serializable {
         this.estatusUsuarioDetalle = estatusUsuarioDetalle;
     }
 
-    @XmlTransient
-    public Collection<Usuario> getUsuarioCollection() {
-        return usuarioCollection;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUsuarioCollection(Collection<Usuario> usuarioCollection) {
-        this.usuarioCollection = usuarioCollection;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override

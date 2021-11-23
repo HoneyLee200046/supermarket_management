@@ -9,11 +9,13 @@
                     <div class="login-reg-form-wrap  pr-lg-50">
                         <h2>Recupera contraseña</h2>
 
-                        <form action="#" method="post">
+                        <form autocomplete="off" [formGroup]="recPwdForm" (ngSubmit)="recuperar()">
                             <div class="single-input-item">
-                                <input type="email" placeholder="Email" required />
+                                <input type="email" placeholder="Correo electrónico registrado" formControlName="mailUser" />
                             </div>
-
+                            <div *ngIf="campoNoValido('mailUser')" class="alert alert-danger" role="alert">
+                              El correo de tu usuario es requerido
+                            </div>
                             <div class="single-input-item">
                                 <button class="btn">Enviar</button>
                             </div>

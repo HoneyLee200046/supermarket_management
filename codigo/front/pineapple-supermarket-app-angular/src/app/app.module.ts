@@ -20,6 +20,7 @@ import { NuevoUsuarioComponent } from './components/usuario/nuevo-usuario/nuevo-
 import { LoginComponent } from './components/auth/login/login.component';
 import { EditaProductoComponent } from './components/edita-producto/edita-producto.component';
 import { RecuperaPswComponent } from './components/recupera-psw/recupera-psw.component';
+import { PerfilComponent } from './components/shared/perfil/perfil.component';
 
 
 
@@ -36,7 +37,8 @@ import { RecuperaPswComponent } from './components/recupera-psw/recupera-psw.com
     NuevoUsuarioComponent,
     LoginComponent,
     EditaProductoComponent,
-    RecuperaPswComponent
+    RecuperaPswComponent,
+    PerfilComponent
 
   ],
   imports: [
