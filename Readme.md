@@ -17,7 +17,7 @@
 * [4. Esquema](#4-esquema)
 * [5. Arquitectura](#5-arquitectura)
 * [6. Tecnologías](#6-tecnologias)
-* [7. Métodos desarrollados](#7-metodos)
+* [7. Métodos desarrollados](#7-metodos-desarrollados)
 
 ## 1. Sobre el proyecto
 
@@ -52,25 +52,22 @@ El proyecto tiene como objetivo desarrollar un microservicio que permita crear, 
  * **Productos**: Contiene el listado de productos del Supermercado (name, product category, description, quantity, unit price, picture), y según el usuario podrá crear, editar, eliminar, ver y exportar la tabla.
  * **Usuarios**: Visible solo para usuarios administradores y permite la administración de usuarios en el sistema.
  
- ## 6. Tenologías
+ ## 6. Tecnologías
  
- <p >
-  <img align="right" height="180px" src="https://user-images.githubusercontent.com/68023969/124051684-90328b80-d9e2-11eb-8ad6-0e960fdcb4a5.png">
-</p>
-
-- [x] Spring Boot (spring-boot-starter-web, spring-boot-starter-data-jpa, spring-boot-starter-test, spring-boot-starter-validation)
+- [x] Spring Boot
 - [x] Java 11
-- [x] Gradle
+- [x] Maven
 - [x] JPA
 - [x] MySQL
-- [x] JUnit and Mockito
+- [x] Angular
+- [x] JUnit
 
 ### Tests
 
- 1. **Integration Test (for the Controller):** it uses the Spring Boot Test framework with mockMvc and Jupyter
- 2. **Unit Test**
-    * **for the Service:** it uses the Mockito framework with hamcrest matchers, mock and injectMocks annotations 
-    * **for the Repository:**
+**Unit Test**
+
+   * **for the Service:** 
+   * **for the Repository:**
  
  ## 7. Métodos desarrollados
  
