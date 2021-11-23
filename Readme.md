@@ -11,25 +11,28 @@
 >Winning Women JA
 ## Index
 
-* [1. Overview](#1-overview)
-* [2. Configuration](#2-configuration)
-* [3. Schema](#3-schema)
-* [4. Architecture](#4-architecture)
-* [5. Technologies](#5-technologies)
-* [6. Developed methods](#6-Developed-methods)
+* [1. Sobre el proyecto](#1-sobre-el-proyecto)
+* [2. Sobre Pineapple](#2-sobre-pineapple)
+* [3. Configuracion](#3-configuracion)
+* [4. Esquema](#4-esquema)
+* [5. Arquitectura](#5-arquitectura)
+* [6. Tecnologías](#6-tecnologias)
+* [7. Métodos desarrollados](#7-metodos)
 
-## 1. Overview
+## 1. Sobre el proyecto
 
-## 2. Configuration
+## 2. Sobre Pineapple
 
-## 3. Schema
+## 3. Configuracion
+
+## 4. Esquema
 
 <p align="center">
   <img width=600px src="https://user-images.githubusercontent.com/68023969/142964935-4d11d6f3-4b65-46c2-9f2f-62fea19f478a.jpg" alt="Schema">
 </p>
 
 
-## 4. Architecture
+## 5. Arquitectura
 
 <p >
   <img align="right" height="220px" src="https://user-images.githubusercontent.com/68023969/124568512-9ffb0700-de0a-11eb-9c21-8d922ca16651.JPG">
@@ -42,7 +45,7 @@
  5. **Exception:**
  6. **Configuration:**
  
- ## 5. Technologies
+ ## 6. Tenologías
  
  <p >
   <img align="right" height="180px" src="https://user-images.githubusercontent.com/68023969/124051684-90328b80-d9e2-11eb-8ad6-0e960fdcb4a5.png">
@@ -62,7 +65,7 @@
     * **for the Service:** it uses the Mockito framework with hamcrest matchers, mock and injectMocks annotations 
     * **for the Repository:**
  
- ## 6. Developed methods
+ ## 7. Métodos desarrollados
  
  ```
 http://localhost:8081/api/book
