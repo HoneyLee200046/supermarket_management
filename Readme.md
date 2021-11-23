@@ -105,10 +105,10 @@ http://localhost:8081/api/book/getBookByState/{state}
 
  **HTTP Method: POST**
 
-*_Create book_*
+*_Crear producto_*
 
 ```
-http://localhost:8080/api/book/createBook
+http://localhost:8080/prod/productos
 ```
 ```
 {
