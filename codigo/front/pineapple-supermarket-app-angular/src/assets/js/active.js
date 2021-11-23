@@ -356,7 +356,7 @@
         });
 
         /// Nice Select JS
-        $('select').niceSelect();
+        // $('select').niceSelect();
 
         // Product View Style JS
         var view_style_wrap = $('.shop-page-products-wrap > .products-wrapper');
@@ -490,5 +490,4 @@
         //load function code here
     }); //window load End
 
-  
 }(jQuery));
