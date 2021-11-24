@@ -1,14 +1,15 @@
 export class Producto {
 
-        idProducto : number;
+    idProducto : number;
 		nombreProducto : string;
-        serialProducto : string;
+    serialProducto : string;
 		descripcionProducto : string;
-	    cantidadProducto : number;
+	   cantidadProducto : number;
 		precioUnitario : number;
 		urlImagen : string;
 		idCategoria : any;
 		idUnidadMedida : any;
+    imgBase64: string;
 
         constructor(){
             this.idProducto = 0;
@@ -20,5 +21,6 @@ export class Producto {
             this.urlImagen = "";
             this.idCategoria = "";
             this.idUnidadMedida = "";
+            this.imgBase64 = "";
         }
 }
