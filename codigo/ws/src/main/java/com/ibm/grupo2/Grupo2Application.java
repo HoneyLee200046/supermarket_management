@@ -41,7 +41,7 @@ public class Grupo2Application {
             http.csrf().disable()
                     .addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
                     .authorizeRequests()
-                    .antMatchers(HttpMethod.POST, "/auth/login").permitAll()
+                    .antMatchers(HttpMethod.POST, "/auth/**").permitAll()
                     .anyRequest().authenticated();
         }
 

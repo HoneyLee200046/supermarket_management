@@ -16,7 +16,7 @@ export class ServerErrorInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    if(!request.url.includes("login")){
+    if(!request.url.includes("auth")){
       if (this._storageService.getCurrentToken()  && !this.tokenExpired(this._storageService.getCurrentToken())) {
         request = this.addToken(request, this._storageService.getCurrentToken());
       }else{

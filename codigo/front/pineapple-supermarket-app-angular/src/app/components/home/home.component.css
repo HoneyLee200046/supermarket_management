@@ -77,6 +77,10 @@ p{
   font-weight: 700;
   margin: 0;
 }
+
+.name, .progamadora {
+  text-align: center;
+}
 .team .data-programmer:hover {
   background-color: #6bc5b2;
   color: #232323;
@@ -106,6 +110,10 @@ p{
 }
 .col-md-3 {
   width: 20%;
+}
+
+.aboutP{
+  padding-right: 30px;
 }
 
 @media only screen and (max-width: 984px) {

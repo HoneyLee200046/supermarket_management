@@ -72,7 +72,11 @@
                      <li><a [routerLink]="['/nuevo-usuario']">Nuevo Usuario</a></li>
                    </ul>
                  </li>
-                 <li *ngIf="logueado"><a href="#"> {{ infoUsuarioLogueado.nombreUsuarioDetalle }}  {{ infoUsuarioLogueado.apellido1UsuarioDetalle }} </a></li>
+                 <li *ngIf="logueado" class="dropdown-show"><a class="arrow-toggle"> {{ infoUsuarioLogueado.nombreUsuarioDetalle }}  {{ infoUsuarioLogueado.apellido1UsuarioDetalle }} </a>
+                   <ul class="dropdown-nav sub-dropdown">
+                     <li><a [routerLink]="['/perfil']">Perfil</a></li>
+                   </ul>
+                 </li>
                </ul>
              </nav>
            </div>
