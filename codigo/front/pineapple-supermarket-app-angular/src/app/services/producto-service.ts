@@ -34,4 +34,8 @@ private urlWsProducto = environment.ws.url+'prod/';
   getListaProductos():Observable<any[]>{
     return this._http.get<any[]>(`${this.urlWsProducto}productos`);
   }
+
+  getFotografia(ruta:string){
+    return this._http.get<any[]>(`${this.urlWsProducto}fotografia64/${ruta}`);
+  }
 }
