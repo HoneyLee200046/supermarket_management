@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 //model && interface
 import { Producto } from 'src/app/model/productos/producto';
 //service
 import { ProductoService } from 'src/app/services/producto-service';
 import { ExportarService } from '../../services/exportar.service';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-productos',
@@ -13,19 +14,17 @@ import { ExportarService } from '../../services/exportar.service';
 })
 export class ProductosComponent implements OnInit {
 
-  public formProdSubmitted = false;
-  public busqProdForm = this.fb.group({
-    termBusqueda: ['', Validators.required],
-  });
   listaProductos:Producto[] = [];
   public cargando : boolean = true;
   public ordenDesc:boolean = true;
 
-  constructor(private fb: FormBuilder,
+  constructor(private _router: Router,
+              private _storageService:StorageService,
               private _productoService:ProductoService,
               private _exportarService: ExportarService) { }
 
   ngOnInit(): void {
+    this._storageService.removeAnyItemSession("producto");
     this.cargarProductos();
   }
 
@@ -74,24 +73,32 @@ export class ProductosComponent implements OnInit {
     }
   }
 
-  buscarProductos(){
+  buscarProductos(termBusqueda:string){
+    let listaProductosTmp:Producto[] = [];
     this.cargando = true;
-    const {termBusqueda} = this.busqProdForm.value;
     if(termBusqueda !== ''){
-      let listaProductosTmp:Producto[] = [];
       let termino = termBusqueda.toLowerCase();
-
       for(let i = 0; i< this.listaProductos.length; i ++){
         let producto = this.listaProductos[i];
         let nombre = producto.nombreProducto.toLowerCase();
         if(nombre.indexOf( termino ) >= 0){
           listaProductosTmp.push( producto );
         }
-        this.listaProductos = listaProductosTmp;
-        this.cargando = false;
       }
+      this.listaProductos = listaProductosTmp;
+      this.cargando = false;
     }else{
       this.cargarProductos();
     }
+  }
+
+  nuevoProducto(){
+    this._storageService.setAnyItemSession("producto",new Producto());
+    this._router.navigate(['/editaProducto']);
+  }
+
+  editarProducto(currentProducto:Producto){
+    this._storageService.setAnyItemSession("producto", currentProducto);
+    this._router.navigate(['/editaProducto']);
   }
 }
