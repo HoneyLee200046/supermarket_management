@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 
-import com.ibm.grupo2.model.productos.Categoria;
 import com.ibm.grupo2.model.productos.Producto;
 
 /**

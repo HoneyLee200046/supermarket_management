@@ -5,25 +5,23 @@
         <!-- Productos Page Content Start -->
         <div class="row">
             <div class="col-md-12">
-              <form autocomplete="off" [formGroup]="busqProdForm">
-                <div class="filtros d-flex">
-                        <input class="form-control" type="search" placeholder="Buscar producto" aria-label="Search" formControlName="termBusqueda">
-                    <ul class="mr-auto d-flex">
+              <div class="filtros d-flex">
+                      <input class="form-control" type="search" placeholder="Buscar producto" aria-label="Search" (keyup.enter)="buscarProductos(buscarTexto.value)" #buscarTexto>
+                  <ul class="mr-auto d-flex">
+                    <li>&nbsp;</li>
+                      <li class="nav-item">
+                      <button class="nav-link btn" [routerLink]="['/productos']" (click)="buscarProductos(buscarTexto.value)" title="Buscar"><span class="fa fa-search"></span> <span class="sr-only">(current)</span></button>
+                      </li>
                       <li>&nbsp;</li>
-                        <li class="nav-item">
-                        <button class="nav-link btn" [routerLink]="['/productos']" (click)="buscarProductos()" title="Buscar"><span class="fa fa-search"></span> <span class="sr-only">(current)</span></button>
-                        </li>
-                        <li>&nbsp;</li>
-                        <li class="nav-item">
-                        <button class="nav-link btn" (click)="exportAsXLSX()" title="Exportar csv"><span class="fa fa-download"></span> <span class="sr-only">(current)</span></button>
-                        </li>
-                        <li>&nbsp;</li>
-                        <li class="nav-item">
-                            <button class="nav-link btn"><a [routerLink]="['/editaProducto']" title="Añadir producto"><span class="fa fa-plus"></span></a></button>
-                        </li>
-                    </ul>
-                </div>
-              </form>
+                      <li class="nav-item">
+                      <button class="nav-link btn" (click)="exportAsXLSX()" title="Exportar csv"><span class="fa fa-download"></span> <span class="sr-only">(current)</span></button>
+                      </li>
+                      <li>&nbsp;</li>
+                      <li class="nav-item">
+                          <button class="nav-link btn" title="Añadir producto" (click)="nuevoProducto()"><span class="fa fa-plus"></span></button>
+                      </li>
+                  </ul>
+              </div>
 
                 <div class="row" *ngIf="cargando">
                     <div class="col-12">
@@ -76,7 +74,7 @@
                                 <td class="pro-cantidad">{{ producto.cantidadProducto }}</td>
                                 <td class="pro-unidad">{{ producto.idUnidadMedida.nombreUnidadMedida }}</td>
                                 <td class="pro-precioUnitario">{{ producto.precioUnitario }}</td>
-                                <td class="pro-editar"><a routerLink="/editaProducto"><i class="fa fa-pencil-square-o"></i></a></td>
+                                <td class="pro-editar"><a (click)="editarProducto(producto)"><i class="fa fa-pencil-square-o"></i></a></td>
                                 <td class="pro-eliminar"><a href="#"><i class="fa fa-trash-o"></i></a></td>
                             </tr>
                         </tbody>

@@ -7,7 +7,8 @@
             <!-- Checkout Editar/Crear Producto -->
             <div class="col-lg-6 ">
                 <div class="checkout-billing-details-wrap">
-                    <h2>Editar/Crear Producto</h2>
+                    <h2 *ngIf="!editPage">Crear Producto</h2>
+                    <h2 *ngIf="editPage">Editar Producto</h2>
                     <div class="billing-form-wrap">
                         <form [formGroup]="productoForm" (ngSubmit)="guardar()" enctype="multipart/form-data">
                             <div class="row">
@@ -98,7 +99,9 @@
                             </div>
 
                             <div class="single-input-item">
-                                <button class="btn">Guardar</button>
+                                <button type="submit" class="btn">Guardar</button>
+                                &nbsp;
+                                <button type="button" class="btn" (click)="regresar()">Regresar</button>
                             </div>
                         </div>
                         </form>
