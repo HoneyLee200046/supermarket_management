@@ -29,6 +29,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.ibm.grupo2.model.productos.Categoria;
 import com.ibm.grupo2.model.productos.Producto;
 import com.ibm.grupo2.service.ProductoService;
+import java.util.Base64;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -75,7 +77,7 @@ public class ProductoREST {
                 redAttr.addFlashAttribute("detalle", resultado.getStatusCode());
             }
         } catch (Exception e) {
-            redAttr.addAttribute("mensaje", "error");
+            redAttr.addFlashAttribute("mensaje", "error");
         }
         return (Map<String, Object>) redAttr.getFlashAttributes();
     }
@@ -103,6 +105,23 @@ public class ProductoREST {
             redAttr.addFlashAttribute("error", "Error al subir el archivo");
         }
         return (Map<String, Object>) redAttr.getFlashAttributes();
+    }
+    
+    @GetMapping(value = "/fotografia64/{ruta}")
+    @ResponseBody
+    public Map<String, Object> buscarPendientes(@PathVariable("ruta") String ruta, 
+                                                       RedirectAttributes redirectAttributes) {
+        try {
+            File archivo = new File(ruta);
+            byte[] fileContent = Files.readAllBytes(archivo.toPath());
+            String encodedImage = Base64.getEncoder().encodeToString(fileContent);
+            redirectAttributes.addFlashAttribute("mensaje", "success");
+            redirectAttributes.addFlashAttribute("foto", encodedImage);
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("mensaje", "error");
+            redirectAttributes.addFlashAttribute("detalle", e.getClass().getCanonicalName());
+        }
+        return (Map<String, Object>) redirectAttributes.getFlashAttributes();
     }
 
 }
