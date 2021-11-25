@@ -22,11 +22,11 @@ export class NuevoUsuarioComponent implements OnInit {
  
 
   public usersForm = this.fb.group({
-    usuario : ['Gala', Validators.required],
-    nombre : ['Gala Karina', [Validators.required, Validators.minLength(3)]],
-    apellidos:['Reyes Peña', Validators.required],
-    email:['gala@gmail.com',[Validators.email, Validators.required]],
-    password: ['gala123456' , [Validators.required,Validators.minLength(8)]],
+    usuario : ['', Validators.required],
+    nombre : ['', [Validators.required, Validators.minLength(3)]],
+    apellidos:['', Validators.required],
+    email:['',[Validators.email, Validators.required]],
+    password: ['' , [Validators.required,Validators.minLength(8)]],
     rol:['', Validators.required ]   
   });
 

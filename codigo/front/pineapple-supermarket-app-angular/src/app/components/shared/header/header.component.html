@@ -63,13 +63,11 @@
                  <li *ngIf="logueado" class="dropdown-show"><a class="arrow-toggle">Productos</a>
                    <ul class="dropdown-nav sub-dropdown">
                      <li><a [routerLink]="['/productos']">Todos los productos</a></li>
-                     <li><a [routerLink]="['/editaProducto']">Nuevo Producto</a></li>
                    </ul>
                  </li>
                  <li *ngIf="logueado && isAdmin" class="dropdown-show"><a class="arrow-toggle">Usuarios</a>
                    <ul class="dropdown-nav sub-dropdown">
                      <li><a [routerLink]="['/usuarios']">Todos los usuarios</a></li>
-                     <li><a [routerLink]="['/nuevo-usuario']">Nuevo Usuario</a></li>
                    </ul>
                  </li>
                  <li *ngIf="logueado" class="dropdown-show"><a class="arrow-toggle"> {{ infoUsuarioLogueado.nombreUsuarioDetalle }}  {{ infoUsuarioLogueado.apellido1UsuarioDetalle }} </a>

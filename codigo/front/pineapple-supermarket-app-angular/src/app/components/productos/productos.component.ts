@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import jwt_decode from 'jwt-decode';
+import { Router } from '@angular/router';
+//model && interface
 import { Router } from '@angular/router';
 //model && interface
 import { Producto } from 'src/app/model/productos/producto';
@@ -15,6 +18,12 @@ import { StorageService } from '../../services/storage.service';
 export class ProductosComponent implements OnInit {
 
   listaProductos:Producto[] = [];
+
+  public cargando : boolean = true;
+  public ordenDesc:boolean = true;
+  public isAdmin:boolean = true;
+  public token:string = "";
+  public perfiles:string[] = [];
   public cargando : boolean = true;
   public ordenDesc:boolean = true;
 
@@ -25,12 +34,15 @@ export class ProductosComponent implements OnInit {
 
   ngOnInit(): void {
     this._storageService.removeAnyItemSession("producto");
+    this.token = this._storageService.getCurrentToken();
+    let decoded: any = jwt_decode(this.token);
+    this.perfiles = decoded.authorities;
+    this.isAdmin = this.perfiles.includes('admin');
     this.cargarProductos();
   }
 
   cargarProductos(){
     this.cargando= true;
-
     this._productoService.getListaProductos()
     .subscribe((data:any[]) => {
       this.listaProductos=data;
