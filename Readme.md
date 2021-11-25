@@ -87,15 +87,19 @@ El proyecto tiene como objetivo desarrollar un microservicio que permita crear, 
 </p>
 
 
-* Ana Olvera ![](https://img.shields.io/badge/--black?logo=linkedin&style=social)&nbsp;&nbsp;https://www.linkedin.com/in/ana-araceli-olvera-corredor-152b7ba5/&nbsp;&nbsp;
- ![](https://img.shields.io/badge/--black?logo=github&style=social)&nbsp;&nbsp;https://github.com/ana-olvera&nbsp;&nbsp;
+**Ana Olvera**
+* ![](https://img.shields.io/badge/--black?logo=linkedin&style=social)&nbsp;&nbsp;https://www.linkedin.com/in/ana-araceli-olvera-corredor-152b7ba5/&nbsp;&nbsp;
+* ![](https://img.shields.io/badge/--black?logo=github&style=social)&nbsp;&nbsp;https://github.com/ana-olvera&nbsp;&nbsp;
 
-* Gala Reyes ![](https://img.shields.io/badge/--black?logo=linkedin&style=social)&nbsp;&nbsp;https://www.linkedin.com/in/galakarinareyes/&nbsp;&nbsp;
- ![](https://img.shields.io/badge/--black?logo=github&style=social)&nbsp;&nbsp;https://github.com/GalaKarinaRP&nbsp;&nbsp;
+**Gala Reyes**
+* ![](https://img.shields.io/badge/--black?logo=linkedin&style=social)&nbsp;&nbsp;https://www.linkedin.com/in/galakarinareyes/&nbsp;&nbsp;
+* ![](https://img.shields.io/badge/--black?logo=github&style=social)&nbsp;&nbsp;https://github.com/GalaKarinaRP&nbsp;&nbsp;
 
-* Melissa Arango ![](https://img.shields.io/badge/--black?logo=linkedin&style=social)&nbsp;&nbsp;https://www.linkedin.com/in/emae1712/&nbsp;&nbsp;
- ![](https://img.shields.io/badge/--black?logo=github&style=social)&nbsp;&nbsp;https://github.com/emae1712&nbsp;&nbsp;
+**Melissa Arango**
+* ![](https://img.shields.io/badge/--black?logo=linkedin&style=social)&nbsp;&nbsp;https://www.linkedin.com/in/emae1712/&nbsp;&nbsp;
+* ![](https://img.shields.io/badge/--black?logo=github&style=social)&nbsp;&nbsp;https://github.com/emae1712&nbsp;&nbsp;
  
- * Nora Alvarez ![](https://img.shields.io/badge/--black?logo=linkedin&style=social)&nbsp;&nbsp;https://www.linkedin.com/in/nora-aglae-alvarez-covarrubias/&nbsp;&nbsp;
- ![](https://img.shields.io/badge/--black?logo=github&style=social)&nbsp;&nbsp;https://github.com/NoraAlvarezCovarrubias&nbsp;&nbsp;
+ **Nora Alvarez**
+ * ![](https://img.shields.io/badge/--black?logo=linkedin&style=social)&nbsp;&nbsp;https://www.linkedin.com/in/nora-aglae-alvarez-covarrubias/&nbsp;&nbsp;
+ * ![](https://img.shields.io/badge/--black?logo=github&style=social)&nbsp;&nbsp;https://github.com/NoraAlvarezCovarrubias&nbsp;&nbsp;
 
