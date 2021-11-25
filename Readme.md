@@ -71,9 +71,9 @@ El proyecto tiene como objetivo desarrollar un microservicio que permita crear, 
 
  ## 7. Datos de acceso
 ### Admin
-john.smith
-Prueba.
+<p>john.smith</p>
+<p>Prueba.</p>
 
 ### Viewer
-joe.gartner
-5t*my3
+<p>joe.gartner</p>
+<p>5t*my3</p>
