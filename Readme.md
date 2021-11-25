@@ -3,7 +3,7 @@
   <a title="IBM" target="_blank" href= "https://github.com/ana-olvera/grupo-2-pineapple-supermarket-app">
     <img width=400px src="https://user-images.githubusercontent.com/68023969/142961202-dbfa84a9-7157-4429-9fbe-1c4136498de5.jpg" alt="IBM">
   </a>
-  
+
 </p>
 
 # Pineapple Supermarket App 👩‍💻
@@ -45,17 +45,17 @@ El proyecto tiene como objetivo desarrollar un microservicio que permita crear, 
 </p>
 
  El sistema contiene 5 páginas de navegación
- 
+
  * **Home**: Página informativa inicial, contiene el	*Nombre del proyecto, Nombre del equipo, Nombre de los integrantes y	URL de Github*
  * **Login**: Los usuarios que deseen ver navegar por la página, deberán autenticarse con su usuario y su contraseña. Asimismo, podrán hacer la recuperación de contraseña.
  * **Menú principal**: Página que contiene el índice de las páginas que conforman la aplicación web.
  * **Productos**: Contiene el listado de productos del Supermercado (name, product category, description, quantity, unit price, picture), y según el usuario podrá crear, editar, eliminar, ver y exportar la tabla.
  * **Usuarios**: Visible solo para usuarios administradores y permite la administración de usuarios en el sistema.
- 
+
  ## 6. Tecnologías
- 
+
 - [x] Spring Boot
-- [x] Java 11
+- [x] Java 8
 - [x] Maven
 - [x] JPA
 - [x] MySQL
@@ -66,100 +66,14 @@ El proyecto tiene como objetivo desarrollar un microservicio que permita crear, 
 
 **Unit Test**
 
-   * **for the Service:** 
+   * **for the Service:**
    * **for the Repository:**
- 
- ## 7. Métodos desarrollados
- 
- ```
-http://localhost:8081/api/book
-```
- 
- <p >
-  <img align="left" height= 30px src="https://user-images.githubusercontent.com/68023969/124558685-7c32c380-de00-11eb-84b8-cf2fdbd4f4c0.JPG">
-</p>
 
- **HTTP Method: GET**
- 
- *_Get all books_*
+ ## 7. Datos de acceso
+### Admin
+john.smith
+Prueba.
 
-```
-http://localhost:8081/api/book/getAllBooks
-```
- 
- *_Get book by Id_*
-
-```
-http://localhost:8081/api/book/getBookById/{bookId}
-```
-  
- *_Get books by State_*
-
-```
-http://localhost:8081/api/book/getBookByState/{state}
-```
-
-<p >
-  <img align="left" height= 30px src="https://user-images.githubusercontent.com/68023969/124558273-09c1e380-de00-11eb-9b3d-8f6e5a093b6a.JPG">
-</p>
-
- **HTTP Method: POST**
-
-*_Crear producto_*
-
-```
-http://localhost:8080/prod/productos
-```
-```
-{
-  "title": "Title A",
-  "author": "Anonymous",
-  "editorialYear": 2000,
-  "state": "AVAILABLE",
-  "reservation": null
-}
-```
-
-<p >
-  <img align="left" height= 30px src="https://user-images.githubusercontent.com/68023969/124559128-f8c5a200-de00-11eb-9db3-180e6e6481c7.JPG">
-</p>
-
- **HTTP Method: PUT**
- 
-*_Update book by Id_*
-```
-http://localhost:8080/api/book/updateBook/{bookId}
-```
-```
-{
-  "title": "Title B",
-  "author": "Somebody",
-  "editorialYear": 2021,
-  "state": "AVAILABLE",
-  "reservation": null
-}
-```
-*_Update reservation by book Id_*
-```
-http://localhost:8080/api/book/updateReservationByBookId/{bookId}
-```
-```
-{
-  "startDate": "10-05-2021",
-  "endDate": "26-06-2021"
-}
-```
-
-<p >
-  <img align="left" height= 30px src="https://user-images.githubusercontent.com/68023969/124559504-6a055500-de01-11eb-9952-a3a73d9b1d0e.JPG">
-</p>
-
-**HTTP Method: DELETE**
- 
- *_Delete book by Id_*
-
-```
-http://localhost:8081/api/book/deleteBookById/{bookId}
-```
-
-
+### Viewer
+joe.gartner
+5t*my3
