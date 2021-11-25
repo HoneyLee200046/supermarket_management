@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import jwt_decode from 'jwt-decode';
-import { Router } from '@angular/router';
 //model && interface
 import { Router } from '@angular/router';
 //model && interface
@@ -24,8 +23,6 @@ export class ProductosComponent implements OnInit {
   public isAdmin:boolean = true;
   public token:string = "";
   public perfiles:string[] = [];
-  public cargando : boolean = true;
-  public ordenDesc:boolean = true;
 
   constructor(private _router: Router,
               private _storageService:StorageService,
