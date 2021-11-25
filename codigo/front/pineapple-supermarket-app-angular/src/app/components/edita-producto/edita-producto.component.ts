@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -11,7 +12,7 @@ import { Unidadmedida } from 'src/app/model/catalogos/unidadmedida';
 import { Producto } from 'src/app/model/productos/producto';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ProductoService } from 'src/app/services/producto-service';
-import Swal from 'sweetalert2';
+import { switchAll } from 'rxjs';
 
 @Component({
   selector: 'app-edita-producto',
@@ -26,15 +27,16 @@ export class EditaProductoComponent implements OnInit {
   public archivos: any = [];
   public loading: boolean = false;
   public formSubmitted = false;
+  public editPage:boolean = false;
 
   public productoForm = this.fb.group({
     file: ['', [Validators.required]],
     nombre: ['', Validators.required],
     serial: ['', Validators.required],
-    catCategorias: [this.categoriaSeleccionada, Validators.required],
+    catCategorias: ['', Validators.required],
     descripcion: ['', Validators.required],
     cantidad: [0, Validators.required],
-    catUnidadMedida: [this.unidadSeleccionada, Validators.required],
+    catUnidadMedida: ['', Validators.required],
     precio: [0, Validators.required]
   });
   private producto:Producto = new Producto();
@@ -44,29 +46,41 @@ export class EditaProductoComponent implements OnInit {
   listaUnidadMedida:Unidadmedida[] = [];
   unidadMedidaTmp:Unidadmedida = new Unidadmedida();
 
-  constructor(private _catalogosService:CatalogosService, private _router: Router,
-    private fb: FormBuilder,
-    private _seguridadService:SeguridadService,
-    private _storageService:StorageService,
-    private sanitizer: DomSanitizer,
-    private _productoService: ProductoService
-    ) { }
-  
+  constructor(private _catalogosService:CatalogosService,
+              private _router: Router,
+              private fb: FormBuilder,
+              private _seguridadService:SeguridadService,
+              private _storageService:StorageService,
+              private sanitizer: DomSanitizer,
+              private _productoService: ProductoService) { }
+
 
   ngOnInit(): void {
+    this.producto = this._storageService.getCurrentAnyItemSession("producto");
+    if(this.producto.idProducto !== 0){
+      this.productoForm.patchValue({
+        nombre: this.producto.nombreProducto,
+        serial: this.producto.serialProducto,
+        catCategorias: this.producto.idCategoria,
+        descripcion: this.producto.descripcionProducto,
+        cantidad: this.producto.cantidadProducto,
+        catUnidadMedida: this.producto.idUnidadMedida,
+        precio: this.producto.precioUnitario
+      });
+      this.editPage = true;
+    }
+    this.cargarProducto();
+  }
 
+  cargarProducto(){
     this._catalogosService.getCategoriasProductos()
     .subscribe((data:any[]) => {
-      this.categoriaTmp.nombreCategoria = "Selecciona una opción";
-      this.listaCategorias.push(this.categoriaTmp);
       data.forEach(element => {
         this.categoriaTmp = element;
         this.listaCategorias.push(this.categoriaTmp);
       });
       this._catalogosService.getUnidadMedidaProductos()
     .subscribe((data:any[]) => {
-      this.unidadMedidaTmp.nombreUnidadMedida = "Selecciona una opción";
-      this.listaUnidadMedida.push(this.unidadMedidaTmp);
       data.forEach(element => {
         this.unidadMedidaTmp = element;
         this.listaUnidadMedida.push(this.unidadMedidaTmp);
@@ -97,7 +111,7 @@ export class EditaProductoComponent implements OnInit {
 
     })
     this.archivos.push(archivoCapturado)
-    // 
+    //
     // console.log(event.target.files);
 
   }
@@ -127,7 +141,16 @@ export class EditaProductoComponent implements OnInit {
 
   guardar() {
     this.formSubmitted = true;
-    
+
+    let rol = this.productoForm.get('catCategorias')?.valueChanges
+              .subscribe( region => {
+                console.log(region);
+              });
+
+    if( this.productoForm.invalid){ return;
+    console.log('formulario invalido');
+     }
+
     const {nombre, serial, descripcion, cantidad, precio,
       catCategorias, catUnidadMedida} = this.productoForm.value;
     this.producto.urlImagen=this.archivos[0].name;
@@ -138,24 +161,8 @@ export class EditaProductoComponent implements OnInit {
     this.producto.precioUnitario = precio;
     this.producto.idCategoria = catCategorias;
     this.producto.idUnidadMedida = catUnidadMedida;
-    
-    console.log("Producto ");
-    console.log(this.producto);
-    //console.log(this.archivos[0].name);
-
     this._productoService.uploadFile(this.archivos[0])
         .subscribe((data:any)=>{
-        //if(data.mensaje === 'success'){
-          //this._storageService.setCurrentSession(data);
-          //this._storageService.setAnyItemSession("producto", this.producto);
-          //this._router.navigate(["/index"]);
-   
-        /*}else{
-          console.log("data");
-          console.log(data);
-        }*/
-        console.log("data");
-          console.log(data);
         this._productoService.guardaProduc(this.producto)
           .subscribe((data:any)=>{
             Swal.fire({
@@ -166,7 +173,6 @@ export class EditaProductoComponent implements OnInit {
             })
             console.log("data");
             console.log(data);
-
           });
       });
      /* this._productoService.guardaProduc(this.producto)
@@ -174,5 +180,13 @@ export class EditaProductoComponent implements OnInit {
 
       });*/
   }
-}
 
+  regresar(){
+    this._storageService.removeAnyItemSession("producto");
+    this._router.navigate(['/productos']);
+  }
+
+  campoNoValido( campo: string ): boolean {
+    return ( this.productoForm.get(campo)?.invalid && this.formSubmitted ? true : false);
+  }
+}

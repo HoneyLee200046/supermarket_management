@@ -19,8 +19,12 @@ import com.ibm.grupo2.repository.producto.ProductoRepository;
 @Service
 public class ProductoServiceImpl implements ProductoService {
 	
-	@Autowired
 	private ProductoRepository productoRepository;
+	
+
+	public ProductoServiceImpl(ProductoRepository productoRepository) {
+		this.productoRepository = productoRepository;
+	}
 
 	@Override
 	public ResponseEntity<Producto> crearProducto(Producto nuevoProducto) {

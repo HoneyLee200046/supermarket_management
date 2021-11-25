@@ -1,32 +1,50 @@
-<div class="container">
-  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="assets/img/vegetable1.jpg" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="assets/img/vegetable2.jpg" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="assets/img/vegetable3.jpg" class="d-block w-100" alt="...">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+<app-header></app-header>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="assets/img/banner-supermarket.jpg" class="d-block w-100" alt="slide1">
+    </div>
+    <div class="carousel-item">
+      <img src="assets/img/supermarket.jpg" class="d-block w-100" alt="slide2">
+    </div>
+    <div class="carousel-item">
+      <img src="assets/img/vegetable1.jpg" class="d-block w-100" alt="slide3">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<br>
+<div class="container">
+
   <div class="about-pineapple d-flex ">
     <div class="text">
+      <h2>Sobre el proyecto</h2>
+      <p>
+        John Smith es el presidente del Pineapple Supermarket,
+        un negocio que comenzó como una pequeña tienda de abarrotes
+        familiar y que hasta ahora ha llevado la contabilidad de su
+        inventario de forma manual y escrita. El negocio ha prosperado
+        los últimos meses y ahora inaugurarán su primer supermercado.
+      </p>
+    </div>
+    <img src="assets/img/john.png" class="d-block img-about" alt="...">
+
+  </div>
+  <br>
+  <div class="about-pineapple d-flex ">
+    <div class="text aboutP">
       <h2>Sobre Pineapple</h2>
       <p>
         Pineapple Supermarket es una aplicación web que permite administrar el inventario de productos
@@ -38,8 +56,9 @@
       <a class="btn btn-proyecto" href="https://github.com/ana-olvera/grupo-2-pineapple-supermarket-app" target="_blank">Ver el proyecto en Github</a>
     </div>
     <img src="assets/img/vegetable.jpg" class="d-block img-about" alt="...">
-    
-  </div> 
+
+  </div>
+  <br>
   <div class="team">
     <h2>Equipo técnico</h2>
     <div class="programmers">
@@ -47,7 +66,7 @@
         <img src="assets/img/Ana.jpg" class="d-block img-programmer" alt="...">
         <div class="data-programmer">
           <p class="name">
-            Ana Olvera 
+            Ana Olvera
           </p>
           <p class="progamadora">Programadora</p>
           <ul class="social-media">
@@ -60,7 +79,7 @@
         <img src="assets/img/Gala.jpg" class="d-block img-programmer" alt="...">
         <div class="data-programmer">
           <p class="name">
-            Gala Reyes 
+            Gala Reyes
           </p>
           <p class="progamadora">Programadora</p>
           <ul class="social-media">
@@ -73,7 +92,7 @@
         <img src="assets/img/Melissa.jpg" class="d-block img-programmer" alt="...">
         <div class="data-programmer">
           <p class="name">
-            Melissa Arango 
+            Melissa Arango
           </p>
           <p class="progamadora">Programadora</p>
           <ul class="social-media">
@@ -82,21 +101,21 @@
           </ul>
         </div>
       </div>
-     
+
       <div class="programmer col-md-3 col-sm-6">
         <img src="assets/img/Nora.jpg" class="d-block img-programmer" alt="...">
         <div class="data-programmer">
           <p class="name">
-            Nora Alvarez 
+            Nora Alvarez
           </p>
           <p class="progamadora">Programadora</p>
           <ul class="social-media">
-            <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/nora-aglae-alvarez-covarrubias" target="_blank"><i class="fa fa-linkedin"></i></a></li>
             <li><a href="https://github.com/NoraAlvarezCovarrubias" target="_blank"><i class="fa fa-github"></i></a></li>
           </ul>
         </div>
       </div>
     </div>
-    
+
   </div>
 </div>

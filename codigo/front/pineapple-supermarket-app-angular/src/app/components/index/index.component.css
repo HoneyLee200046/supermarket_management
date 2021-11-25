@@ -1,0 +1,44 @@
+.banner {
+  height: 200px;
+  object-fit: cover;
+  object-position: 15% 25%;
+}
+
+.homegg {
+  width: 130px;
+  height: 45%;
+  margin: 0px auto;
+  padding-top: 10px;
+}
+
+.productsgg {
+  width: 261px;
+  height: 45%;
+  margin: 0px auto;
+}
+
+.usersgg {
+  width: 151px;
+  height:45%;
+  margin: 0px auto;
+  padding: 10px;
+  border-radius: 72px;
+  -webkit-border-radius: 72px;
+  -moz-border-radius: 72px;
+  -ms-border-radius: 72px;
+  -o-border-radius: 72px;
+}
+
+.card-title{
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.card{
+    height: 100%;
+}
+
+.btn{
+    float:right;
+}

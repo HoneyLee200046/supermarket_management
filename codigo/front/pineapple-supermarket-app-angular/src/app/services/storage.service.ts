@@ -55,10 +55,8 @@ export class StorageService {
     this.currentUserSession = null;
   }
 
-  removeCurrentReporte(): void {
-    this.localStorageService.removeItem("currentReportePlaya");
-    this.localStorageService.removeItem("currentReporteMar");
-    this.localStorageService.removeItem("currentCuestionario");
+  removeAnyItemSession(item:string): void {
+    this.localStorageService.removeItem(item);
   }
 
   loadAnySessionData(item:string){

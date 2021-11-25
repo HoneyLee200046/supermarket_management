@@ -7,6 +7,7 @@ import com.ibm.grupo2.dto.seguridad.UsuarioDetalleDTO;
 import com.ibm.grupo2.model.seguridad.MiembroGrupo;
 import com.ibm.grupo2.model.seguridad.Usuario;
 import com.ibm.grupo2.model.seguridad.UsuarioDetalle;
+import com.ibm.grupo2.repository.seguridad.UsuarioDetalleRepo;
 import com.ibm.grupo2.repository.seguridad.UsuarioRepo;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -31,6 +32,8 @@ public class SeguridadService {
 
     @Autowired
     private UsuarioRepo usuarioRepo;
+    @Autowired
+    private UsuarioDetalleRepo detalleRepo;
     @Autowired
     private PasswordEncoder encoder;
 
@@ -60,6 +63,30 @@ public class SeguridadService {
         } catch (Exception e) {
             respuesta.put("resultado", Boolean.FALSE);
             respuesta.put("error", e.getClass().getCanonicalName());
+        }
+        return respuesta;
+    }
+    
+    public Map recuperarPwd(String correo) {
+        Map respuesta = new HashMap();
+        UsuarioDetalle usuarioNuevo = new UsuarioDetalle();
+        try {
+            usuarioNuevo = detalleRepo.findUsuario(correo);
+            if (usuarioNuevo != null) {
+                respuesta = passwordGenerator();
+                usuarioNuevo.getUsuario().setPwdUsuario((String) respuesta.get("password_encriptado"));
+                usuarioNuevo.setUsuario(this.usuarioRepo.save(usuarioNuevo.getUsuario()));
+                respuesta.put("resultado", true);
+                respuesta.put("usuario", usuarioNuevo.getCorreoUsuarioDetalle());
+                respuesta.put("pwd", respuesta.get("password"));
+            } else {
+                respuesta.put("resultado", false);
+                respuesta.put("excepcion", "No existe el usuario");
+            }
+        } catch (Exception e) {
+            respuesta.put("resultado", false);
+            respuesta.put("excepcion", e.getClass().getCanonicalName());
+            System.out.println("Error en metodo recuperar contraseña");
         }
         return respuesta;
     }
@@ -129,6 +156,26 @@ public class SeguridadService {
         respuesta.setCorreoUsuarioDetalle(usuarioBD.getCorreoUsuarioDetalle());
         respuesta.setEstatusUsuarioDetalle(usuarioBD.getEstatusUsuarioDetalle());
         return respuesta;
+    }
+    
+    public Map passwordGenerator() {
+
+        Map respuesta = new HashMap();
+        String NUMEROS = "23456789";
+        String MAYUSCULAS = "ABCDEFGHJKMNPQRSTUVWXYZ";
+        String MINUSCULAS = "abcdefghjkmnpqrstuvwxyz";
+        String ESPECIALES = "ñÑ*@";
+        String key = NUMEROS + MINUSCULAS + ESPECIALES;
+        String pwd = "";
+
+        for (int i = 0; i < 6; i++) {
+            pwd += (key.charAt((int) (Math.random() * key.length())));
+        }
+        respuesta.put("password", pwd);
+        respuesta.put("password_encriptado", encoder.encode(pwd));
+
+        return respuesta;
+
     }
 
 }
