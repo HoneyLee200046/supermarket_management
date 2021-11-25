@@ -14,7 +14,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ProductoService } from 'src/app/services/producto-service';
 import { switchAll } from 'rxjs';
 
-
 @Component({
   selector: 'app-edita-producto',
   templateUrl: './edita-producto.component.html',
@@ -166,6 +165,12 @@ export class EditaProductoComponent implements OnInit {
         .subscribe((data:any)=>{
         this._productoService.guardaProduc(this.producto)
           .subscribe((data:any)=>{
+            Swal.fire({
+              title: 'Exito!',
+              text: 'Producto guardado correctamente.',
+              icon: 'success',
+              confirmButtonText: 'Aceptar'
+            })
             console.log("data");
             console.log(data);
           });
