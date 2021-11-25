@@ -13,11 +13,11 @@
 
 * [1. Sobre el proyecto](#1-sobre-el-proyecto)
 * [2. Sobre Pineapple](#2-sobre-pineapple)
-* [3. Configuracion](#3-configuracion)
-* [4. Esquema](#4-esquema)
-* [5. Arquitectura](#5-arquitectura)
-* [6. Tecnologías](#6-tecnologias)
-* [7. Métodos desarrollados](#7-metodos-desarrollados)
+* [3. Esquema](#4-esquema)
+* [4. Arquitectura](#5-arquitectura)
+* [5. Tecnologías](#6-tecnologias)
+* [6. Datos de acceso](#7-datos-de-acceso)
+* [7. Contacto](#7-contacto)
 
 ## 1. Sobre el proyecto
 
@@ -29,16 +29,14 @@ Pineapple Supermarket es una aplicación web que permite administrar el inventar
 
 El proyecto tiene como objetivo desarrollar un microservicio que permita crear, actualizar, borrar y listar productos (CRUD), de un inventario de supermercado, además que pueda ser visualizado en la web, para poder hacer una búsqueda, ordenar y exportar los productos en un archivo Excel.
 
-## 3. Configuracion
-
-## 4. Esquema
+## 3. Esquema
 
 <p align="center">
   <img width=600px src="https://user-images.githubusercontent.com/68023969/142964935-4d11d6f3-4b65-46c2-9f2f-62fea19f478a.jpg" alt="Schema">
 </p>
 
 
-## 5. Arquitectura
+## 4. Arquitectura
 
 <p align="center">
   <img  height="400px" src="https://user-images.githubusercontent.com/68023969/142970884-a199f450-fb50-4d1f-8099-dfc92c18895c.jpg">
@@ -52,7 +50,7 @@ El proyecto tiene como objetivo desarrollar un microservicio que permita crear, 
  * **Productos**: Contiene el listado de productos del Supermercado (name, product category, description, quantity, unit price, picture), y según el usuario podrá crear, editar, eliminar, ver y exportar la tabla.
  * **Usuarios**: Visible solo para usuarios administradores y permite la administración de usuarios en el sistema.
 
- ## 6. Tecnologías
+ ## 5. Tecnologías
 
 - [x] Spring Boot
 - [x] Java 8
@@ -66,10 +64,13 @@ El proyecto tiene como objetivo desarrollar un microservicio que permita crear, 
 
 **Unit Test**
 
-   * **for the Service:**
-   * **for the Repository:**
+   * **for the Service**
+   * **for the Repository**
 
- ## 7. Datos de acceso
+ ## 6. Datos de acceso
+ 
+ Para acceder al proyecto ingrese al siguiente link: [Pineapple App](https://angular-pineapple.herokuapp.com/)
+ 
 ### Admin
 <p>john.smith</p>
 <p>Prueba.</p>
@@ -77,3 +78,24 @@ El proyecto tiene como objetivo desarrollar un microservicio que permita crear, 
 ### Viewer
 <p>joe.gartner</p>
 <p>5t*my3</p>
+<p>Correo electrónico: araceli.olvera22@hotmail.com</p>
+
+ ## 7. Contacto
+ 
+ <p align="center">
+  <img width=800px src="https://user-images.githubusercontent.com/68023969/143498860-ede8b264-5ade-4219-8201-a0daf2a42c61.JPG" alt="Grupo 2">
+</p>
+
+
+* Ana Olvera ![](https://img.shields.io/badge/--black?logo=linkedin&style=social)&nbsp;&nbsp;https://www.linkedin.com/in/ana-araceli-olvera-corredor-152b7ba5/&nbsp;&nbsp;
+ ![](https://img.shields.io/badge/--black?logo=github&style=social)&nbsp;&nbsp;https://github.com/ana-olvera&nbsp;&nbsp;
+
+* Gala Reyes ![](https://img.shields.io/badge/--black?logo=linkedin&style=social)&nbsp;&nbsp;https://www.linkedin.com/in/galakarinareyes/&nbsp;&nbsp;
+ ![](https://img.shields.io/badge/--black?logo=github&style=social)&nbsp;&nbsp;https://github.com/GalaKarinaRP&nbsp;&nbsp;
+
+* Melissa Arango ![](https://img.shields.io/badge/--black?logo=linkedin&style=social)&nbsp;&nbsp;https://www.linkedin.com/in/emae1712/&nbsp;&nbsp;
+ ![](https://img.shields.io/badge/--black?logo=github&style=social)&nbsp;&nbsp;https://github.com/emae1712&nbsp;&nbsp;
+ 
+ * Nora Alvarez ![](https://img.shields.io/badge/--black?logo=linkedin&style=social)&nbsp;&nbsp;https://www.linkedin.com/in/nora-aglae-alvarez-covarrubias/&nbsp;&nbsp;
+ ![](https://img.shields.io/badge/--black?logo=github&style=social)&nbsp;&nbsp;https://github.com/NoraAlvarezCovarrubias&nbsp;&nbsp;
+
