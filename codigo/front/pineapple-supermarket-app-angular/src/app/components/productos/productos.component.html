@@ -3,12 +3,44 @@
     <div class="container">
         <!-- Productos Page Content Start -->
         <div class="row">
+
             <div class="col-lg-12">
+              <div class="filtros d-flex">
+                      <input class="form-control" type="search" placeholder="Buscar producto" aria-label="Search" (keyup.enter)="buscarProductos(buscarTexto.value)" #buscarTexto>
+                  <ul class="mr-auto d-flex">
+                    <li>&nbsp;</li>
+                      <li class="nav-item">
+                      <button class="nav-link btn" [routerLink]="['/productos']" (click)="buscarProductos(buscarTexto.value)" title="Buscar"><span class="fa fa-search"></span> <span class="sr-only">(current)</span></button>
+                      </li>
+                      <li>&nbsp;</li>
+                      <li class="nav-item">
+                      <button class="nav-link btn" (click)="exportAsXLSX()" title="Exportar csv"><span class="fa fa-download"></span> <span class="sr-only">(current)</span></button>
+                      </li>
+                      <li>&nbsp;</li>
+                      <li *ngIf="isAdmin" class="nav-item">
+                          <button class="nav-link btn" title="Añadir producto" (click)="nuevoProducto()"><span class="fa fa-plus"></span></button>
+                      </li>
+                  </ul>
+              </div>
+
+                <div class="row" *ngIf="cargando">
+                    <div class="col-12">
+                        <div class="alert alert-info text-center">
+                            <h4 class="alert-heading">Cargando</h4>
+                            <i class="fa fa-spin fa-refresh fa-2x"></i>
+                            <p class="mb-0">Por favor espere</p>
+                        </div>
+                    </div>
+                </div>
+
+
+>>>>>>> Stashed changes
                 <!-- Productos Table Area -->
                 <div class="cart-table table-responsive">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
+<<<<<<< Updated upstream
                                 <th class="pro-imagen">Imagen</th>
                                 <th class="pro-nombre">Nombre</th>
                                 <th class="pro-serial">Serial</th>
@@ -17,8 +49,31 @@
                                 <th class="pro-cantidad">Cantidad</th>
                                 <th class="pro-unidad">Unidad de Medida</th>
                                 <th class="pro-precioUnitario">Precio Unitario</th>
-                                <th class="pro-editar">Editar</th>
-                                <th class="pro-eliminar">Eliminar</th>
+                                <th *ngIf="isAdmin" class="pro-editar">Editar</th>
+                                <th *ngIf="isAdmin" class="pro-eliminar">Eliminar</th>
+=======
+                                <th class="pro-imagen">Imagen </th>
+                                <!-- Inician columnas orden descendente -->
+                                  <th *ngIf="ordenDesc" class="pro-nombre" (click)="sortDesc('nombreProducto')">Nombre <i class="fa fa-chevron-down"></i></th>
+                                  <th *ngIf="ordenDesc" class="pro-serial" (click)="sortDesc('serialProducto')">Serial <i class="fa fa-chevron-down"></i></th>
+                                  <th *ngIf="ordenDesc" class="pro-categoria" (click)="sortDesc('nombreCategoria')">Categoria <i class="fa fa-chevron-down"></i></th>
+                                  <th *ngIf="ordenDesc" class="pro-descripcion" (click)="sortDesc('descripcionProducto')">Descripcion <i class="fa fa-chevron-down"></i></th>
+                                  <th *ngIf="ordenDesc" class="pro-cantidad" (click)="sortDesc('cantidadProducto')">Cantidad <i class="fa fa-chevron-down"></i></th>
+                                  <th *ngIf="ordenDesc" class="pro-unidad" (click)="sortDesc('nombreUnidadMedida')">Unidad de Medida <i class="fa fa-chevron-down"></i></th>
+                                  <th *ngIf="ordenDesc" class="pro-precioUnitario" (click)="sortDesc('precioUnitario')">Precio Unitario <i class="fa fa-chevron-down"></i></th>
+                                  <!-- terminan columnas orden descendente -->
+                                  <!-- Inician columnas orden ascendente -->
+                                  <th *ngIf="!ordenDesc" class="pro-nombre" (click)="sortAsc('nombreProducto')">Nombre <i class="fa fa-chevron-up"></i></th>
+                                  <th *ngIf="!ordenDesc" class="pro-serial" (click)="sortAsc('serialProducto')">Serial <i class="fa fa-chevron-up"></i></th>
+                                  <th *ngIf="!ordenDesc" class="pro-categoria" (click)="sortAsc('nombreCategoria')">Categoria <i class="fa fa-chevron-up"></i></th>
+                                  <th *ngIf="!ordenDesc" class="pro-descripcion" (click)="sortAsc('descripcionProducto')">Descripcion <i class="fa fa-chevron-up"></i></th>
+                                  <th *ngIf="!ordenDesc" class="pro-cantidad" (click)="sortAsc('cantidadProducto')">Cantidad <i class="fa fa-chevron-up"></i></th>
+                                  <th *ngIf="!ordenDesc" class="pro-unidad" (click)="sortAsc('nombreUnidadMedida')">Unidad de Medida <i class="fa fa-chevron-up"></i></th>
+                                  <th *ngIf="!ordenDesc" class="pro-precioUnitario" (click)="sortAsc('precioUnitario')">Precio Unitario <i class="fa fa-chevron-up"></i></th>
+                                  <!-- Terminan columnas orden ascendente -->
+                                <th *ngIf="isAdmin" class="pro-editar">Editar</th>
+                                <th *ngIf="isAdmin" class="pro-eliminar">Eliminar</th>
+>>>>>>> Stashed changes
                             </tr>
                         </thead>
                         <tbody>
@@ -32,8 +87,9 @@
                                 <td class="pro-cantidad">{{ producto.cantidadProducto }}</td>
                                 <td class="pro-unidad">{{ producto.idUnidadMedida }}</td>
                                 <td class="pro-precioUnitario">{{ producto.precioUnitario }}</td>
-                                <td class="pro-editar"><a routerLink="/editaProducto"><i class="fa fa-pencil-square-o"></i></a></td>
-                                <td class="pro-eliminar"><a href="#"><i class="fa fa-trash-o"></i></a></td>
+
+                                <td *ngIf="isAdmin" class="pro-editar"><a routerLink="/editaProducto"><i class="fa fa-pencil-square-o"></i></a></td>
+                                <td *ngIf="isAdmin" class="pro-eliminar"><a href="#"><i class="fa fa-trash-o"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

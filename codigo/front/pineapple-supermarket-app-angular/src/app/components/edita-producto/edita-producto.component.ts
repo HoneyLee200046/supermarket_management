@@ -11,6 +11,7 @@ import { Unidadmedida } from 'src/app/model/catalogos/unidadmedida';
 import { Producto } from 'src/app/model/productos/producto';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ProductoService } from 'src/app/services/producto-service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edita-producto',
@@ -157,7 +158,15 @@ export class EditaProductoComponent implements OnInit {
           console.log(data);
         this._productoService.guardaProduc(this.producto)
           .subscribe((data:any)=>{
-            
+            Swal.fire({
+              title: 'Exito!',
+              text: 'Producto guardado correctamente.',
+              icon: 'success',
+              confirmButtonText: 'Aceptar'
+            })
+            console.log("data");
+            console.log(data);
+
           });
       });
      /* this._productoService.guardaProduc(this.producto)
