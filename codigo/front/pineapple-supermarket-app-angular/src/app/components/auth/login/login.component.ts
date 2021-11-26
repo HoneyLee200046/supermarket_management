@@ -10,6 +10,9 @@ import { Usuariorespuesta } from '../../../model/helpers/usuariorespuesta';
 import { SeguridadService } from '../../../services/seguridad.service';
 import { StorageService } from '../../../services/storage.service';
 
+
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -31,6 +34,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this._storageService.removeCurrentSession();
+  
+    
   }
 
   entrar() {

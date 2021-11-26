@@ -5,6 +5,8 @@ import { UsuarioDetalle } from '../../../model/seguridad/usuario-detalle';
 //Services
 import { StorageService } from '../../../services/storage.service';
 
+declare function customInitFunction();
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -22,6 +24,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.revisarAuth();
+    customInitFunction();
   }
 
   revisarAuth(){
