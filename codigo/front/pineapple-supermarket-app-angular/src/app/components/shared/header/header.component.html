@@ -75,6 +75,8 @@
                      <li><a [routerLink]="['/perfil']">Perfil</a></li>
                    </ul>
                  </li>
+                 <li *ngIf="!logueado" class="logg"><a [routerLink]="['/login']">Iniciar sesión</a></li>
+                 <li *ngIf="logueado"  class="logg"><a [routerLink]="['/home']" (click)="onLogout()">Cerrar sesión</a></li>
                </ul>
              </nav>
            </div>
